@@ -106,7 +106,16 @@
         /* --- ICÔNES & ANIMATIONS --- */
         i { margin-right: 8px; }
         .icon-box i, .btn-whatsapp-float i, .logo i { margin-right: 0; }
-        .logo i { margin-right: 12px; }
+        
+        /* GESTION DU LOGO IMAGE DANS LA NAVBAR */
+        .logo i { margin-right: 12px; } /* Pour l'ancien cas, sécurité */
+        .logo img { 
+            height: 45px; 
+            width: auto; 
+            margin-right: 12px; 
+            border-radius: 8px; /* Un léger arrondi sur l'icône */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Ombre légère pour ressortir sur le fond sombre */
+        }
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(102, 126, 234, 0); } 100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); } }
@@ -126,8 +135,8 @@
 
         .navbar { display: flex; justify-content: space-between; align-items: center; height: 70px; }
         .logo { font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; color: white; }
-        .logo i { color: var(--accent-teal); font-size: 1.8rem; filter: drop-shadow(0 0 5px rgba(11, 197, 234, 0.5)); }
-
+        /* Suppression de l'ancienne couleur d'icône car on utilise une image maintenant */
+        
         .nav-link-guide {
             color: white; font-weight: 500; padding: 8px 18px;
             background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
@@ -320,7 +329,7 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <i class="fas fa-heartbeat"></i> 
+                    <img src="icon.png" alt="Logo EasyMedicaLink"> 
                     EasyMedicaLink
                 </div>
                 <a href="guide.html" target="_blank" class="nav-link-guide" title="Guide d'Utilisation" onclick="trackGuide(event)">
