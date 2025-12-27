@@ -271,26 +271,73 @@
         .btn-cancel-dl { background: transparent; color: #718096; border: 1px solid #cbd5e0; padding: 10px 25px; border-radius: 50px; cursor:pointer; margin-top:10px; width:100%; font-weight:500; }
         .btn-cancel-dl:hover { background: #f7fafc; color: var(--secondary); }
 
-        /* --- STYLE LIGHTBOX (ZOOM IMAGE) --- */
+        /* --- STYLE LIGHTBOX (ZOOM IMAGE AVANCÉ) --- */
         .lightbox-overlay {
             display: none;
             position: fixed;
-            z-index: 10001; /* Au-dessus de tout */
+            z-index: 10001;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95); /* Fond plus foncé */
             justify-content: center;
             align-items: center;
-            cursor: zoom-out;
+            flex-direction: column; /* Pour placer les contrôles au-dessus */
             animation: fadeIn 0.2s ease-in-out;
+            overflow: hidden; /* Empêche le scroll de la page derrière */
         }
+        
+        .lightbox-controls {
+            position: absolute;
+            top: 20px;
+            z-index: 10002;
+            display: flex;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .lightbox-btn:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+        .lightbox-btn.close-btn { color: #ff6b6b; margin-left: 10px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 20px; width: auto; border-radius: 0; }
+        .lightbox-btn.close-btn:hover { background: transparent; color: #ff4757; }
+
+        .lightbox-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: grab;
+        }
+        .lightbox-container.grabbing { cursor: grabbing; }
+
         .lightbox-img {
-            max-width: 95%;
-            max-height: 95vh;
-            border-radius: 8px;
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 4px;
             box-shadow: 0 0 30px rgba(0,0,0,0.5);
-            animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: default;
+            transition: transform 0.1s ease-out; /* Transition fluide sauf en drag */
+            transform-origin: center center;
+            user-select: none; /* Empêche la sélection bleue */
+            -webkit-user-drag: none;
         }
+
         .zoomable-cursor { cursor: zoom-in; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -331,8 +378,16 @@
 </head>
 <body>
 
-    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
-        <img id="lightboxImg" class="lightbox-img" src="" alt="Zoom Image">
+    <div id="lightbox" class="lightbox-overlay">
+        <div class="lightbox-controls">
+            <button class="lightbox-btn" onclick="zoomImage(0.2)" title="Zoom Avant"><i class="fas fa-plus"></i></button>
+            <button class="lightbox-btn" onclick="zoomImage(-0.2)" title="Zoom Arrière"><i class="fas fa-minus"></i></button>
+            <button class="lightbox-btn" onclick="resetZoom()" title="Taille Originale"><i class="fas fa-compress"></i></button>
+            <button class="lightbox-btn close-btn" onclick="closeLightbox()" title="Fermer"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="lightbox-container" id="lightboxContainer">
+            <img id="lightboxImg" class="lightbox-img" src="" alt="Zoom Image">
+        </div>
     </div>
 
     <div id="dragWhatsapp" class="btn-whatsapp-float" title="Contactez-nous sur WhatsApp">
@@ -677,9 +732,13 @@
                 <p style="color:#4a5568; font-size:0.95rem;">
                     <strong>Attention :</strong> EasyMedicaLink est un logiciel qui doit être installé sur un <strong>Ordinateur PC (Windows)</strong>.
                 </p>
-                <p style="color:#718096; font-size:0.9rem; background:#f7fafc; padding:10px; border-radius:8px;">
-                    Le fichier <em>.exe</em> ne s'ouvrira pas sur un téléphone (Android/iPhone) ou un Mac.
-                </p>
+                <div style="color:#718096; font-size:0.9rem; background:#f7fafc; padding:10px; border-radius:8px; margin-top:10px;">
+                    <p style="margin-bottom:8px;">Le fichier <em>.exe</em> ne s'ouvrira pas sur un téléphone ou un Mac.</p>
+                    <p style="font-weight:500; color:#2d3748; border-top:1px solid #e2e8f0; padding-top:8px;">
+                        <i class="fas fa-wifi"></i> Note importante :<br>
+                        Pour utiliser l'application sur Mac, Tablette ou Smartphone, ces appareils devront être connectés au <strong>même réseau local</strong> que ce PC.
+                    </p>
+                </div>
                 
                 <button class="btn-confirm-dl" onclick="confirmDownload()">
                     <i class="fas fa-check-circle"></i> Je suis sur PC, Télécharger
@@ -692,17 +751,89 @@
     </div>
 
     <script>
-        // --- LOGIQUE LIGHTBOX (ZOOM) ---
+        // --- LOGIQUE LIGHTBOX AVEC ZOOM ET PAN ---
+        let scale = 1;
+        let isDragging = false;
+        let startX, startY;
+        let currentTranslateX = 0, currentTranslateY = 0;
+        let prevTranslateX = 0, prevTranslateY = 0;
+
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightboxImg');
+        const container = document.getElementById('lightboxContainer');
+
         function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightboxImg');
             img.src = src;
             lightbox.style.display = 'flex';
+            resetZoom(); // Reset à l'ouverture
         }
 
         function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
+            lightbox.style.display = 'none';
         }
+
+        function updateTransform() {
+            img.style.transform = `translate(${currentTranslateX}px, ${currentTranslateY}px) scale(${scale})`;
+        }
+
+        function zoomImage(amount) {
+            const oldScale = scale;
+            scale += amount;
+            if (scale < 0.5) scale = 0.5; // Min zoom
+            if (scale > 4) scale = 4; // Max zoom
+            
+            // Si on dézoome vers la taille normale, on reset la position
+            if(scale === 1) {
+                currentTranslateX = 0; currentTranslateY = 0;
+                prevTranslateX = 0; prevTranslateY = 0;
+            }
+            updateTransform();
+        }
+
+        function resetZoom() {
+            scale = 1;
+            currentTranslateX = 0; currentTranslateY = 0;
+            prevTranslateX = 0; prevTranslateY = 0;
+            updateTransform();
+        }
+
+        // --- GESTION DU DRAG (DÉPLACEMENT) ---
+        container.addEventListener('mousedown', (e) => {
+            if(scale <= 1) return; // Pas de drag si pas zoomé
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            container.classList.add('grabbing');
+            img.style.transition = 'none'; // Désactive transition pour fluidité
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const xDiff = e.clientX - startX;
+            const yDiff = e.clientY - startY;
+            currentTranslateX = prevTranslateX + xDiff;
+            currentTranslateY = prevTranslateY + yDiff;
+            updateTransform();
+        });
+
+        window.addEventListener('mouseup', () => {
+            if(isDragging) {
+                isDragging = false;
+                prevTranslateX = currentTranslateX;
+                prevTranslateY = currentTranslateY;
+                container.classList.remove('grabbing');
+                img.style.transition = 'transform 0.1s ease-out'; // Réactive transition
+            }
+        });
+
+        // --- GESTION DE LA MOLETTE (ZOOM) ---
+        container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            if (e.deltaY < 0) zoomImage(0.1);
+            else zoomImage(-0.1);
+        }, { passive: false });
+
 
         // --- VARIABLE POUR STOCKER LE FICHIER EN ATTENTE ---
         let currentDownloadFile = '';
