@@ -324,6 +324,8 @@
             align-items: center;
             overflow: hidden;
             cursor: grab;
+            /* CRUCIAL POUR TOUCH */
+            touch-action: none; 
         }
         .lightbox-container.grabbing { cursor: grabbing; }
 
@@ -751,12 +753,20 @@
     </div>
 
     <script>
-        // --- LOGIQUE LIGHTBOX AVEC ZOOM ET PAN ---
+        // --- LOGIQUE LIGHTBOX AVEC PINCH-TO-ZOOM (TOUCH) ---
         let scale = 1;
         let isDragging = false;
+        
+        // Variables pour PC (Souris)
         let startX, startY;
+        
+        // Variables pour Translations
         let currentTranslateX = 0, currentTranslateY = 0;
         let prevTranslateX = 0, prevTranslateY = 0;
+
+        // Variables pour Touch (Pinch)
+        let initialPinchDistance = 0;
+        let initialScale = 1;
 
         const lightbox = document.getElementById('lightbox');
         const img = document.getElementById('lightboxImg');
@@ -783,11 +793,11 @@
             if (scale > 4) scale = 4; // Max zoom
             
             // Si on dézoome vers la taille normale, on reset la position
-            if(scale === 1) {
-                currentTranslateX = 0; currentTranslateY = 0;
-                prevTranslateX = 0; prevTranslateY = 0;
+            if(Math.abs(scale - 1) < 0.1) {
+                resetZoom();
+            } else {
+                updateTransform();
             }
-            updateTransform();
         }
 
         function resetZoom() {
@@ -797,14 +807,14 @@
             updateTransform();
         }
 
-        // --- GESTION DU DRAG (DÉPLACEMENT) ---
+        // --- GESTION SOURIS (PC) ---
         container.addEventListener('mousedown', (e) => {
-            if(scale <= 1) return; // Pas de drag si pas zoomé
+            if(scale <= 1) return; 
             isDragging = true;
             startX = e.clientX;
             startY = e.clientY;
             container.classList.add('grabbing');
-            img.style.transition = 'none'; // Désactive transition pour fluidité
+            img.style.transition = 'none'; 
         });
 
         container.addEventListener('mousemove', (e) => {
@@ -823,16 +833,74 @@
                 prevTranslateX = currentTranslateX;
                 prevTranslateY = currentTranslateY;
                 container.classList.remove('grabbing');
-                img.style.transition = 'transform 0.1s ease-out'; // Réactive transition
+                img.style.transition = 'transform 0.1s ease-out'; 
             }
         });
 
-        // --- GESTION DE LA MOLETTE (ZOOM) ---
         container.addEventListener('wheel', (e) => {
             e.preventDefault();
             if (e.deltaY < 0) zoomImage(0.1);
             else zoomImage(-0.1);
         }, { passive: false });
+
+        // --- GESTION TACTILE (TOUCH) ---
+        
+        function getDistance(touches) {
+            return Math.hypot(
+                touches[0].pageX - touches[1].pageX,
+                touches[0].pageY - touches[1].pageY
+            );
+        }
+
+        container.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 2) {
+                // PINCH DETECTED
+                e.preventDefault(); // Empêche le zoom navigateur
+                initialPinchDistance = getDistance(e.touches);
+                initialScale = scale;
+            } else if (e.touches.length === 1 && scale > 1) {
+                // PAN DETECTED (Si déjà zoomé)
+                isDragging = true;
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                img.style.transition = 'none';
+            }
+        }, { passive: false });
+
+        container.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 2) {
+                // PINCHING
+                e.preventDefault();
+                const currentDistance = getDistance(e.touches);
+                if (initialPinchDistance > 0) {
+                    const diff = currentDistance / initialPinchDistance;
+                    scale = initialScale * diff;
+                    if (scale < 0.5) scale = 0.5;
+                    if (scale > 4) scale = 4;
+                    updateTransform();
+                }
+            } else if (e.touches.length === 1 && isDragging) {
+                // PANNING
+                e.preventDefault(); // Empêche le scroll page
+                const xDiff = e.touches[0].clientX - startX;
+                const yDiff = e.touches[0].clientY - startY;
+                currentTranslateX = prevTranslateX + xDiff;
+                currentTranslateY = prevTranslateY + yDiff;
+                updateTransform();
+            }
+        }, { passive: false });
+
+        container.addEventListener('touchend', (e) => {
+            if (isDragging) {
+                isDragging = false;
+                prevTranslateX = currentTranslateX;
+                prevTranslateY = currentTranslateY;
+                img.style.transition = 'transform 0.1s ease-out';
+            }
+            if (e.touches.length < 2) {
+                initialPinchDistance = 0;
+            }
+        });
 
 
         // --- VARIABLE POUR STOCKER LE FICHIER EN ATTENTE ---
@@ -841,14 +909,9 @@
         // --- OUVERTURE DE LA MODALE D'AVERTISSEMENT ---
         function openDownloadModal(event, fileName) {
             event.preventDefault();
-            // Si on drag le bouton, on ne fait rien
             const btn = event.currentTarget.closest('.floating-downloads');
             if(btn && btn.getAttribute('data-dragging') === 'true') return;
-
-            // On stocke le nom du fichier cliqué
             currentDownloadFile = fileName;
-            
-            // On affiche la modale
             document.getElementById('downloadWarningModal').style.display = 'flex';
         }
 
@@ -860,10 +923,7 @@
         // --- CONFIRMATION ET LANCEMENT DU TELECHARGEMENT ---
         function confirmDownload() {
             closeDownloadModal();
-            
             console.log("Download confirmed: " + currentDownloadFile);
-            
-            // PIXEL EVENT : LEAD
             if (typeof fbq === 'function') {
                 fbq('track', 'Lead', {
                     content_name: currentDownloadFile,
@@ -872,8 +932,6 @@
                     currency: 'MAD'
                 });
             }
-
-            // On lance le téléchargement après un petit délai pour le Pixel
             setTimeout(() => { 
                 window.location.href = currentDownloadFile; 
             }, 300);
