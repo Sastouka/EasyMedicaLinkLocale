@@ -108,18 +108,20 @@
         .icon-box i, .btn-whatsapp-float i, .logo i { margin-right: 0; }
         
         /* GESTION DU LOGO IMAGE DANS LA NAVBAR */
-        .logo i { margin-right: 12px; } /* Pour l'ancien cas, sécurité */
+        .logo i { margin-right: 12px; } 
         .logo img { 
             height: 45px; 
             width: auto; 
             margin-right: 12px; 
-            border-radius: 8px; /* Un léger arrondi sur l'icône */
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Ombre légère pour ressortir sur le fond sombre */
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
         }
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(102, 126, 234, 0); } 100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); } }
         @keyframes slideInUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        /* Animation Zoom */
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         .animate-float { animation: float 6s ease-in-out infinite; }
         
@@ -135,7 +137,6 @@
 
         .navbar { display: flex; justify-content: space-between; align-items: center; height: 70px; }
         .logo { font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; color: white; }
-        /* Suppression de l'ancienne couleur d'icône car on utilise une image maintenant */
         
         .nav-link-guide {
             color: white; font-weight: 500; padding: 8px 18px;
@@ -270,6 +271,30 @@
         .btn-cancel-dl { background: transparent; color: #718096; border: 1px solid #cbd5e0; padding: 10px 25px; border-radius: 50px; cursor:pointer; margin-top:10px; width:100%; font-weight:500; }
         .btn-cancel-dl:hover { background: #f7fafc; color: var(--secondary); }
 
+        /* --- STYLE LIGHTBOX (ZOOM IMAGE) --- */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            z-index: 10001; /* Au-dessus de tout */
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+        .lightbox-img {
+            max-width: 95%;
+            max-height: 95vh;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: default;
+        }
+        .zoomable-cursor { cursor: zoom-in; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
         @media (max-width: 1024px) { .split-container, .split-container.reverse { flex-direction: column; gap: 3rem; text-align: center; } h2::after { left: 50%; transform: translateX(-50%); } .img-col { max-width: 600px; margin: 0 auto; } }
         
         @media (max-width: 768px) {
@@ -305,6 +330,10 @@
     </style>
 </head>
 <body>
+
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <img id="lightboxImg" class="lightbox-img" src="" alt="Zoom Image">
+    </div>
 
     <div id="dragWhatsapp" class="btn-whatsapp-float" title="Contactez-nous sur WhatsApp">
         <a href="https://wa.me/212652084735" target="_blank" onclick="trackWhatsApp()" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center; color:white;" aria-label="WhatsApp">
@@ -663,6 +692,18 @@
     </div>
 
     <script>
+        // --- LOGIQUE LIGHTBOX (ZOOM) ---
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightboxImg');
+            img.src = src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
         // --- VARIABLE POUR STOCKER LE FICHIER EN ATTENTE ---
         let currentDownloadFile = '';
 
@@ -723,20 +764,6 @@
             }
         }
 
-        // --- TRACKING TEMPS PASSÉ ---
-        document.addEventListener('DOMContentLoaded', () => {
-            let seconds = 0;
-            setInterval(() => {
-                seconds += 10;
-                if (typeof fbq === 'function') {
-                    if (seconds === 10 || seconds === 30 || seconds === 60 || seconds === 120) {
-                        console.log("TimeOnPage: " + seconds + "s");
-                        fbq('trackCustom', 'TimeOnPage', { seconds: seconds });
-                    }
-                }
-            }, 10000);
-        });
-
         // --- COOKIES ---
         function checkCookieConsent() {
             if (!localStorage.getItem('cookieConsent')) {
@@ -781,10 +808,33 @@
         function openModal(id, e) { if(e) e.preventDefault(); document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
+        // --- INITIALISATION GENERALE ---
         document.addEventListener('DOMContentLoaded', () => {
             makeDraggable("dragWhatsapp");
             makeDraggable("dragDownloads");
             checkCookieConsent();
+
+            // --- TRACKING TEMPS PASSÉ ---
+            let seconds = 0;
+            setInterval(() => {
+                seconds += 10;
+                if (typeof fbq === 'function') {
+                    if (seconds === 10 || seconds === 30 || seconds === 60 || seconds === 120) {
+                        fbq('trackCustom', 'TimeOnPage', { seconds: seconds });
+                    }
+                }
+            }, 10000);
+
+            // --- ACTIVATION DU ZOOM SUR LES IMAGES ---
+            // On sélectionne : screenshot hero, items galerie, images colonnes, cards admin
+            const images = document.querySelectorAll('.hero-main-screenshot img, .doc-item img, .img-col img, .admin-card img');
+            
+            images.forEach(img => {
+                img.classList.add('zoomable-cursor'); // Change le curseur
+                img.onclick = function() {
+                    openLightbox(this.src); // Ouvre le zoom au clic
+                };
+            });
         });
     </script>
 </body>
