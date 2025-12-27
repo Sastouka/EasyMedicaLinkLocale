@@ -21,7 +21,7 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         
-        // ⚠️ REMPLACEZ 'VOTRE_ID_PIXEL_ICI' PAR VOTRE ID REEL
+        // ⚠️ ID PIXEL ACTIF
         fbq('init', '2280274399125202'); 
         fbq('track', 'PageView');
     </script>
@@ -254,12 +254,42 @@
         .highlight-box { background: #ebf8ff; border-left: 4px solid var(--primary); padding: 15px; margin: 15px 0; border-radius: 4px; }
         .highlight-box.warning { background: #fffaf0; border-color: var(--accent-amber); color: #9c4221; }
 
+        /* MODALE AVERTISSEMENT TELECHARGEMENT */
+        .warning-modal-content { max-width: 500px; text-align: center; border-top: 5px solid var(--accent-amber); }
+        .btn-confirm-dl { background: var(--primary); color: white; padding: 12px 25px; border-radius: 50px; border:none; font-weight:600; cursor:pointer; margin-top:15px; width:100%; transition:0.3s; font-size: 1rem; }
+        .btn-confirm-dl:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-cancel-dl { background: transparent; color: #718096; border: 1px solid #cbd5e0; padding: 10px 25px; border-radius: 50px; cursor:pointer; margin-top:10px; width:100%; font-weight:500; }
+        .btn-cancel-dl:hover { background: #f7fafc; color: var(--secondary); }
+
         @media (max-width: 1024px) { .split-container, .split-container.reverse { flex-direction: column; gap: 3rem; text-align: center; } h2::after { left: 50%; transform: translateX(-50%); } .img-col { max-width: 600px; margin: 0 auto; } }
+        
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; } .hero-desc { font-size: 1.1rem; } .navbar { padding: 0 15px; }
             .nav-link-guide span { display: none; } .nav-link-guide { padding: 8px; border-radius: 50%; } .nav-link-guide i { margin: 0; }
-            .btn-float span:not(.arch-badge) { display: none; } .btn-float { padding: 12px; border-radius: 50%; justify-content: center; width: 50px; height: 50px; } .arch-badge { display: none; }
-            .floating-downloads { bottom: 20px; right: 20px; } .btn-whatsapp-float { bottom: 20px; left: 20px; width: 55px; height: 55px; font-size: 28px; }
+            
+            /* --- CORRECTION DES BOUTONS FLOTTANTS --- */
+            .btn-float span:not(.arch-badge) { display: none; } 
+            
+            /* On AFFICHE le badge x64/x32 */
+            .arch-badge { 
+                display: inline-block !important; 
+                margin-left: 6px; 
+                background: rgba(255,255,255,0.2); 
+                padding: 1px 6px; 
+                border-radius: 4px;
+                font-size: 0.8rem;
+            }
+
+            .btn-float { 
+                padding: 10px 16px; 
+                border-radius: 50px; 
+                justify-content: center; 
+                width: auto; 
+                height: 45px; 
+            }
+            
+            .floating-downloads { bottom: 20px; right: 20px; } 
+            .btn-whatsapp-float { bottom: 20px; left: 20px; width: 55px; height: 55px; font-size: 28px; }
             .section-header h2 { font-size: 1.8rem; }
             .cookie-banner { flex-direction: column; gap: 10px; text-align: center; padding: 15px; } .cookie-text { font-size: 0.8rem; }
         }
@@ -274,12 +304,12 @@
     </div>
 
     <div id="dragDownloads" class="floating-downloads">
-        <a href="EasyMedicaLink-Win64.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win64.exe')" class="btn-float" title="Version 64 bits">
+        <a href="EasyMedicaLink-Win64.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win64.exe')" class="btn-float" title="Version 64 bits">
             <i class="fab fa-windows"></i>
             <span>Télécharger</span>
             <span class="arch-badge">x64</span>
         </a>
-        <a href="EasyMedicaLink-Win32.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win32.exe')" class="btn-float" title="Version 32 bits">
+        <a href="EasyMedicaLink-Win32.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win32.exe')" class="btn-float" title="Version 32 bits">
             <i class="fab fa-windows"></i>
             <span>Télécharger</span>
             <span class="arch-badge">x32</span>
@@ -306,10 +336,10 @@
             <p class="hero-desc">Un écosystème complet : de la prise de RDV à la comptabilité, en passant par l'IA médicale. Données 100% locales et sécurisées.</p>
             
             <div class="download-group">
-                <a href="EasyMedicaLink-Win64.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win64.exe')" class="btn-primary">
+                <a href="EasyMedicaLink-Win64.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win64.exe')" class="btn-primary">
                     <i class="fab fa-windows"></i> &nbsp;Télécharger (x64)
                 </a>
-                <a href="EasyMedicaLink-Win32.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win32.exe')" class="btn-secondary">
+                <a href="EasyMedicaLink-Win32.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win32.exe')" class="btn-secondary">
                     <i class="fab fa-windows"></i> &nbsp;Télécharger (x32)
                 </a>
             </div>
@@ -530,10 +560,10 @@
             <div class="footer-cta">
                 <h4 style="color:white; margin-bottom: 20px; font-size: 1.5rem;">Prêt à moderniser votre cabinet ?</h4>
                 <div class="download-group">
-                    <a href="EasyMedicaLink-Win64.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win64.exe')" class="btn-primary">
+                    <a href="EasyMedicaLink-Win64.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win64.exe')" class="btn-primary">
                         <i class="fab fa-windows"></i> Télécharger x64
                     </a>
-                    <a href="EasyMedicaLink-Win32.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win32.exe')" class="btn-secondary" style="background:transparent; color:white; border-color:white;">
+                    <a href="EasyMedicaLink-Win32.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win32.exe')" class="btn-secondary" style="background:transparent; color:white; border-color:white;">
                         <i class="fab fa-windows"></i> Télécharger x32
                     </a>
                 </div>
@@ -597,7 +627,77 @@
         </div>
     </div>
 
+    <div id="downloadWarningModal" class="modal-overlay" onclick="closeDownloadModal()">
+        <div class="modal-content warning-modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header" style="justify-content:center; border:none; padding-bottom:0;">
+                <div style="width:60px; height:60px; background:#fffaf0; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:30px; color:var(--accent-amber); margin-bottom:10px;">
+                    <i class="fab fa-windows"></i>
+                </div>
+            </div>
+            <div class="modal-body" style="text-align:center; padding-top:0;">
+                <h2 style="font-size:1.4rem; color:var(--secondary); margin-bottom:10px;">Prérequis Windows</h2>
+                <p style="color:#4a5568; font-size:0.95rem;">
+                    <strong>Attention :</strong> EasyMedicaLink est un logiciel qui doit être installé sur un <strong>Ordinateur PC (Windows)</strong>.
+                </p>
+                <p style="color:#718096; font-size:0.9rem; background:#f7fafc; padding:10px; border-radius:8px;">
+                    Le fichier <em>.exe</em> ne s'ouvrira pas sur un téléphone (Android/iPhone) ou un Mac.
+                </p>
+                
+                <button class="btn-confirm-dl" onclick="confirmDownload()">
+                    <i class="fas fa-check-circle"></i> Je suis sur PC, Télécharger
+                </button>
+                <button class="btn-cancel-dl" onclick="closeDownloadModal()">
+                    Annuler
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // --- VARIABLE POUR STOCKER LE FICHIER EN ATTENTE ---
+        let currentDownloadFile = '';
+
+        // --- OUVERTURE DE LA MODALE D'AVERTISSEMENT ---
+        function openDownloadModal(event, fileName) {
+            event.preventDefault();
+            // Si on drag le bouton, on ne fait rien
+            const btn = event.currentTarget.closest('.floating-downloads');
+            if(btn && btn.getAttribute('data-dragging') === 'true') return;
+
+            // On stocke le nom du fichier cliqué
+            currentDownloadFile = fileName;
+            
+            // On affiche la modale
+            document.getElementById('downloadWarningModal').style.display = 'flex';
+        }
+
+        // --- FERMETURE DE LA MODALE ---
+        function closeDownloadModal() {
+            document.getElementById('downloadWarningModal').style.display = 'none';
+        }
+
+        // --- CONFIRMATION ET LANCEMENT DU TELECHARGEMENT ---
+        function confirmDownload() {
+            closeDownloadModal();
+            
+            console.log("Download confirmed: " + currentDownloadFile);
+            
+            // PIXEL EVENT : LEAD
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: currentDownloadFile,
+                    content_category: 'Software Download',
+                    value: 0.00,
+                    currency: 'MAD'
+                });
+            }
+
+            // On lance le téléchargement après un petit délai pour le Pixel
+            setTimeout(() => { 
+                window.location.href = currentDownloadFile; 
+            }, 300);
+        }
+
         // --- TRACKING WHATSAPP ---
         function trackWhatsApp() {
             if (typeof fbq === 'function') {
@@ -606,40 +706,17 @@
             }
         }
 
-        // --- TRACKING GUIDE (CORRIGÉ : SANS PREVENT DEFAULT) ---
+        // --- TRACKING GUIDE ---
         function trackGuide(event) {
-            // On laisse l'événement se propager pour ouvrir le lien (target="_blank")
             if (typeof fbq === 'function') {
                 console.log("Tracking Guide Click");
                 fbq('track', 'ViewContent', {content_name: 'Guide Utilisation', content_category: 'Help'});
             }
         }
 
-        // --- TRACKING DOWNLOAD (LEAD) ---
-        function forceDownload(event, fileName) {
-            event.preventDefault();
-            const btn = event.currentTarget.closest('.floating-downloads');
-            if(btn && btn.getAttribute('data-dragging') === 'true') return;
-
-            console.log("Download triggered: " + fileName);
-            
-            // PIXEL EVENT : LEAD
-            if (typeof fbq === 'function') {
-                fbq('track', 'Lead', {
-                    content_name: fileName,
-                    content_category: 'Software Download',
-                    value: 0.00,
-                    currency: 'MAD'
-                });
-            }
-
-            setTimeout(() => { window.location.href = fileName; }, 300);
-        }
-
-        // --- TRACKING TEMPS PASSÉ (10s, 30s, 60s) ---
+        // --- TRACKING TEMPS PASSÉ ---
         document.addEventListener('DOMContentLoaded', () => {
             let seconds = 0;
-            // Vérification toutes les 10 secondes
             setInterval(() => {
                 seconds += 10;
                 if (typeof fbq === 'function') {
@@ -648,30 +725,27 @@
                         fbq('trackCustom', 'TimeOnPage', { seconds: seconds });
                     }
                 }
-            }, 10000); // 10000 ms = 10 secondes
+            }, 10000);
         });
 
-        // --- GESTION DU BANDEAU COOKIES ---
+        // --- COOKIES ---
         function checkCookieConsent() {
             if (!localStorage.getItem('cookieConsent')) {
                 setTimeout(() => { document.getElementById('cookieBanner').classList.add('show'); }, 1000);
             }
         }
-
         function acceptCookies() {
             localStorage.setItem('cookieConsent', 'true');
             document.getElementById('cookieBanner').classList.remove('show');
         }
 
-        // --- LOGIQUE DRAG & DROP ---
+        // --- DRAG & DROP ---
         function makeDraggable(elementId) {
             const elmnt = document.getElementById(elementId);
             let pos1=0, pos2=0, pos3=0, pos4=0;
             let isDragging = false;
-
             elmnt.onmousedown = dragMouseDown;
             elmnt.addEventListener('touchstart', dragMouseDown, {passive: false});
-
             function dragMouseDown(e) {
                 if(e.target.closest('a') && e.type !== 'touchstart') return;
                 const evt = e.type === 'touchstart' ? e.touches[0] : e;
@@ -679,7 +753,6 @@
                 document.onmouseup = closeDragElement; document.onmousemove = elementDrag;
                 document.addEventListener('touchend', closeDragElement); document.addEventListener('touchmove', elementDrag, {passive: false});
             }
-
             function elementDrag(e) {
                 const evt = e.type === 'touchmove' ? e.touches[0] : e;
                 if(!isDragging) { isDragging = true; elmnt.setAttribute('data-dragging', 'true'); }
@@ -688,7 +761,6 @@
                 elmnt.style.top = (elmnt.offsetTop - pos2) + "px"; elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
                 elmnt.style.bottom = 'auto'; elmnt.style.right = 'auto';
             }
-
             function closeDragElement() {
                 document.onmouseup = null; document.onmousemove = null;
                 document.removeEventListener('touchend', closeDragElement); document.removeEventListener('touchmove', elementDrag);
@@ -696,7 +768,7 @@
             }
         }
 
-        // --- MODALES ---
+        // --- MODALES (Privacy/Terms) ---
         function openModal(id, e) { if(e) e.preventDefault(); document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
