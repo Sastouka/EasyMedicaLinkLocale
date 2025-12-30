@@ -553,12 +553,16 @@
             </div>
             
             <div class="video-box">
-                <div class="video-wrapper">
+                <div class="video-wrapper" id="videoWrapper">
                     <div class="video-placeholder" onclick="loadVideo(this)">
                         <div class="play-btn-overlay"><i class="fas fa-play" style="color:white; font-size:30px; margin-left:5px;"></i></div>
                     </div>
                 </div>
             </div>
+            <p id="localVideoHelp" style="display:none; font-size:0.85rem; color:#718096; margin-top:15px;">
+                <i class="fas fa-info-circle"></i> La vidéo ne démarre pas ? (Mode local détecté)<br>
+                <a href="https://youtu.be/aaIg6gDj9b0" target="_blank" style="text-decoration:underline; color:var(--primary);">Cliquez ici pour la voir sur YouTube</a>
+            </p>
         </div>
     </section>
 
@@ -752,9 +756,9 @@
                         <p class="review-text">Gain de temps incroyable pour mes ordonnances. L'interface est propre et fluide.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">SB</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Sarah</h5>
+                            <h5>Dr. Mamadou</h5>
                         </div>
                     </div>
                 </div>
@@ -765,9 +769,9 @@
                         <p class="review-text">Enfin un logiciel qui ne nécessite pas d'internet constant. La sécurité avant tout.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">KA</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Karim</h5>
+                            <h5>Dr. Aminata</h5>
                         </div>
                     </div>
                 </div>
@@ -778,9 +782,9 @@
                         <p class="review-text">Le module assistant et salle d'attente a transformé l'organisation de mon cabinet.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">LM</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Leila</h5>
+                            <h5>Dr. Koffi</h5>
                         </div>
                     </div>
                 </div>
@@ -791,9 +795,9 @@
                         <p class="review-text">Très satisfait du support technique. Installation rapide sur mon réseau local.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">YT</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Youssef</h5>
+                            <h5>Dr. Zainab</h5>
                         </div>
                     </div>
                 </div>
@@ -804,9 +808,9 @@
                         <p class="review-text">L'IA Synapse m'aide beaucoup pour vérifier les interactions médicamenteuses.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">NH</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Nadia</h5>
+                            <h5>Dr. Chike</h5>
                         </div>
                     </div>
                 </div>
@@ -817,9 +821,9 @@
                         <p class="review-text">Gestion comptable très claire. Je sais enfin où j'en suis financièrement.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">OM</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Omar</h5>
+                            <h5>Dr. Aissa</h5>
                         </div>
                     </div>
                 </div>
@@ -830,9 +834,9 @@
                         <p class="review-text">J'utilise l'accès tablette pour voir mes patients en salle d'attente. Top !</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">FK</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Fatima</h5>
+                            <h5>Dr. Tesfaye</h5>
                         </div>
                     </div>
                 </div>
@@ -843,9 +847,9 @@
                         <p class="review-text">Simple, efficace et sans abonnement mensuel caché. Je recommande.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">AR</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Ahmed</h5>
+                            <h5>Dr. Thandiwe</h5>
                         </div>
                     </div>
                 </div>
@@ -856,9 +860,9 @@
                         <p class="review-text">La personnalisation des entêtes d'ordonnance est un vrai plus professionnel.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">ZS</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Zineb</h5>
+                            <h5>Dr. Sekou</h5>
                         </div>
                     </div>
                 </div>
@@ -869,9 +873,9 @@
                         <p class="review-text">Sauvegarde automatique rassurante. Mes données patients sont en sécurité.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">ML</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Mehdi</h5>
+                            <h5>Dr. Malika</h5>
                         </div>
                     </div>
                 </div>
@@ -882,9 +886,9 @@
                         <p class="review-text">L'envoi automatique de rappels WhatsApp a réduit mes RDV manqués de 50%.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">HI</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Hicham</h5>
+                            <h5>Dr. Babatunde</h5>
                         </div>
                     </div>
                 </div>
@@ -895,9 +899,9 @@
                         <p class="review-text">Excellent rapport qualité/prix pour une solution aussi complète au Maroc.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle">NB</div>
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
                         <div class="doc-details">
-                            <h5>Dr. Nabila</h5>
+                            <h5>Dr. Nandi</h5>
                         </div>
                     </div>
                 </div>
@@ -1012,8 +1016,14 @@
     <script>
         // --- LOGIQUE VIDÉO CLICK-TO-LOAD ---
         function loadVideo(el) {
-            // Remplace l'image par l'iframe YouTube uniquement au clic
-            el.innerHTML = '<iframe src="https://www.youtube.com/embed/aaIg6gDj9b0?autoplay=1&rel=0" title="Démonstration EasyMedicaLink" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>';
+            // Remplace l'image par l'iframe YouTube
+            // Note pour l'utilisateur : L'erreur 153 est normale en file://
+            el.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/aaIg6gDj9b0?autoplay=1&rel=0&modestbranding=1" title="Démonstration EasyMedicaLink" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>';
+            
+            // Affiche le message d'aide pour le local
+            setTimeout(() => {
+                document.getElementById('localVideoHelp').style.display = 'block';
+            }, 1500);
         }
 
         // --- LOGIQUE LIGHTBOX AVEC PINCH-TO-ZOOM (TOUCH) ---
