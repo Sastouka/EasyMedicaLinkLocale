@@ -190,6 +190,32 @@
         .module-tag:hover { transform: translateY(-2px); border-color: var(--primary-light); color: var(--primary); box-shadow: var(--shadow-md); }
         .module-tag.special { background: linear-gradient(135deg, #f3e5f5 0%, #fff 100%); border-color: #d6bcfa; color: #6b46c1; font-weight: 600; }
 
+        /* --- VIDEO DEMO --- */
+        .video-section { padding: 4rem 0 2rem; background: #fff; text-align: center; border-bottom: 1px solid #edf2f7; }
+        .video-box { 
+            max-width: 900px; margin: 0 auto; 
+            border-radius: var(--radius-lg); 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); 
+            border: 4px solid white; 
+            overflow: hidden; 
+            background: #000;
+        }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; } /* Ratio 16:9 */
+        
+        /* STYLE DU BOUTON PLAY ET COUVERTURE */
+        .video-placeholder {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://img.youtube.com/vi/aaIg6gDj9b0/maxresdefault.jpg');
+            background-size: cover; background-position: center;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+        .play-btn-overlay {
+            width: 80px; height: 80px; background: rgba(237, 20, 61, 0.9);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: transform 0.3s; box-shadow: 0 0 30px rgba(237, 20, 61, 0.4);
+        }
+        .video-placeholder:hover .play-btn-overlay { transform: scale(1.1); }
+        
         /* --- SECTIONS --- */
         .section-header { text-align: center; margin-bottom: 3.5rem; max-width: 800px; margin-left: auto; margin-right: auto; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--secondary); font-weight: 800; }
@@ -230,6 +256,27 @@
         .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
         .icon-box { width: 70px; height: 70px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); }
         .consult-icon { background: #e0e7ff; color: var(--primary); } .ia-icon { background: var(--gradient-ai); color: white; } .bio-icon { background: #fce7f3; color: var(--accent-coral); } .pharma-icon { background: #ffedd5; color: var(--accent-amber); } .stats-icon { background: #d1fae5; color: var(--accent-emerald); }
+
+        /* --- TESTIMONIALS (AVIS) --- */
+        .testimonials-section { padding: 6rem 0; background: #f8fafc; border-top: 1px solid #edf2f7; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .review-card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: var(--radius); 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); 
+            border: 1px solid #edf2f7; 
+            transition: all 0.3s ease;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .review-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary-light); }
+        .review-text { font-size: 0.95rem; color: var(--text-light); font-style: italic; margin-bottom: 15px; position: relative; }
+        .review-text::before { content: '\201C'; font-size: 2rem; color: var(--primary-light); position: absolute; top: -15px; left: -10px; font-family: serif; opacity: 0.5; }
+        .stars { color: #f59e0b; margin-bottom: 12px; font-size: 0.85rem; letter-spacing: 2px; }
+        .doctor-info { display: flex; align-items: center; gap: 12px; border-top: 1px solid #f1f5f9; padding-top: 15px; margin-top: 10px; }
+        .avatar-circle { width: 42px; height: 42px; background: linear-gradient(135deg, #e2e8f0 0%, #f7fafc 100%); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .doc-details h5 { font-size: 0.95rem; color: var(--secondary); margin-bottom: 0; font-weight: 600; }
+        .doc-details span { font-size: 0.8rem; color: #a0aec0; display: block; }
 
         /* --- FOOTER --- */
         footer { background: #1a202c; color: #a0aec0; padding: 4rem 0 2rem; text-align: center; border-top: 4px solid var(--primary); }
@@ -392,6 +439,7 @@
             .btn-whatsapp-float { bottom: 20px; left: 20px; width: 55px; height: 55px; font-size: 28px; }
             .section-header h2 { font-size: 1.8rem; }
             .cookie-banner { flex-direction: column; gap: 10px; text-align: center; padding: 15px; } .cookie-text { font-size: 0.8rem; }
+            .video-section { padding: 3rem 0 1rem; }
         }
     </style>
 </head>
@@ -493,6 +541,23 @@
                 <span class="module-tag"><i class="fas fa-prescription-bottle-alt"></i> Pharmacie</span>
                 <span class="module-tag"><i class="fas fa-calculator"></i> Compta</span>
                 <span class="module-tag special"><i class="fas fa-robot"></i> IA Synapse</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2><i class="fas fa-play-circle" style="color:var(--accent-coral);"></i> Démonstration en Action</h2>
+                <p style="color:var(--text-light);">Découvrez en 3 minutes comment EasyMedicaLink simplifie votre cabinet.</p>
+            </div>
+            
+            <div class="video-box">
+                <div class="video-wrapper">
+                    <div class="video-placeholder" onclick="loadVideo(this)">
+                        <div class="play-btn-overlay"><i class="fas fa-play" style="color:white; font-size:30px; margin-left:5px;"></i></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -673,6 +738,174 @@
         </div>
     </section>
 
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ils nous font confiance</h2>
+                <p>Retours d'expérience de nos médecins utilisateurs.</p>
+            </div>
+            <div class="testimonials-grid">
+                
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Gain de temps incroyable pour mes ordonnances. L'interface est propre et fluide.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">SB</div>
+                        <div class="doc-details">
+                            <h5>Dr. Sarah</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Enfin un logiciel qui ne nécessite pas d'internet constant. La sécurité avant tout.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">KA</div>
+                        <div class="doc-details">
+                            <h5>Dr. Karim</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <p class="review-text">Le module assistant et salle d'attente a transformé l'organisation de mon cabinet.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">LM</div>
+                        <div class="doc-details">
+                            <h5>Dr. Leila</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Très satisfait du support technique. Installation rapide sur mon réseau local.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">YT</div>
+                        <div class="doc-details">
+                            <h5>Dr. Youssef</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">L'IA Synapse m'aide beaucoup pour vérifier les interactions médicamenteuses.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">NH</div>
+                        <div class="doc-details">
+                            <h5>Dr. Nadia</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                        <p class="review-text">Gestion comptable très claire. Je sais enfin où j'en suis financièrement.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">OM</div>
+                        <div class="doc-details">
+                            <h5>Dr. Omar</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">J'utilise l'accès tablette pour voir mes patients en salle d'attente. Top !</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">FK</div>
+                        <div class="doc-details">
+                            <h5>Dr. Fatima</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Simple, efficace et sans abonnement mensuel caché. Je recommande.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">AR</div>
+                        <div class="doc-details">
+                            <h5>Dr. Ahmed</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <p class="review-text">La personnalisation des entêtes d'ordonnance est un vrai plus professionnel.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">ZS</div>
+                        <div class="doc-details">
+                            <h5>Dr. Zineb</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Sauvegarde automatique rassurante. Mes données patients sont en sécurité.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">ML</div>
+                        <div class="doc-details">
+                            <h5>Dr. Mehdi</h5>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">L'envoi automatique de rappels WhatsApp a réduit mes RDV manqués de 50%.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">HI</div>
+                        <div class="doc-details">
+                            <h5>Dr. Hicham</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Excellent rapport qualité/prix pour une solution aussi complète au Maroc.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle">NB</div>
+                        <div class="doc-details">
+                            <h5>Dr. Nabila</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-cta">
@@ -777,6 +1010,12 @@
     </div>
 
     <script>
+        // --- LOGIQUE VIDÉO CLICK-TO-LOAD ---
+        function loadVideo(el) {
+            // Remplace l'image par l'iframe YouTube uniquement au clic
+            el.innerHTML = '<iframe src="https://www.youtube.com/embed/aaIg6gDj9b0?autoplay=1&rel=0" title="Démonstration EasyMedicaLink" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>';
+        }
+
         // --- LOGIQUE LIGHTBOX AVEC PINCH-TO-ZOOM (TOUCH) ---
         let scale = 1;
         let isDragging = false;
