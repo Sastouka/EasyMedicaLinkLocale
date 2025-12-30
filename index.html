@@ -138,6 +138,8 @@
         .navbar { display: flex; justify-content: space-between; align-items: center; height: 70px; }
         .logo { font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; color: white; }
         
+        .nav-actions { display: flex; align-items: center; gap: 10px; }
+
         .nav-link-guide {
             color: white; font-weight: 500; padding: 8px 18px;
             background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
@@ -418,9 +420,15 @@
                     <img src="icon.png" alt="Logo EasyMedicaLink"> 
                     EasyMedicaLink
                 </div>
-                <a href="guide.html" target="_blank" class="nav-link-guide" title="Guide d'Utilisation" onclick="trackGuide(event)">
-                    <i class="fas fa-book-open"></i> <span>Guide d'utilisation</span>
-                </a>
+                
+                <div class="nav-actions">
+                    <a href="generateur.html" class="nav-link-guide" title="Générateur d'Entête" style="background: rgba(255,255,255,0.2);">
+                        <i class="fas fa-magic"></i> <span>Studio Entête</span>
+                    </a>
+                    <a href="guide.html" target="_blank" class="nav-link-guide" title="Guide d'Utilisation" onclick="trackGuide(event)">
+                        <i class="fas fa-book-open"></i> <span>Guide d'utilisation</span>
+                    </a>
+                </div>
             </nav>
         </div>
     </header>
@@ -666,6 +674,7 @@
 
             <div class="footer-links">
                 <a href="guide.html" target="_blank" onclick="trackGuide(event)"><i class="fas fa-book"></i> Guide d'Utilisation</a>
+                <a href="generateur.html" target="_blank"><i class="fas fa-magic"></i> Générateur Entête</a>
                 <a href="#" onclick="openModal('privacyModal', event)"><i class="fas fa-shield-alt"></i> Confidentialité</a>
                 <a href="#" onclick="openModal('termsModal', event)"><i class="fas fa-file-contract"></i> CGU</a>
             </div>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Générateur Contextuel | EasyMedicaLink Studio</title>
+    
+    <link rel="icon" type="image/png" href="icon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- DESIGN SYSTEM --- */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary: #5a67d8;
+            --secondary: #2d3748;
+            --text-main: #2d3748;
+            --bg-body: #f7fafc;
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-body); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+        
+        /* HEADER */
+        header { background: rgba(45, 55, 72, 0.95); color: white; padding: 12px 0; border-bottom: 2px solid var(--primary); position: sticky; top:0; z-index: 100; backdrop-filter: blur(10px); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; color: white; text-decoration: none; }
+        .logo img { height: 35px; margin-right: 10px; border-radius: 6px; background: white; padding: 2px; }
+        .btn-back { color: white; text-decoration: none; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.3); padding: 8px 15px; border-radius: 50px; background: rgba(255,255,255,0.1); }
+
+        /* LAYOUT */
+        .main-content { flex: 1; padding: 30px 0; }
+        .generator-wrapper { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; }
+        
+        /* SIDEBAR (Contenu seulement) */
+        .controls-panel { flex: 1; min-width: 300px; background: white; padding: 25px; border-radius: var(--radius); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .controls-panel h2 { font-size: 1.3rem; color: var(--secondary); margin-bottom: 20px; border-bottom: 2px solid #edf2f7; padding-bottom: 10px; }
+        
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; font-size: 0.8rem; color: #718096; margin-bottom: 5px; }
+        .form-control { width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px; font-family: inherit; font-size: 0.9rem; }
+        
+        .file-upload-wrapper { border: 2px dashed #cbd5e0; padding: 15px; text-align: center; border-radius: 8px; cursor: pointer; position: relative; background: #f8fafc; }
+        .file-upload-wrapper input { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+
+        .btn-generate { width: 100%; background: var(--primary-gradient); color: white; border: none; padding: 15px; font-weight: 600; border-radius: 50px; cursor: pointer; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 5px 15px rgba(90, 103, 216, 0.3); }
+
+        /* PREVIEW AREA */
+        .preview-panel { flex: 1.5; min-width: 320px; display: flex; flex-direction: column; align-items: center; position: relative; }
+        .canvas-container { position: relative; background: #e2e8f0; padding: 10px; border-radius: var(--radius); width: 100%; display: flex; justify-content: center; overflow: hidden; }
+        canvas { background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.15); max-width: 100%; height: auto; display: block; cursor: pointer; }
+        
+        /* --- MENU FLOTTANT CONTEXTUEL --- */
+        .floating-toolbar {
+            display: none; /* Caché par défaut */
+            position: fixed; /* Fixe par rapport à la fenêtre pour éviter les soucis de scroll */
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+            width: 280px;
+            animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-origin: top center;
+        }
+
+        .floating-toolbar.active { display: block; }
+
+        .floating-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #edf2f7; padding-bottom: 8px; }
+        .floating-header h4 { font-size: 0.9rem; color: var(--primary); font-weight: 700; display: flex; align-items: center; gap: 6px; }
+        .close-toolbar { cursor: pointer; color: #a0aec0; font-size: 1.1rem; }
+        .close-toolbar:hover { color: #e53e3e; }
+
+        .tool-section { display: none; } /* Sections cachées par défaut */
+        .tool-section.active { display: block; }
+
+        .mini-range-group { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .mini-range-group label { width: 50px; font-size: 0.75rem; font-weight: 600; color: #4a5568; margin:0; }
+        .mini-range-group input[type=range] { flex: 1; height: 5px; }
+
+        .mini-color-group { display: flex; gap: 5px; margin-top: 10px; }
+        .mini-color-input { flex: 1; height: 35px; border: 1px solid #e2e8f0; border-radius: 6px; padding: 2px; }
+
+        /* Animation d'apparition */
+        @keyframes popIn { from { opacity: 0; transform: scale(0.9) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+        @media (max-width: 900px) { 
+            .generator-wrapper { flex-direction: column; } 
+            .preview-panel { order: -1; } 
+            /* Sur mobile, on force le toolbar en bas de l'écran pour éviter qu'il sorte */
+            .floating-toolbar.mobile-dock { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; transform-origin: bottom center; } 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="icon.png" alt="Logo"> 
+                    EasyMedicaLink
+                </a>
+                <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="generator-wrapper">
+                
+                <div class="controls-panel">
+                    <h2><i class="fas fa-pen"></i> Contenu</h2>
+                    <p style="font-size:0.85rem; color:#718096; margin-bottom:20px;">
+                        Remplissez les infos ici, puis <strong>cliquez sur l'aperçu</strong> à droite pour déplacer les éléments.
+                    </p>
+
+                    <div class="form-group">
+                        <label>Image Logo</label>
+                        <div class="file-upload-wrapper">
+                            <i class="fas fa-cloud-upload-alt" style="color: var(--primary);"></i>
+                            <span id="fileName">Importer...</span>
+                            <input type="file" id="logoInput" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nom du Centre</label>
+                        <input type="text" id="centerName" class="form-control" value="CENTRE MEDICAL AL SHIFA">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Médecin</label>
+                        <input type="text" id="docName" class="form-control" value="DR. NOM PRENOM">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <textarea id="address" class="form-control">Quartier Administratif, Rue des Fleurs, Tétouan&#10;Médecine Générale & Échographie</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contact (Bas de page)</label>
+                        <input type="text" id="footerText" class="form-control" value="Email : email@exemple.com   |   Tél : +212 600 000 000">
+                    </div>
+
+                    <button class="btn-generate" onclick="downloadImage()">
+                        <i class="fas fa-download"></i> Télécharger
+                    </button>
+                </div>
+
+                <div class="preview-panel">
+                    <div style="margin-bottom:10px; color:#718096; font-size:0.9rem;">
+                        <i class="fas fa-mouse-pointer"></i> Cliquez sur un élément pour le modifier
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="paperCanvas" width="1240" height="1754"></canvas>
+                    </div>
+
+                    <div id="floatingToolbar" class="floating-toolbar">
+                        <div class="floating-header">
+                            <h4 id="toolbarTitle"><i class="fas fa-cog"></i> Outils</h4>
+                            <span class="close-toolbar" onclick="closeToolbar()"><i class="fas fa-times"></i></span>
+                        </div>
+                        
+                        <div id="tools-logo" class="tool-section">
+                            <div class="mini-range-group">
+                                <label><i class="fas fa-search-plus"></i> Zoom</label>
+                                <input type="range" id="logoScale" min="0.1" max="2.0" step="0.05" value="1.0">
+                            </div>
+                            <div class="mini-range-group">
+                                <label><i class="fas fa-arrows-alt-h"></i> Pos X</label>
+                                <input type="range" id="logoX" min="-300" max="600" step="5" value="0">
+                            </div>
+                            <div class="mini-range-group">
+                                <label><i class="fas fa-arrows-alt-v"></i> Pos Y</label>
+                                <input type="range" id="logoY" min="-200" max="500" step="5" value="0">
+                            </div>
+                        </div>
+
+                        <div id="tools-text" class="tool-section">
+                            <div class="mini-range-group">
+                                <label><i class="fas fa-text-height"></i> Taille</label>
+                                <input type="range" id="textScale" min="0.5" max="2.0" step="0.05" value="1.0">
+                            </div>
+                            <div class="mini-range-group">
+                                <label><i class="fas fa-arrows-alt-h"></i> Pos X</label>
+                                <input type="range" id="textX" min="-100" max="800" step="10" value="0">
+                            </div>
+                            <div class="mini-range-group">
+                                <label><i class="fas fa-arrows-alt-v"></i> Pos Y</label>
+                                <input type="range" id="textY" min="-100" max="600" step="10" value="0">
+                            </div>
+                            <div class="mini-color-group">
+                                <input type="color" id="colorMain" class="mini-color-input" value="#0033cc" title="Titre">
+                                <input type="color" id="colorSub" class="mini-color-input" value="#cc9900" title="Sous-titre">
+                            </div>
+                        </div>
+
+                        <div id="tools-footer" class="tool-section">
+                            <div class="mini-range-group">
+                                <label><i class="fas fa-arrows-alt-v"></i> Hauteur</label>
+                                <input type="range" id="footerY" min="-200" max="200" step="5" value="0">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align:center; color:#a0aec0; font-size:0.9rem;">
+            © 2025 EasyMedicaLink Studio
+        </div>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('paperCanvas');
+        const ctx = canvas.getContext('2d');
+        const toolbar = document.getElementById('floatingToolbar');
+        const toolbarTitle = document.getElementById('toolbarTitle');
+        
+        let uploadedLogo = new Image();
+        let logoLoaded = false;
+        
+        // Stockage des positions pour la détection de clic
+        let hitZones = { logo: {}, text: {}, footer: {} };
+        let selectedElement = null;
+
+        // Inputs DOM
+        const inputs = {
+            centerName: document.getElementById('centerName'),
+            docName: document.getElementById('docName'),
+            address: document.getElementById('address'),
+            footerText: document.getElementById('footerText'),
+            // Outils dynamiques
+            logoScale: document.getElementById('logoScale'),
+            logoX: document.getElementById('logoX'),
+            logoY: document.getElementById('logoY'),
+            textScale: document.getElementById('textScale'),
+            textX: document.getElementById('textX'),
+            textY: document.getElementById('textY'),
+            colorMain: document.getElementById('colorMain'),
+            colorSub: document.getElementById('colorSub'),
+            footerY: document.getElementById('footerY')
+        };
+
+        window.onload = function() {
+            drawCanvas();
+            // Fermer le toolbar si on clique ailleurs
+            document.addEventListener('click', function(e) {
+                if (!toolbar.contains(e.target) && e.target !== canvas) {
+                    closeToolbar();
+                }
+            });
+        };
+
+        // Listeners sur tous les inputs pour redessiner
+        Object.values(inputs).forEach(input => input.addEventListener('input', drawCanvas));
+
+        // Upload Logo
+        document.getElementById('logoInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    uploadedLogo.onload = function() {
+                        logoLoaded = true;
+                        drawCanvas();
+                        // Simuler un clic sur le logo pour ouvrir les outils
+                        setTimeout(() => showToolbarFor('logo'), 100);
+                    };
+                    uploadedLogo.src = event.target.result;
+                    document.getElementById('fileName').textContent = "Chargé !";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // --- GESTION DU CLIC SUR CANVAS ---
+        canvas.addEventListener('mousedown', handleCanvasClick);
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const t = e.touches[0];
+            const me = new MouseEvent("mousedown", { clientX: t.clientX, clientY: t.clientY });
+            canvas.dispatchEvent(me);
+        }, {passive: false});
+
+        function handleCanvasClick(e) {
+            const rect = canvas.getBoundingClientRect();
+            // Facteur d'échelle (car le canvas est affiché plus petit que sa taille réelle)
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+
+            const clickX = (e.clientX - rect.left) * scaleX;
+            const clickY = (e.clientY - rect.top) * scaleY;
+
+            let clicked = null;
+
+            if (isInside(clickX, clickY, hitZones.logo) && logoLoaded) clicked = 'logo';
+            else if (isInside(clickX, clickY, hitZones.text)) clicked = 'text';
+            else if (isInside(clickX, clickY, hitZones.footer)) clicked = 'footer';
+
+            if (clicked) {
+                selectedElement = clicked;
+                showToolbarFor(clicked);
+                drawCanvas(); // Redessine pour le cadre de sélection
+            } else {
+                closeToolbar();
+            }
+        }
+
+        function isInside(x, y, rect) {
+            return x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h;
+        }
+
+        function showToolbarFor(element) {
+            // 1. Configurer le contenu
+            document.querySelectorAll('.tool-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(`tools-${element}`).classList.add('active');
+            
+            let title = "Outils";
+            if(element === 'logo') title = "Modifier Logo";
+            if(element === 'text') title = "Modifier Textes";
+            if(element === 'footer') title = "Modifier Pied de page";
+            toolbarTitle.innerHTML = `<i class="fas fa-sliders-h"></i> ${title}`;
+
+            // 2. Positionner le toolbar
+            toolbar.classList.add('active');
+            updateToolbarPosition(element);
+        }
+
+        function updateToolbarPosition(element) {
+            const zone = hitZones[element];
+            if(!zone) return;
+
+            const rectCanvas = canvas.getBoundingClientRect();
+            const scaleX = rectCanvas.width / canvas.width;
+            const scaleY = rectCanvas.height / canvas.height;
+
+            // Coordonnées de l'élément sur l'écran (Viewport)
+            const elScreenX = rectCanvas.left + (zone.x * scaleX);
+            const elScreenY = rectCanvas.top + (zone.y * scaleY);
+            const elScreenH = zone.h * scaleY;
+
+            // Largeur fenêtre
+            const viewportW = window.innerWidth;
+            const isMobile = viewportW < 900;
+
+            if (isMobile) {
+                // Sur mobile : Docker en bas au centre
+                toolbar.classList.add('mobile-dock');
+                toolbar.style.left = '50%';
+                toolbar.style.top = 'auto';
+                toolbar.style.bottom = '20px';
+            } else {
+                // Sur PC : Juste en dessous de l'élément, aligné à gauche
+                toolbar.classList.remove('mobile-dock');
+                
+                let targetLeft = elScreenX;
+                let targetTop = elScreenY + elScreenH + 15; // 15px de marge
+
+                // Garde-fous pour ne pas sortir de l'écran
+                if (targetLeft + 280 > viewportW) targetLeft = viewportW - 300;
+                if (targetLeft < 10) targetLeft = 10;
+
+                toolbar.style.left = `${targetLeft}px`;
+                toolbar.style.top = `${targetTop}px`;
+            }
+        }
+
+        function closeToolbar() {
+            toolbar.classList.remove('active');
+            selectedElement = null;
+            drawCanvas();
+        }
+
+        // --- DESSIN DU CANVAS ---
+        function drawCanvas() {
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const baseMarginX = 80;
+            const baseMarginY = 80;
+            const baseLogoSize = 240; 
+
+            // Params
+            const logoScale = parseFloat(inputs.logoScale.value);
+            const logoX = parseInt(inputs.logoX.value);
+            const logoY = parseInt(inputs.logoY.value);
+            const textScale = parseFloat(inputs.textScale.value);
+            const textX = parseInt(inputs.textX.value);
+            const textY = parseInt(inputs.textY.value);
+            const footerY = parseInt(inputs.footerY.value);
+
+            // 1. Watermark
+            if (logoLoaded) {
+                ctx.save();
+                ctx.globalAlpha = 0.08; 
+                const wmWidth = canvas.width * 0.55;
+                const wmHeight = (uploadedLogo.height / uploadedLogo.width) * wmWidth;
+                ctx.drawImage(uploadedLogo, (canvas.width - wmWidth)/2, (canvas.height - wmHeight)/2, wmWidth, wmHeight);
+                ctx.restore();
+            }
+
+            // 2. Logo
+            let finalLogoW = 0;
+            if (logoLoaded) {
+                let drawW = baseLogoSize * logoScale;
+                let drawH = (uploadedLogo.height / uploadedLogo.width) * drawW;
+                const lx = baseMarginX + logoX;
+                const ly = baseMarginY + logoY;
+                
+                ctx.drawImage(uploadedLogo, lx, ly, drawW, drawH);
+                finalLogoW = drawW;
+                
+                // Save Zone
+                hitZones.logo = { x: lx, y: ly, w: drawW, h: drawH };
+            }
+
+            // 3. Textes
+            let defaultTextX = logoLoaded ? (baseMarginX + finalLogoW + 40) : baseMarginX;
+            const tx = defaultTextX + textX;
+            let ty = baseMarginY + 60 + textY; 
+            const startTy = ty - (50 * textScale); // Approx haut du bloc
+
+            ctx.textAlign = "left"; 
+
+            // Titre
+            ctx.fillStyle = inputs.colorMain.value;
+            ctx.font = `bold ${50 * textScale}px 'Times New Roman', serif`;
+            ctx.fillText(inputs.centerName.value.toUpperCase(), tx, ty);
+
+            // Médecin
+            ty += (60 * textScale); 
+            ctx.fillStyle = inputs.colorSub.value;
+            ctx.font = `600 ${36 * textScale}px 'Arial', sans-serif`;
+            ctx.fillText(inputs.docName.value, tx, ty);
+
+            // Adresse
+            ty += (50 * textScale);
+            ctx.font = `italic ${28 * textScale}px 'Arial', sans-serif`;
+            ctx.fillStyle = "#555555"; 
+            const lines = inputs.address.value.split('\n');
+            lines.forEach(line => {
+                ctx.fillText(line, tx, ty);
+                ty += (35 * textScale);
+            });
+
+            // Save Zone Text (approx rectangle qui couvre tout le bloc)
+            hitZones.text = { x: tx, y: startTy, w: canvas.width - tx - 50, h: ty - startTy };
+
+            // 4. Footer
+            const fy = (canvas.height - 100) + footerY;
+            
+            ctx.beginPath();
+            ctx.moveTo(baseMarginX, fy - 50);
+            ctx.lineTo(canvas.width - baseMarginX, fy - 50);
+            ctx.strokeStyle = inputs.colorSub.value;
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            ctx.textAlign = "center"; 
+            ctx.fillStyle = inputs.colorMain.value;
+            ctx.font = "bold 28px 'Courier New', monospace"; 
+            ctx.fillText(inputs.footerText.value, canvas.width/2, fy);
+
+            hitZones.footer = { x: baseMarginX, y: fy - 70, w: canvas.width - 160, h: 100 };
+
+            // 5. Cadre de sélection
+            if (selectedElement && hitZones[selectedElement]) {
+                const z = hitZones[selectedElement];
+                ctx.save();
+                ctx.strokeStyle = "#4299e1";
+                ctx.lineWidth = 3;
+                ctx.setLineDash([10, 5]);
+                ctx.strokeRect(z.x - 10, z.y - 10, z.w + 20, z.h + 20);
+                
+                // Petit label "Modifier"
+                ctx.fillStyle = "#4299e1";
+                ctx.fillRect(z.x - 10, z.y - 40, 100, 30);
+                ctx.fillStyle = "white";
+                ctx.font = "bold 16px Arial";
+                ctx.textAlign = "left";
+                ctx.setLineDash([]);
+                ctx.fillText("Modifier", z.x, z.y - 19);
+                ctx.restore();
+            }
+        }
+
+        function downloadImage() {
+            // Retirer la sélection pour la photo finale
+            const prevSelect = selectedElement;
+            selectedElement = null;
+            drawCanvas();
+            
+            const link = document.createElement('a');
+            const safeName = inputs.centerName.value.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+            link.download = `Papier_Entete_${safeName}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+
+            // Remettre la sélection
+            selectedElement = prevSelect;
+            drawCanvas();
+        }
+    </script>
+</body>
+</html>
