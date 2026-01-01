@@ -184,6 +184,12 @@
         .doc-item:hover { transform: translateY(-5px); border-color: var(--primary); }
         .doc-item img { width: 100%; height: auto; display: block; }
 
+        /* --- NOUVEAU: STYLE POUR LA GALERIE SMARTPHONE --- */
+        .smartphone-item { flex: 0 0 auto; height: 500px; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-lg); border: 4px solid #2d3748; transition: transform 0.3s ease; cursor: pointer; background: black; }
+        .smartphone-item:hover { transform: translateY(-8px); border-color: var(--primary); }
+        .smartphone-item img { height: 100%; width: auto; object-fit: cover; }
+
+
         /* --- MODULES --- */
         .module-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px; }
         .module-tag { background: white; padding: 8px 20px; border-radius: 50px; box-shadow: var(--shadow-sm); border: 1px solid #edf2f7; color: var(--text-light); font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; transition: all 0.3s ease; }
@@ -723,7 +729,26 @@
             </div>
         </div>
     </section>
-
+    
+    <section class="smartphone-gallery-container" style="padding: 40px 0; overflow: hidden; background: white; border-bottom: 1px solid #edf2f7;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+            <div class="section-header">
+                <h2><i class="fas fa-mobile-alt" style="color:var(--accent-teal);"></i> Aperçu Mobile & Tablette</h2>
+                <p style="color:#718096;">Visualisez l'application sur vos appareils mobiles.</p>
+            </div>
+            
+            <div class="doc-scroll-container hide-scrollbar" style="padding-bottom: 40px;">
+                <div class="smartphone-item" title="Accueil"><img src="s1.jpg" alt="Capture Mobile 1" class="app-screen"></div>
+                <div class="smartphone-item" title="Dashboard"><img src="s2.jpg" alt="Capture Mobile 2" class="app-screen"></div>
+                <div class="smartphone-item" title="Patients"><img src="s3.jpg" alt="Capture Mobile 3" class="app-screen"></div>
+                <div class="smartphone-item" title="Consultation"><img src="s4.jpg" alt="Capture Mobile 4" class="app-screen"></div>
+                <div class="smartphone-item" title="Planning"><img src="s5.jpg" alt="Capture Mobile 5" class="app-screen"></div>
+                <div class="smartphone-item" title="Finances"><img src="s6.jpg" alt="Capture Mobile 6" class="app-screen"></div>
+                <div class="smartphone-item" title="Paramètres"><img src="s7.jpg" alt="Capture Mobile 7" class="app-screen"></div>
+                <div class="smartphone-item" title="Support"><img src="s8.jpg" alt="Capture Mobile 8" class="app-screen"></div>
+            </div>
+        </div>
+    </section>
     <section class="split-section alt">
         <div class="container split-container">
             <div class="text-col">
@@ -1287,9 +1312,9 @@
                 }
             }, 10000);
 
-            // --- ACTIVATION DU ZOOM SUR LES IMAGES ---
-            // On sélectionne : screenshot hero, items galerie, images colonnes, cards admin
-            const images = document.querySelectorAll('.hero-main-screenshot img, .doc-item img, .img-col img, .admin-card img');
+            // --- ACTIVATION DU ZOOM SUR LES IMAGES (AVEC MOBILE) ---
+            // On sélectionne : screenshot hero, items galerie, images colonnes, cards admin ET APPS SMARTPHONE
+            const images = document.querySelectorAll('.hero-main-screenshot img, .doc-item img, .img-col img, .admin-card img, .app-screen');
             
             images.forEach(img => {
                 img.classList.add('zoomable-cursor'); // Change le curseur
