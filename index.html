@@ -21,7 +21,7 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         
-        // ⚠️ REMPLACEZ 'VOTRE_ID_PIXEL_ICI' PAR VOTRE ID REEL
+        // ⚠️ ID PIXEL ACTIF
         fbq('init', '2280274399125202'); 
         fbq('track', 'PageView');
     </script>
@@ -106,11 +106,22 @@
         /* --- ICÔNES & ANIMATIONS --- */
         i { margin-right: 8px; }
         .icon-box i, .btn-whatsapp-float i, .logo i { margin-right: 0; }
-        .logo i { margin-right: 12px; }
+        
+        /* GESTION DU LOGO IMAGE DANS LA NAVBAR */
+        .logo i { margin-right: 12px; } 
+        .logo img { 
+            height: 45px; 
+            width: auto; 
+            margin-right: 12px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
+        }
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(102, 126, 234, 0); } 100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); } }
         @keyframes slideInUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        /* Animation Zoom */
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         .animate-float { animation: float 6s ease-in-out infinite; }
         
@@ -126,7 +137,8 @@
 
         .navbar { display: flex; justify-content: space-between; align-items: center; height: 70px; }
         .logo { font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; color: white; }
-        .logo i { color: var(--accent-teal); font-size: 1.8rem; filter: drop-shadow(0 0 5px rgba(11, 197, 234, 0.5)); }
+        
+        .nav-actions { display: flex; align-items: center; gap: 10px; }
 
         .nav-link-guide {
             color: white; font-weight: 500; padding: 8px 18px;
@@ -172,12 +184,44 @@
         .doc-item:hover { transform: translateY(-5px); border-color: var(--primary); }
         .doc-item img { width: 100%; height: auto; display: block; }
 
+        /* --- NOUVEAU: STYLE POUR LA GALERIE SMARTPHONE --- */
+        .smartphone-item { flex: 0 0 auto; height: 500px; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-lg); border: 4px solid #2d3748; transition: transform 0.3s ease; cursor: pointer; background: black; }
+        .smartphone-item:hover { transform: translateY(-8px); border-color: var(--primary); }
+        .smartphone-item img { height: 100%; width: auto; object-fit: cover; }
+
+
         /* --- MODULES --- */
         .module-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px; }
         .module-tag { background: white; padding: 8px 20px; border-radius: 50px; box-shadow: var(--shadow-sm); border: 1px solid #edf2f7; color: var(--text-light); font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; transition: all 0.3s ease; }
         .module-tag:hover { transform: translateY(-2px); border-color: var(--primary-light); color: var(--primary); box-shadow: var(--shadow-md); }
         .module-tag.special { background: linear-gradient(135deg, #f3e5f5 0%, #fff 100%); border-color: #d6bcfa; color: #6b46c1; font-weight: 600; }
 
+        /* --- VIDEO DEMO --- */
+        .video-section { padding: 4rem 0 2rem; background: #fff; text-align: center; border-bottom: 1px solid #edf2f7; }
+        .video-box { 
+            max-width: 900px; margin: 0 auto; 
+            border-radius: var(--radius-lg); 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); 
+            border: 4px solid white; 
+            overflow: hidden; 
+            background: #000;
+        }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; } /* Ratio 16:9 */
+        
+        /* STYLE DU BOUTON PLAY ET COUVERTURE */
+        .video-placeholder {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://img.youtube.com/vi/aaIg6gDj9b0/maxresdefault.jpg');
+            background-size: cover; background-position: center;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+        .play-btn-overlay {
+            width: 80px; height: 80px; background: rgba(237, 20, 61, 0.9);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: transform 0.3s; box-shadow: 0 0 30px rgba(237, 20, 61, 0.4);
+        }
+        .video-placeholder:hover .play-btn-overlay { transform: scale(1.1); }
+        
         /* --- SECTIONS --- */
         .section-header { text-align: center; margin-bottom: 3.5rem; max-width: 800px; margin-left: auto; margin-right: auto; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--secondary); font-weight: 800; }
@@ -219,6 +263,27 @@
         .icon-box { width: 70px; height: 70px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); }
         .consult-icon { background: #e0e7ff; color: var(--primary); } .ia-icon { background: var(--gradient-ai); color: white; } .bio-icon { background: #fce7f3; color: var(--accent-coral); } .pharma-icon { background: #ffedd5; color: var(--accent-amber); } .stats-icon { background: #d1fae5; color: var(--accent-emerald); }
 
+        /* --- TESTIMONIALS (AVIS) --- */
+        .testimonials-section { padding: 6rem 0; background: #f8fafc; border-top: 1px solid #edf2f7; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .review-card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: var(--radius); 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); 
+            border: 1px solid #edf2f7; 
+            transition: all 0.3s ease;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .review-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary-light); }
+        .review-text { font-size: 0.95rem; color: var(--text-light); font-style: italic; margin-bottom: 15px; position: relative; }
+        .review-text::before { content: '\201C'; font-size: 2rem; color: var(--primary-light); position: absolute; top: -15px; left: -10px; font-family: serif; opacity: 0.5; }
+        .stars { color: #f59e0b; margin-bottom: 12px; font-size: 0.85rem; letter-spacing: 2px; }
+        .doctor-info { display: flex; align-items: center; gap: 12px; border-top: 1px solid #f1f5f9; padding-top: 15px; margin-top: 10px; }
+        .avatar-circle { width: 42px; height: 42px; background: linear-gradient(135deg, #e2e8f0 0%, #f7fafc 100%); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .doc-details h5 { font-size: 0.95rem; color: var(--secondary); margin-bottom: 0; font-weight: 600; }
+        .doc-details span { font-size: 0.8rem; color: #a0aec0; display: block; }
+
         /* --- FOOTER --- */
         footer { background: #1a202c; color: #a0aec0; padding: 4rem 0 2rem; text-align: center; border-top: 4px solid var(--primary); }
         .footer-cta { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 2rem; margin-bottom: 2rem; }
@@ -254,18 +319,149 @@
         .highlight-box { background: #ebf8ff; border-left: 4px solid var(--primary); padding: 15px; margin: 15px 0; border-radius: 4px; }
         .highlight-box.warning { background: #fffaf0; border-color: var(--accent-amber); color: #9c4221; }
 
+        /* MODALE AVERTISSEMENT TELECHARGEMENT */
+        .warning-modal-content { max-width: 500px; text-align: center; border-top: 5px solid var(--accent-amber); }
+        .btn-confirm-dl { background: var(--primary); color: white; padding: 12px 25px; border-radius: 50px; border:none; font-weight:600; cursor:pointer; margin-top:15px; width:100%; transition:0.3s; font-size: 1rem; }
+        .btn-confirm-dl:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-cancel-dl { background: transparent; color: #718096; border: 1px solid #cbd5e0; padding: 10px 25px; border-radius: 50px; cursor:pointer; margin-top:10px; width:100%; font-weight:500; }
+        .btn-cancel-dl:hover { background: #f7fafc; color: var(--secondary); }
+
+        /* --- STYLE LIGHTBOX (ZOOM IMAGE AVANCÉ) --- */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            z-index: 10001;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); /* Fond plus foncé */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Pour placer les contrôles au-dessus */
+            animation: fadeIn 0.2s ease-in-out;
+            overflow: hidden; /* Empêche le scroll de la page derrière */
+        }
+        
+        .lightbox-controls {
+            position: absolute;
+            top: 20px;
+            z-index: 10002;
+            display: flex;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .lightbox-btn:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+        .lightbox-btn.close-btn { color: #ff6b6b; margin-left: 10px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 20px; width: auto; border-radius: 0; }
+        .lightbox-btn.close-btn:hover { background: transparent; color: #ff4757; }
+
+        .lightbox-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: grab;
+            /* CRUCIAL POUR TOUCH */
+            touch-action: none; 
+        }
+        .lightbox-container.grabbing { cursor: grabbing; }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 4px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            transition: transform 0.1s ease-out; /* Transition fluide sauf en drag */
+            transform-origin: center center;
+            user-select: none; /* Empêche la sélection bleue */
+            -webkit-user-drag: none;
+        }
+
+        .zoomable-cursor { cursor: zoom-in; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
         @media (max-width: 1024px) { .split-container, .split-container.reverse { flex-direction: column; gap: 3rem; text-align: center; } h2::after { left: 50%; transform: translateX(-50%); } .img-col { max-width: 600px; margin: 0 auto; } }
+        
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; } .hero-desc { font-size: 1.1rem; } .navbar { padding: 0 15px; }
-            .nav-link-guide span { display: none; } .nav-link-guide { padding: 8px; border-radius: 50%; } .nav-link-guide i { margin: 0; }
-            .btn-float span:not(.arch-badge) { display: none; } .btn-float { padding: 12px; border-radius: 50%; justify-content: center; width: 50px; height: 50px; } .arch-badge { display: none; }
-            .floating-downloads { bottom: 20px; right: 20px; } .btn-whatsapp-float { bottom: 20px; left: 20px; width: 55px; height: 55px; font-size: 28px; }
+            h1 { font-size: 2.2rem; } 
+            .hero-desc { font-size: 1.1rem; } 
+            
+            /* --- CORRECTION NAVBAR MOBILE --- */
+            .navbar { padding: 0 10px; } /* Moins de marge sur les côtés */
+            
+            /* On réduit la taille du texte et de l'image du logo */
+            .logo { font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .logo img { height: 30px; margin-right: 6px; }
+            
+            /* On rapproche les boutons d'action */
+            .nav-actions { gap: 5px; }
+
+            /* Style des boutons ronds */
+            .nav-link-guide span { display: none; } 
+            .nav-link-guide { padding: 8px; border-radius: 50%; width: 40px; height: 40px; justify-content: center; } 
+            .nav-link-guide i { margin: 0; }
+            
+            /* --- CORRECTION DES BOUTONS FLOTTANTS --- */
+            .btn-float span:not(.arch-badge) { display: none; } 
+            
+            /* On AFFICHE le badge x64/x32 */
+            .arch-badge { 
+                display: inline-block !important; 
+                margin-left: 6px; 
+                background: rgba(255,255,255,0.2); 
+                padding: 1px 6px; 
+                border-radius: 4px;
+                font-size: 0.8rem;
+            }
+
+            .btn-float { 
+                padding: 10px 16px; 
+                border-radius: 50px; 
+                justify-content: center; 
+                width: auto; 
+                height: 45px; 
+            }
+            
+            .floating-downloads { bottom: 20px; right: 20px; } 
+            .btn-whatsapp-float { bottom: 20px; left: 20px; width: 55px; height: 55px; font-size: 28px; }
             .section-header h2 { font-size: 1.8rem; }
             .cookie-banner { flex-direction: column; gap: 10px; text-align: center; padding: 15px; } .cookie-text { font-size: 0.8rem; }
+            .video-section { padding: 3rem 0 1rem; }
         }
     </style>
 </head>
 <body>
+
+    <div id="lightbox" class="lightbox-overlay">
+        <div class="lightbox-controls">
+            <button class="lightbox-btn" onclick="zoomImage(0.2)" title="Zoom Avant"><i class="fas fa-plus"></i></button>
+            <button class="lightbox-btn" onclick="zoomImage(-0.2)" title="Zoom Arrière"><i class="fas fa-minus"></i></button>
+            <button class="lightbox-btn" onclick="resetZoom()" title="Taille Originale"><i class="fas fa-compress"></i></button>
+            <button class="lightbox-btn close-btn" onclick="closeLightbox()" title="Fermer"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="lightbox-container" id="lightboxContainer">
+            <img id="lightboxImg" class="lightbox-img" src="" alt="Zoom Image">
+        </div>
+    </div>
 
     <div id="dragWhatsapp" class="btn-whatsapp-float" title="Contactez-nous sur WhatsApp">
         <a href="https://wa.me/212652084735" target="_blank" onclick="trackWhatsApp()" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center; color:white;" aria-label="WhatsApp">
@@ -274,12 +470,12 @@
     </div>
 
     <div id="dragDownloads" class="floating-downloads">
-        <a href="EasyMedicaLink-Win64.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win64.exe')" class="btn-float" title="Version 64 bits">
+        <a href="EasyMedicaLink-Win64.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win64.exe')" class="btn-float" title="Version 64 bits">
             <i class="fab fa-windows"></i>
             <span>Télécharger</span>
             <span class="arch-badge">x64</span>
         </a>
-        <a href="EasyMedicaLink-Win32.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win32.exe')" class="btn-float" title="Version 32 bits">
+        <a href="EasyMedicaLink-Win32.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win32.exe')" class="btn-float" title="Version 32 bits">
             <i class="fab fa-windows"></i>
             <span>Télécharger</span>
             <span class="arch-badge">x32</span>
@@ -290,12 +486,18 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <i class="fas fa-heartbeat"></i> 
+                    <img src="icon.png" alt="Logo EasyMedicaLink"> 
                     EasyMedicaLink
                 </div>
-                <a href="guide.html" target="_blank" class="nav-link-guide" title="Guide d'Utilisation" onclick="trackGuide(event)">
-                    <i class="fas fa-book-open"></i> <span>Guide d'utilisation</span>
-                </a>
+                
+                <div class="nav-actions">
+                    <a href="generateur.html" class="nav-link-guide" title="Générateur d'Entête" style="background: rgba(255,255,255,0.2);">
+                        <i class="fas fa-magic"></i> <span>Studio Entête</span>
+                    </a>
+                    <a href="guide.html" target="_blank" class="nav-link-guide" title="Guide d'Utilisation" onclick="trackGuide(event)">
+                        <i class="fas fa-book-open"></i> <span>Guide d'utilisation</span>
+                    </a>
+                </div>
             </nav>
         </div>
     </header>
@@ -306,10 +508,10 @@
             <p class="hero-desc">Un écosystème complet : de la prise de RDV à la comptabilité, en passant par l'IA médicale. Données 100% locales et sécurisées.</p>
             
             <div class="download-group">
-                <a href="EasyMedicaLink-Win64.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win64.exe')" class="btn-primary">
+                <a href="EasyMedicaLink-Win64.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win64.exe')" class="btn-primary">
                     <i class="fab fa-windows"></i> &nbsp;Télécharger (x64)
                 </a>
-                <a href="EasyMedicaLink-Win32.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win32.exe')" class="btn-secondary">
+                <a href="EasyMedicaLink-Win32.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win32.exe')" class="btn-secondary">
                     <i class="fab fa-windows"></i> &nbsp;Télécharger (x32)
                 </a>
             </div>
@@ -346,6 +548,27 @@
                 <span class="module-tag"><i class="fas fa-calculator"></i> Compta</span>
                 <span class="module-tag special"><i class="fas fa-robot"></i> IA Synapse</span>
             </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2><i class="fas fa-play-circle" style="color:var(--accent-coral);"></i> Démonstration en Action</h2>
+                <p style="color:var(--text-light);">Découvrez en 3 minutes comment EasyMedicaLink simplifie votre cabinet.</p>
+            </div>
+            
+            <div class="video-box">
+                <div class="video-wrapper" id="videoWrapper">
+                    <div class="video-placeholder" onclick="loadVideo(this)">
+                        <div class="play-btn-overlay"><i class="fas fa-play" style="color:white; font-size:30px; margin-left:5px;"></i></div>
+                    </div>
+                </div>
+            </div>
+            <p id="localVideoHelp" style="display:none; font-size:0.85rem; color:#718096; margin-top:15px;">
+                <i class="fas fa-info-circle"></i> La vidéo ne démarre pas ? (Mode local détecté)<br>
+                <a href="https://youtu.be/aaIg6gDj9b0" target="_blank" style="text-decoration:underline; color:var(--primary);">Cliquez ici pour la voir sur YouTube</a>
+            </p>
         </div>
     </section>
 
@@ -506,7 +729,26 @@
             </div>
         </div>
     </section>
-
+    
+    <section class="smartphone-gallery-container" style="padding: 40px 0; overflow: hidden; background: white; border-bottom: 1px solid #edf2f7;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+            <div class="section-header">
+                <h2><i class="fas fa-mobile-alt" style="color:var(--accent-teal);"></i> Aperçu Mobile & Tablette</h2>
+                <p style="color:#718096;">Visualisez l'application sur vos appareils mobiles.</p>
+            </div>
+            
+            <div class="doc-scroll-container hide-scrollbar" style="padding-bottom: 40px;">
+                <div class="smartphone-item" title="Accueil"><img src="s1.jpg" alt="Capture Mobile 1" class="app-screen"></div>
+                <div class="smartphone-item" title="Dashboard"><img src="s2.jpg" alt="Capture Mobile 2" class="app-screen"></div>
+                <div class="smartphone-item" title="Patients"><img src="s3.jpg" alt="Capture Mobile 3" class="app-screen"></div>
+                <div class="smartphone-item" title="Consultation"><img src="s4.jpg" alt="Capture Mobile 4" class="app-screen"></div>
+                <div class="smartphone-item" title="Planning"><img src="s5.jpg" alt="Capture Mobile 5" class="app-screen"></div>
+                <div class="smartphone-item" title="Finances"><img src="s6.jpg" alt="Capture Mobile 6" class="app-screen"></div>
+                <div class="smartphone-item" title="Paramètres"><img src="s7.jpg" alt="Capture Mobile 7" class="app-screen"></div>
+                <div class="smartphone-item" title="Support"><img src="s8.jpg" alt="Capture Mobile 8" class="app-screen"></div>
+            </div>
+        </div>
+    </section>
     <section class="split-section alt">
         <div class="container split-container">
             <div class="text-col">
@@ -525,15 +767,183 @@
         </div>
     </section>
 
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ils nous font confiance</h2>
+                <p>Retours d'expérience de nos médecins utilisateurs.</p>
+            </div>
+            <div class="testimonials-grid">
+                
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Gain de temps incroyable pour mes ordonnances. L'interface est propre et fluide.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Mamadou</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Enfin un logiciel qui ne nécessite pas d'internet constant. La sécurité avant tout.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Aminata</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <p class="review-text">Le module assistant et salle d'attente a transformé l'organisation de mon cabinet.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Koffi</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Très satisfait du support technique. Installation rapide sur mon réseau local.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Zainab</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">L'IA Synapse m'aide beaucoup pour vérifier les interactions médicamenteuses.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Chike</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                        <p class="review-text">Gestion comptable très claire. Je sais enfin où j'en suis financièrement.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Aissa</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">J'utilise l'accès tablette pour voir mes patients en salle d'attente. Top !</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Tesfaye</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Simple, efficace et sans abonnement mensuel caché. Je recommande.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Thandiwe</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <p class="review-text">La personnalisation des entêtes d'ordonnance est un vrai plus professionnel.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Sekou</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Sauvegarde automatique rassurante. Mes données patients sont en sécurité.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Malika</h5>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">L'envoi automatique de rappels WhatsApp a réduit mes RDV manqués de 50%.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Babatunde</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text">Excellent rapport qualité/prix pour une solution aussi complète au Maroc.</p>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="doc-details">
+                            <h5>Dr. Nandi</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-cta">
                 <h4 style="color:white; margin-bottom: 20px; font-size: 1.5rem;">Prêt à moderniser votre cabinet ?</h4>
                 <div class="download-group">
-                    <a href="EasyMedicaLink-Win64.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win64.exe')" class="btn-primary">
+                    <a href="EasyMedicaLink-Win64.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win64.exe')" class="btn-primary">
                         <i class="fab fa-windows"></i> Télécharger x64
                     </a>
-                    <a href="EasyMedicaLink-Win32.exe" onclick="forceDownload(event, 'EasyMedicaLink-Win32.exe')" class="btn-secondary" style="background:transparent; color:white; border-color:white;">
+                    <a href="EasyMedicaLink-Win32.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win32.exe')" class="btn-secondary" style="background:transparent; color:white; border-color:white;">
                         <i class="fab fa-windows"></i> Télécharger x32
                     </a>
                 </div>
@@ -541,6 +951,7 @@
 
             <div class="footer-links">
                 <a href="guide.html" target="_blank" onclick="trackGuide(event)"><i class="fas fa-book"></i> Guide d'Utilisation</a>
+                <a href="generateur.html" target="_blank"><i class="fas fa-magic"></i> Générateur Entête</a>
                 <a href="#" onclick="openModal('privacyModal', event)"><i class="fas fa-shield-alt"></i> Confidentialité</a>
                 <a href="#" onclick="openModal('termsModal', event)"><i class="fas fa-file-contract"></i> CGU</a>
             </div>
@@ -597,7 +1008,233 @@
         </div>
     </div>
 
+    <div id="downloadWarningModal" class="modal-overlay" onclick="closeDownloadModal()">
+        <div class="modal-content warning-modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header" style="justify-content:center; border:none; padding-bottom:0;">
+                <div style="width:60px; height:60px; background:#fffaf0; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:30px; color:var(--accent-amber); margin-bottom:10px;">
+                    <i class="fab fa-windows"></i>
+                </div>
+            </div>
+            <div class="modal-body" style="text-align:center; padding-top:0;">
+                <h2 style="font-size:1.4rem; color:var(--secondary); margin-bottom:10px;">Prérequis Windows</h2>
+                <p style="color:#4a5568; font-size:0.95rem;">
+                    <strong>Attention :</strong> EasyMedicaLink est un logiciel qui doit être installé sur un <strong>Ordinateur PC (Windows)</strong>.
+                </p>
+                <div style="color:#718096; font-size:0.9rem; background:#f7fafc; padding:10px; border-radius:8px; margin-top:10px;">
+                    <p style="margin-bottom:8px;">Le fichier <em>.exe</em> ne s'ouvrira pas sur un téléphone ou un Mac.</p>
+                    <p style="font-weight:500; color:#2d3748; border-top:1px solid #e2e8f0; padding-top:8px;">
+                        <i class="fas fa-wifi"></i> Note importante :<br>
+                        Pour utiliser l'application sur Mac, Tablette ou Smartphone, ces appareils devront être connectés au <strong>même réseau local</strong> que ce PC.
+                    </p>
+                </div>
+                
+                <button class="btn-confirm-dl" onclick="confirmDownload()">
+                    <i class="fas fa-check-circle"></i> Je suis sur PC, Télécharger
+                </button>
+                <button class="btn-cancel-dl" onclick="closeDownloadModal()">
+                    Annuler
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // --- LOGIQUE VIDÉO CLICK-TO-LOAD ---
+        function loadVideo(el) {
+            // Remplace l'image par l'iframe YouTube
+            // Note pour l'utilisateur : L'erreur 153 est normale en file://
+            el.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/aaIg6gDj9b0?autoplay=1&rel=0&modestbranding=1" title="Démonstration EasyMedicaLink" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>';
+            
+            // Affiche le message d'aide pour le local
+            setTimeout(() => {
+                document.getElementById('localVideoHelp').style.display = 'block';
+            }, 1500);
+        }
+
+        // --- LOGIQUE LIGHTBOX AVEC PINCH-TO-ZOOM (TOUCH) ---
+        let scale = 1;
+        let isDragging = false;
+        
+        // Variables pour PC (Souris)
+        let startX, startY;
+        
+        // Variables pour Translations
+        let currentTranslateX = 0, currentTranslateY = 0;
+        let prevTranslateX = 0, prevTranslateY = 0;
+
+        // Variables pour Touch (Pinch)
+        let initialPinchDistance = 0;
+        let initialScale = 1;
+
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightboxImg');
+        const container = document.getElementById('lightboxContainer');
+
+        function openLightbox(src) {
+            img.src = src;
+            lightbox.style.display = 'flex';
+            resetZoom(); // Reset à l'ouverture
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        function updateTransform() {
+            img.style.transform = `translate(${currentTranslateX}px, ${currentTranslateY}px) scale(${scale})`;
+        }
+
+        function zoomImage(amount) {
+            const oldScale = scale;
+            scale += amount;
+            if (scale < 0.5) scale = 0.5; // Min zoom
+            if (scale > 4) scale = 4; // Max zoom
+            
+            // Si on dézoome vers la taille normale, on reset la position
+            if(Math.abs(scale - 1) < 0.1) {
+                resetZoom();
+            } else {
+                updateTransform();
+            }
+        }
+
+        function resetZoom() {
+            scale = 1;
+            currentTranslateX = 0; currentTranslateY = 0;
+            prevTranslateX = 0; prevTranslateY = 0;
+            updateTransform();
+        }
+
+        // --- GESTION SOURIS (PC) ---
+        container.addEventListener('mousedown', (e) => {
+            if(scale <= 1) return; 
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            container.classList.add('grabbing');
+            img.style.transition = 'none'; 
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const xDiff = e.clientX - startX;
+            const yDiff = e.clientY - startY;
+            currentTranslateX = prevTranslateX + xDiff;
+            currentTranslateY = prevTranslateY + yDiff;
+            updateTransform();
+        });
+
+        window.addEventListener('mouseup', () => {
+            if(isDragging) {
+                isDragging = false;
+                prevTranslateX = currentTranslateX;
+                prevTranslateY = currentTranslateY;
+                container.classList.remove('grabbing');
+                img.style.transition = 'transform 0.1s ease-out'; 
+            }
+        });
+
+        container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            if (e.deltaY < 0) zoomImage(0.1);
+            else zoomImage(-0.1);
+        }, { passive: false });
+
+        // --- GESTION TACTILE (TOUCH) ---
+        
+        function getDistance(touches) {
+            return Math.hypot(
+                touches[0].pageX - touches[1].pageX,
+                touches[0].pageY - touches[1].pageY
+            );
+        }
+
+        container.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 2) {
+                // PINCH DETECTED
+                e.preventDefault(); // Empêche le zoom navigateur
+                initialPinchDistance = getDistance(e.touches);
+                initialScale = scale;
+            } else if (e.touches.length === 1 && scale > 1) {
+                // PAN DETECTED (Si déjà zoomé)
+                isDragging = true;
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                img.style.transition = 'none';
+            }
+        }, { passive: false });
+
+        container.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 2) {
+                // PINCHING
+                e.preventDefault();
+                const currentDistance = getDistance(e.touches);
+                if (initialPinchDistance > 0) {
+                    const diff = currentDistance / initialPinchDistance;
+                    scale = initialScale * diff;
+                    if (scale < 0.5) scale = 0.5;
+                    if (scale > 4) scale = 4;
+                    updateTransform();
+                }
+            } else if (e.touches.length === 1 && isDragging) {
+                // PANNING
+                e.preventDefault(); // Empêche le scroll page
+                const xDiff = e.touches[0].clientX - startX;
+                const yDiff = e.touches[0].clientY - startY;
+                currentTranslateX = prevTranslateX + xDiff;
+                currentTranslateY = prevTranslateY + yDiff;
+                updateTransform();
+            }
+        }, { passive: false });
+
+        container.addEventListener('touchend', (e) => {
+            if (isDragging) {
+                isDragging = false;
+                prevTranslateX = currentTranslateX;
+                prevTranslateY = currentTranslateY;
+                img.style.transition = 'transform 0.1s ease-out';
+            }
+            if (e.touches.length < 2) {
+                initialPinchDistance = 0;
+            }
+        });
+
+
+        // --- VARIABLE POUR STOCKER LE FICHIER EN ATTENTE ---
+        let currentDownloadFile = '';
+
+        // --- OUVERTURE DE LA MODALE D'AVERTISSEMENT ---
+        function openDownloadModal(event, fileName) {
+            event.preventDefault();
+            const btn = event.currentTarget.closest('.floating-downloads');
+            if(btn && btn.getAttribute('data-dragging') === 'true') return;
+            currentDownloadFile = fileName;
+            document.getElementById('downloadWarningModal').style.display = 'flex';
+        }
+
+        // --- FERMETURE DE LA MODALE ---
+        function closeDownloadModal() {
+            document.getElementById('downloadWarningModal').style.display = 'none';
+        }
+
+        // --- CONFIRMATION ET LANCEMENT DU TELECHARGEMENT ---
+        function confirmDownload() {
+            closeDownloadModal();
+            console.log("Download confirmed: " + currentDownloadFile);
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: currentDownloadFile,
+                    content_category: 'Software Download',
+                    value: 0.00,
+                    currency: 'MAD'
+                });
+            }
+            setTimeout(() => { 
+                window.location.href = currentDownloadFile; 
+            }, 300);
+        }
+
         // --- TRACKING WHATSAPP ---
         function trackWhatsApp() {
             if (typeof fbq === 'function') {
@@ -606,72 +1243,32 @@
             }
         }
 
-        // --- TRACKING GUIDE (CORRIGÉ : SANS PREVENT DEFAULT) ---
+        // --- TRACKING GUIDE ---
         function trackGuide(event) {
-            // On laisse l'événement se propager pour ouvrir le lien (target="_blank")
             if (typeof fbq === 'function') {
                 console.log("Tracking Guide Click");
                 fbq('track', 'ViewContent', {content_name: 'Guide Utilisation', content_category: 'Help'});
             }
         }
 
-        // --- TRACKING DOWNLOAD (LEAD) ---
-        function forceDownload(event, fileName) {
-            event.preventDefault();
-            const btn = event.currentTarget.closest('.floating-downloads');
-            if(btn && btn.getAttribute('data-dragging') === 'true') return;
-
-            console.log("Download triggered: " + fileName);
-            
-            // PIXEL EVENT : LEAD
-            if (typeof fbq === 'function') {
-                fbq('track', 'Lead', {
-                    content_name: fileName,
-                    content_category: 'Software Download',
-                    value: 0.00,
-                    currency: 'MAD'
-                });
-            }
-
-            setTimeout(() => { window.location.href = fileName; }, 300);
-        }
-
-        // --- TRACKING TEMPS PASSÉ (10s, 30s, 60s) ---
-        document.addEventListener('DOMContentLoaded', () => {
-            let seconds = 0;
-            // Vérification toutes les 10 secondes
-            setInterval(() => {
-                seconds += 10;
-                if (typeof fbq === 'function') {
-                    if (seconds === 10 || seconds === 30 || seconds === 60 || seconds === 120) {
-                        console.log("TimeOnPage: " + seconds + "s");
-                        fbq('trackCustom', 'TimeOnPage', { seconds: seconds });
-                    }
-                }
-            }, 10000); // 10000 ms = 10 secondes
-        });
-
-        // --- GESTION DU BANDEAU COOKIES ---
+        // --- COOKIES ---
         function checkCookieConsent() {
             if (!localStorage.getItem('cookieConsent')) {
                 setTimeout(() => { document.getElementById('cookieBanner').classList.add('show'); }, 1000);
             }
         }
-
         function acceptCookies() {
             localStorage.setItem('cookieConsent', 'true');
             document.getElementById('cookieBanner').classList.remove('show');
         }
 
-        // --- LOGIQUE DRAG & DROP ---
+        // --- DRAG & DROP ---
         function makeDraggable(elementId) {
             const elmnt = document.getElementById(elementId);
             let pos1=0, pos2=0, pos3=0, pos4=0;
             let isDragging = false;
-
             elmnt.onmousedown = dragMouseDown;
             elmnt.addEventListener('touchstart', dragMouseDown, {passive: false});
-
             function dragMouseDown(e) {
                 if(e.target.closest('a') && e.type !== 'touchstart') return;
                 const evt = e.type === 'touchstart' ? e.touches[0] : e;
@@ -679,7 +1276,6 @@
                 document.onmouseup = closeDragElement; document.onmousemove = elementDrag;
                 document.addEventListener('touchend', closeDragElement); document.addEventListener('touchmove', elementDrag, {passive: false});
             }
-
             function elementDrag(e) {
                 const evt = e.type === 'touchmove' ? e.touches[0] : e;
                 if(!isDragging) { isDragging = true; elmnt.setAttribute('data-dragging', 'true'); }
@@ -688,7 +1284,6 @@
                 elmnt.style.top = (elmnt.offsetTop - pos2) + "px"; elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
                 elmnt.style.bottom = 'auto'; elmnt.style.right = 'auto';
             }
-
             function closeDragElement() {
                 document.onmouseup = null; document.onmousemove = null;
                 document.removeEventListener('touchend', closeDragElement); document.removeEventListener('touchmove', elementDrag);
@@ -696,14 +1291,37 @@
             }
         }
 
-        // --- MODALES ---
+        // --- MODALES (Privacy/Terms) ---
         function openModal(id, e) { if(e) e.preventDefault(); document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
+        // --- INITIALISATION GENERALE ---
         document.addEventListener('DOMContentLoaded', () => {
             makeDraggable("dragWhatsapp");
             makeDraggable("dragDownloads");
             checkCookieConsent();
+
+            // --- TRACKING TEMPS PASSÉ ---
+            let seconds = 0;
+            setInterval(() => {
+                seconds += 10;
+                if (typeof fbq === 'function') {
+                    if (seconds === 10 || seconds === 30 || seconds === 60 || seconds === 120) {
+                        fbq('trackCustom', 'TimeOnPage', { seconds: seconds });
+                    }
+                }
+            }, 10000);
+
+            // --- ACTIVATION DU ZOOM SUR LES IMAGES (AVEC MOBILE) ---
+            // On sélectionne : screenshot hero, items galerie, images colonnes, cards admin ET APPS SMARTPHONE
+            const images = document.querySelectorAll('.hero-main-screenshot img, .doc-item img, .img-col img, .admin-card img, .app-screen');
+            
+            images.forEach(img => {
+                img.classList.add('zoomable-cursor'); // Change le curseur
+                img.onclick = function() {
+                    openLightbox(this.src); // Ouvre le zoom au clic
+                };
+            });
         });
     </script>
 </body>
