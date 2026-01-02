@@ -24,8 +24,8 @@ Tous les fichiers (HTML, images, archives ZIP) doivent être placés **au même 
 │
 ├── index.html              # Code source principal
 ├── icon.png                # Favicon
-├── EasyMedicaLink-Win64.zip
-├── EasyMedicaLink-Win32.zip
+├── EasyMedicaLink-Win64.exe
+├── EasyMedicaLink-Win32.exe
 │
 ├── 1.png                   # Image principale Hero
 ├── 1-1.png                 # Image Authentification
@@ -44,4 +44,5 @@ Tous les fichiers (HTML, images, archives ZIP) doivent être placés **au même 
 ├── facture.jpg             # Document : Facture
 ├── analyse.jpg             # Document : Analyse
 ├── radiologie.jpg          # Document : Radio
+
 └── historique.jpg          # Document : Historique
