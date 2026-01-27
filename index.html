@@ -447,6 +447,42 @@
             .cookie-banner { flex-direction: column; gap: 10px; text-align: center; padding: 15px; } .cookie-text { font-size: 0.8rem; }
             .video-section { padding: 3rem 0 1rem; }
         }
+
+        /* --- SECTION PAYS --- */
+.countries-section {
+    padding: 4rem 0;
+    background: white;
+    text-align: center;
+    border-top: 1px solid #edf2f7;
+}
+.countries-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 1000px;
+    margin: 30px auto 0;
+}
+.country-tag {
+    background: #f1f5f9;
+    color: var(--secondary);
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+.country-tag:hover {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+.world-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
     </style>
 </head>
 <body>
@@ -936,6 +972,52 @@
     </section>
 
     <footer>
+
+<section class="countries-section">
+    <div class="container">
+        <div class="world-icon"><i class="fas fa-globe-africa"></i></div>
+        <div class="section-header" style="margin-bottom: 20px;">
+            <h2>Une Solution Sans Frontières</h2>
+            <p>EasyMedicaLink accompagne déjà des praticiens dans plus de 25 pays francophones.</p>
+        </div>
+        
+        <div class="countries-grid">
+            <span class="country-tag">Algérie</span>
+            <span class="country-tag">Bénin</span>
+            <span class="country-tag">Belgique</span>
+            <span class="country-tag">Burkina Faso</span>
+            <span class="country-tag">Burundi</span>
+            <span class="country-tag">Cameroun</span>
+            <span class="country-tag">Canada</span>
+            <span class="country-tag">Centrafrique</span>
+            <span class="country-tag">Comores</span>
+            <span class="country-tag">Congo</span>
+            <span class="country-tag">RD Congo</span>
+            <span class="country-tag">Côte d’Ivoire</span>
+            <span class="country-tag">Djibouti</span>
+            <span class="country-tag">France</span>
+            <span class="country-tag">Gabon</span>
+            <span class="country-tag">Guinée</span>
+            <span class="country-tag">Haïti</span>
+            <span class="country-tag">Luxembourg</span>
+            <span class="country-tag">Madagascar</span>
+            <span class="country-tag">Mali</span>
+            <span class="country-tag">Maroc</span>
+            <span class="country-tag">Mauritanie</span>
+            <span class="country-tag">Niger</span>
+            <span class="country-tag">Rwanda</span>
+            <span class="country-tag">Sénégal</span>
+            <span class="country-tag">Suisse</span>
+            <span class="country-tag">Tchad</span>
+            <span class="country-tag">Togo</span>
+            <span class="country-tag">Tunisie</span>
+        </div>
+        <p style="margin-top: 25px; font-size: 0.9rem; color: var(--text-lighter);">
+            * Configuration personalisée des devises.
+        </p>
+    </div>
+</section>
+
         <div class="container">
             <div class="footer-cta">
                 <h4 style="color:white; margin-bottom: 20px; font-size: 1.5rem;">Prêt à moderniser votre cabinet ?</h4>
