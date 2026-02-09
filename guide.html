@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -257,4 +258,265 @@
         });
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide d'utilisation officiel EasyMedicaLink. Apprenez à installer et gérer votre cabinet médical.">
+    <title>Guide d'Utilisation | EasyMedicaLink</title>
+    
+    <link rel="icon" type="image/png" href="icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // ⚠️ REMPLACEZ PAR VOTRE ID
+        fbq('init', '2280274399125202'); 
+        
+        // Tracking standard de la vue
+        fbq('track', 'PageView');
+        
+        // Tracking spécifique "Consultation du Guide"
+        fbq('track', 'ViewContent', {
+            content_name: 'Guide Complet',
+            content_category: 'Support'
+        });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2280274399125202&ev=PageView&noscript=1"
+    alt="Facebook Pixel" /></noscript>
+    <style>
+        /* --- STYLE IDENTIQUE A L'INDEX POUR COHÉRENCE --- */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary: #5a67d8;
+            --secondary: #2d3748;
+            --text-main: #2d3748;
+            --text-light: #4a5568;
+            --bg-body: #f7fafc;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            --accent-teal: #0bc5ea;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-body); color: var(--text-main); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* HEADER */
+        header { background: #2d3748; color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--primary); box-shadow: var(--shadow-md); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; }
+        .logo i { color: var(--accent-teal); margin-right: 10px; font-size: 1.6rem; }
+        .btn-back { background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 50px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-back:hover { background: var(--primary); border-color: var(--primary); }
+
+        /* LAYOUT PRINCIPAL */
+        .doc-layout { display: flex; max-width: 1200px; margin: 40px auto; padding: 0 20px; gap: 40px; align-items: flex-start; }
+        
+        /* SIDEBAR (Table des matières) */
+        .sidebar { width: 280px; position: sticky; top: 100px; background: white; padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow-md); border: 1px solid #edf2f7; }
+        .sidebar h3 { font-size: 1.1rem; margin-bottom: 20px; color: var(--secondary); border-bottom: 2px solid #edf2f7; padding-bottom: 10px; }
+        .sidebar ul li { margin-bottom: 12px; }
+        .sidebar a { color: var(--text-light); font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
+        .sidebar a:hover, .sidebar a.active { color: var(--primary); font-weight: 600; transform: translateX(5px); }
+        .sidebar i { width: 20px; text-align: center; }
+
+        /* CONTENU */
+        .content { flex: 1; }
+        .hero-doc { background: white; padding: 40px; border-radius: var(--radius-lg); margin-bottom: 40px; box-shadow: var(--shadow-md); text-align: center; border-bottom: 4px solid var(--primary); }
+        .hero-doc h1 { font-size: 2.5rem; margin-bottom: 10px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .section-card { background: white; padding: 35px; border-radius: var(--radius); margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #edf2f7; scroll-margin-top: 100px; }
+        .section-card h2 { color: var(--secondary); font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+        .section-card h2 i { color: var(--primary); background: #ebf4ff; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-size: 1.2rem; }
+        
+        .step-box { background: #f8fafc; border-left: 4px solid var(--accent-teal); padding: 20px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+        .step-title { font-weight: 700; color: #2d3748; display: block; margin-bottom: 5px; }
+
+        .tip-box { background: #fffaf0; border: 1px solid #fbd38d; color: #9c4221; padding: 15px; border-radius: 8px; margin-top: 20px; display: flex; gap: 10px; }
+        
+        footer { text-align: center; padding: 40px; color: var(--text-light); border-top: 1px solid #e2e8f0; margin-top: 50px; }
+
+        @media (max-width: 900px) {
+            .doc-layout { flex-direction: column; }
+            .sidebar { width: 100%; position: relative; top: 0; margin-bottom: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i> EasyMedicaLink
+            </div>
+            <a href="index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Retour à l'accueil
+            </a>
+        </div>
+    </header>
+
+    <div class="doc-layout">
+        <aside class="sidebar">
+            <h3><i class="fas fa-list"></i> Sommaire</h3>
+            <nav>
+                <ul>
+                    <li><a href="#install"><i class="fas fa-download"></i> Installation</a></li>
+                    <li><a href="#connexion"><i class="fas fa-key"></i> Première Connexion</a></li>
+                    <li><a href="#rdv"><i class="fas fa-calendar-check"></i> Gestion des RDV</a></li>
+                    <li><a href="#consult"><i class="fas fa-stethoscope"></i> Consultation</a></li>
+                    <li><a href="#ia"><i class="fas fa-robot"></i> Assistant IA</a></li>
+                    <li><a href="#reseau"><i class="fas fa-network-wired"></i> Config. Réseau</a></li>
+                </ul>
+            </nav>
+            <div style="margin-top: 30px; padding: 15px; background: #ebf8ff; border-radius: 8px; font-size: 0.9rem;">
+                <strong>Besoin d'aide ?</strong><br>
+                <a href="https://wa.me/212652084735" target="_blank" style="color:var(--primary); font-weight:bold; margin-top:5px; display:inline-block;">
+                    <i class="fab fa-whatsapp"></i> Contacter le support
+                </a>
+            </div>
+        </aside>
+
+        <main class="content">
+            
+            <div class="hero-doc">
+                <h1>Guide d'Utilisation</h1>
+                <p>Bienvenue dans la documentation officielle. Maîtrisez EasyMedicaLink en quelques minutes.</p>
+            </div>
+
+            <section id="install" class="section-card">
+                <h2><i class="fas fa-download"></i> Installation &amp; Démarrage</h2>
+                <p>EasyMedicaLink utilise une architecture hybride (Serveur/Client). Voici comment configurer votre cabinet.</p>
+                
+                <div class="step-box">
+                    <span class="step-title">Étape 1 : Le PC "Serveur"</span>
+                    Choisissez l'ordinateur le plus puissant du cabinet (celui de l'accueil ou du médecin). Téléchargez et installez la version <strong>x64</strong> (recommandée).
+                </div>
+                
+                <div class="step-box">
+                    <span class="step-title">Étape 2 : L'Assistant d'Installation</span>
+                    Lancez l'installateur. Cliquez sur "Suivant" jusqu'à la fin. Une icône "EasyMedicaLink Server" apparaîtra sur le bureau.
+                </div>
+                
+                <div class="tip-box">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <strong>Astuce :</strong> Désactivez la mise en veille sur le PC Serveur pour garantir un accès continu aux autres appareils (tablettes, secrétariat).
+                    </div>
+                </div>
+            </section>
+
+            <section id="connexion" class="section-card">
+                <h2><i class="fas fa-user-lock"></i> Connexion</h2>
+                <p>Au premier lancement, le logiciel vous demandera de créer le compte <strong>Administrateur</strong>.</p>
+                <ul>
+                    <li><strong>Utilisateur par défaut :</strong> admin</li>
+                    <li><strong>Mot de passe :</strong> (Celui que vous définirez)</li>
+                </ul>
+                <br>
+                <p>Une fois connecté, allez dans <strong>Paramètres > Clinique</strong> pour entrer le nom de votre cabinet et votre logo pour les ordonnances.</p>
+            </section>
+
+            <section id="rdv" class="section-card">
+                <h2><i class="fas fa-calendar-alt"></i> Agenda &amp; RDV</h2>
+                <p>Le module RDV est le cœur du secrétariat. Il permet de gérer le flux de patients.</p>
+                
+                <div class="step-box">
+                    <span class="step-title">Ajouter un RDV</span>
+                    Cliquez sur une case horaire libre. Recherchez un patient existant ou créez-en un "Rapide" (Nom + Tél uniquement).
+                </div>
+
+                <div class="step-box">
+                    <span class="step-title">Salle d'attente</span>
+                    Dès que le patient arrive, faites un clic droit sur le RDV > <strong>"Marquer comme Arrivé"</strong>. Il apparaîtra instantanément sur l'écran du médecin.
+                </div>
+            </section>
+
+            <section id="consult" class="section-card">
+                <h2><i class="fas fa-user-md"></i> La Consultation</h2>
+                <p>Interface optimisée pour la saisie rapide durant l'examen.</p>
+                <ul>
+                    <li><strong>Constantes :</strong> Saisie rapide (Tension, Poids, Température).</li>
+                    <li><strong>Ordonnance :</strong> Tapez les 3 premières lettres d'un médicament. La posologie par défaut s'affiche automatiquement.</li>
+                    <li><strong>Documents :</strong> Cliquez sur "Certificat" ou "Lettre" pour générer un PDF prêt à imprimer.</li>
+                </ul>
+            </section>
+
+            <section id="ia" class="section-card">
+                <h2><i class="fas fa-brain"></i> Assistant IA (Synapse)</h2>
+                <p>Utilisez l'intelligence artificielle pour analyser des cas complexes.</p>
+                <div class="step-box">
+                    <span class="step-title">Analyse de documents</span>
+                    Vous pouvez scanner un rapport de biologie (PDF ou Image) et demander à l'IA : <em>"Résume-moi les anomalies de ce bilan sanguin"</em>.
+                </div>
+                <div class="tip-box">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <strong>Important :</strong> L'IA est une aide à la décision. Vérifiez toujours ses suggestions.
+                    </div>
+                </div>
+            </section>
+
+            <section id="reseau" class="section-card">
+                <h2><i class="fas fa-wifi"></i> Connexion des autres appareils</h2>
+                <p>Pour connecter une tablette ou un Mac :</p>
+                <ol style="margin-left:20px;">
+                    <li>Assurez-vous d'être sur le <strong>même réseau Wi-Fi</strong> que le PC Serveur.</li>
+                    <li>Sur le PC Serveur, regardez en bas de l'écran d'accueil, l'adresse IP est affichée (ex: <code>http://192.168.1.15:3000</code>).</li>
+                    <li>Ouvrez Chrome ou Safari sur votre tablette et tapez cette adresse.</li>
+                </ol>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 EasyMedicaLink. Documentation Officielle.<br>
+        Besoin d'aide technique ? Contactez le support.</p>
+    </footer>
+
+    <script>
+        // Ce script mesure le temps passé spécifiquement sur le guide
+        // Cela permet de cibler les gens qui lisent la doc (très intéressés)
+        
+        let secondsOnGuide = 0;
+        
+        setInterval(() => {
+            secondsOnGuide += 10;
+            
+            // On envoie un signal au Pixel toutes les 10, 30, 60 et 120 secondes
+            if (typeof fbq === 'function') {
+                if ([10, 30, 60, 120].includes(secondsOnGuide)) {
+                    console.log("Guide Engagement: " + secondsOnGuide + "s");
+                    fbq('trackCustom', 'TimeOnPageGuide', { seconds: secondsOnGuide });
+                }
+            }
+        }, 10000); // Check toutes les 10s
+
+        // Animation simple pour le scroll fluide du menu latéral
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+>>>>>>> 69426461f5e134ccfb05e3540458ef481d159658
 </html>
