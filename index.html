@@ -21,7 +21,6 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         
-        // ⚠️ ID PIXEL ACTIF
         fbq('init', '2280274399125202'); 
         fbq('track', 'PageView');
     </script>
@@ -505,16 +504,11 @@
         </a>
     </div>
 
+    <!-- Boutons flottants : un seul bouton de téléchargement -->
     <div id="dragDownloads" class="floating-downloads">
-        <a href="EasyMedicaLink-Win64.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win64.exe')" class="btn-float" title="Version 64 bits">
-            <i class="fab fa-windows"></i>
+        <a href="#" onclick="openDownloadModal(event)" class="btn-float" title="Télécharger EasyMedicaLink">
+            <i class="fas fa-download"></i>
             <span>Télécharger</span>
-            <span class="arch-badge">x64</span>
-        </a>
-        <a href="EasyMedicaLink-Win32.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win32.exe')" class="btn-float" title="Version 32 bits">
-            <i class="fab fa-windows"></i>
-            <span>Télécharger</span>
-            <span class="arch-badge">x32</span>
         </a>
     </div>
 
@@ -548,12 +542,10 @@
             <h1>Le Hub Central de votre<br>Activité Médicale</h1>
             <p class="hero-desc">Un écosystème complet : de la prise de RDV à la comptabilité, en passant par l'IA médicale. Données 100% locales et sécurisées.</p>
             
+            <!-- Un seul bouton de téléchargement -->
             <div class="download-group">
-                <a href="EasyMedicaLink-Win64.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win64.exe')" class="btn-primary">
-                    <i class="fab fa-windows"></i> &nbsp;Télécharger (x64)
-                </a>
-                <a href="EasyMedicaLink-Win32.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win32.exe')" class="btn-secondary">
-                    <i class="fab fa-windows"></i> &nbsp;Télécharger (x32)
+                <a href="#" onclick="openDownloadModal(event)" class="btn-primary">
+                    <i class="fas fa-download"></i> &nbsp;Télécharger EasyMedicaLink
                 </a>
             </div>
 
@@ -1027,11 +1019,8 @@
             <div class="footer-cta">
                 <h4 style="color:white; margin-bottom: 20px; font-size: 1.5rem;">Prêt à moderniser votre cabinet ?</h4>
                 <div class="download-group">
-                    <a href="EasyMedicaLink-Win64.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win64.exe')" class="btn-primary">
-                        <i class="fab fa-windows"></i> Télécharger x64
-                    </a>
-                    <a href="EasyMedicaLink-Win32.exe" onclick="openDownloadModal(event, 'EasyMedicaLink-Win32.exe')" class="btn-secondary" style="background:transparent; color:white; border-color:white;">
-                        <i class="fab fa-windows"></i> Télécharger x32
+                    <a href="#" onclick="openDownloadModal(event)" class="btn-primary">
+                        <i class="fas fa-download"></i> Télécharger EasyMedicaLink
                     </a>
                 </div>
             </div>
@@ -1095,28 +1084,30 @@
         </div>
     </div>
 
+    <!-- Modale d'avertissement pour le téléchargement (adaptée au ZIP) -->
     <div id="downloadWarningModal" class="modal-overlay" onclick="closeDownloadModal()">
         <div class="modal-content warning-modal-content" onclick="event.stopPropagation()">
             <div class="modal-header" style="justify-content:center; border:none; padding-bottom:0;">
                 <div style="width:60px; height:60px; background:#fffaf0; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:30px; color:var(--accent-amber); margin-bottom:10px;">
-                    <i class="fab fa-windows"></i>
+                    <i class="fas fa-file-archive"></i>
                 </div>
             </div>
             <div class="modal-body" style="text-align:center; padding-top:0;">
-                <h2 style="font-size:1.4rem; color:var(--secondary); margin-bottom:10px;">Prérequis Windows</h2>
+                <h2 style="font-size:1.4rem; color:var(--secondary); margin-bottom:10px;">Téléchargement du logiciel</h2>
                 <p style="color:#4a5568; font-size:0.95rem;">
-                    <strong>Attention :</strong> EasyMedicaLink est un logiciel qui doit être installé sur un <strong>Ordinateur PC (Windows)</strong>.
+                    Vous allez télécharger l'archive <strong>ZIP</strong> contenant l'installateur d'EasyMedicaLink.
                 </p>
                 <div style="color:#718096; font-size:0.9rem; background:#f7fafc; padding:10px; border-radius:8px; margin-top:10px;">
-                    <p style="margin-bottom:8px;">Le fichier <em>.exe</em> ne s'ouvrira pas sur un téléphone ou un Mac.</p>
+                    <p style="margin-bottom:8px;">1. Extrayez le fichier <em>.zip</em> sur votre PC Windows.<br>
+                    2. Lancez <strong>EasyMedicaLink.exe</strong> pour démarrer l'installation.</p>
                     <p style="font-weight:500; color:#2d3748; border-top:1px solid #e2e8f0; padding-top:8px;">
                         <i class="fas fa-wifi"></i> Note importante :<br>
-                        Pour utiliser l'application sur Mac, Tablette ou Smartphone, ces appareils devront être connectés au <strong>même réseau local</strong> que ce PC.
+                        Pour utiliser l'application sur Mac, Tablette ou Smartphone, ces appareils devront être connectés au <strong>même réseau local</strong> que le PC serveur.
                     </p>
                 </div>
                 
                 <button class="btn-confirm-dl" onclick="confirmDownload()">
-                    <i class="fas fa-check-circle"></i> Je suis sur PC, Télécharger
+                    <i class="fas fa-check-circle"></i> Télécharger le ZIP
                 </button>
                 <button class="btn-cancel-dl" onclick="closeDownloadModal()">
                     Annuler
@@ -1126,13 +1117,12 @@
     </div>
 
     <script>
+        // --- Lien de téléchargement unique (ZIP) ---
+        const DOWNLOAD_URL = 'https://github.com/Sastouka/EasyMedicaLin/releases/download/V1.0.1/EasyMedicaLink.zip';
+
         // --- LOGIQUE VIDÉO CLICK-TO-LOAD ---
         function loadVideo(el) {
-            // Remplace l'image par l'iframe YouTube
-            // Note pour l'utilisateur : L'erreur 153 est normale en file://
             el.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/aaIg6gDj9b0?autoplay=1&rel=0&modestbranding=1" title="Démonstration EasyMedicaLink" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>';
-            
-            // Affiche le message d'aide pour le local
             setTimeout(() => {
                 document.getElementById('localVideoHelp').style.display = 'block';
             }, 1500);
@@ -1141,15 +1131,9 @@
         // --- LOGIQUE LIGHTBOX AVEC PINCH-TO-ZOOM (TOUCH) ---
         let scale = 1;
         let isDragging = false;
-        
-        // Variables pour PC (Souris)
         let startX, startY;
-        
-        // Variables pour Translations
         let currentTranslateX = 0, currentTranslateY = 0;
         let prevTranslateX = 0, prevTranslateY = 0;
-
-        // Variables pour Touch (Pinch)
         let initialPinchDistance = 0;
         let initialScale = 1;
 
@@ -1160,7 +1144,7 @@
         function openLightbox(src) {
             img.src = src;
             lightbox.style.display = 'flex';
-            resetZoom(); // Reset à l'ouverture
+            resetZoom();
         }
 
         function closeLightbox() {
@@ -1174,10 +1158,8 @@
         function zoomImage(amount) {
             const oldScale = scale;
             scale += amount;
-            if (scale < 0.5) scale = 0.5; // Min zoom
-            if (scale > 4) scale = 4; // Max zoom
-            
-            // Si on dézoome vers la taille normale, on reset la position
+            if (scale < 0.5) scale = 0.5;
+            if (scale > 4) scale = 4;
             if(Math.abs(scale - 1) < 0.1) {
                 resetZoom();
             } else {
@@ -1192,7 +1174,7 @@
             updateTransform();
         }
 
-        // --- GESTION SOURIS (PC) ---
+        // Gestion souris
         container.addEventListener('mousedown', (e) => {
             if(scale <= 1) return; 
             isDragging = true;
@@ -1228,8 +1210,7 @@
             else zoomImage(-0.1);
         }, { passive: false });
 
-        // --- GESTION TACTILE (TOUCH) ---
-        
+        // Gestion tactile
         function getDistance(touches) {
             return Math.hypot(
                 touches[0].pageX - touches[1].pageX,
@@ -1239,12 +1220,10 @@
 
         container.addEventListener('touchstart', (e) => {
             if (e.touches.length === 2) {
-                // PINCH DETECTED
-                e.preventDefault(); // Empêche le zoom navigateur
+                e.preventDefault();
                 initialPinchDistance = getDistance(e.touches);
                 initialScale = scale;
             } else if (e.touches.length === 1 && scale > 1) {
-                // PAN DETECTED (Si déjà zoomé)
                 isDragging = true;
                 startX = e.touches[0].clientX;
                 startY = e.touches[0].clientY;
@@ -1254,7 +1233,6 @@
 
         container.addEventListener('touchmove', (e) => {
             if (e.touches.length === 2) {
-                // PINCHING
                 e.preventDefault();
                 const currentDistance = getDistance(e.touches);
                 if (initialPinchDistance > 0) {
@@ -1265,8 +1243,7 @@
                     updateTransform();
                 }
             } else if (e.touches.length === 1 && isDragging) {
-                // PANNING
-                e.preventDefault(); // Empêche le scroll page
+                e.preventDefault();
                 const xDiff = e.touches[0].clientX - startX;
                 const yDiff = e.touches[0].clientY - startY;
                 currentTranslateX = prevTranslateX + xDiff;
@@ -1287,45 +1264,34 @@
             }
         });
 
-
-        // --- VARIABLE POUR STOCKER LE FICHIER EN ATTENTE ---
-        let currentDownloadFile = '';
-
-        // --- OUVERTURE DE LA MODALE D'AVERTISSEMENT ---
-        function openDownloadModal(event, fileName) {
-            event.preventDefault();
-            const btn = event.currentTarget.closest('.floating-downloads');
-            if(btn && btn.getAttribute('data-dragging') === 'true') return;
-            currentDownloadFile = fileName;
+        // --- GESTION DU TÉLÉCHARGEMENT (MODALE) ---
+        function openDownloadModal(event) {
+            if (event) event.preventDefault();
             document.getElementById('downloadWarningModal').style.display = 'flex';
         }
 
-        // --- FERMETURE DE LA MODALE ---
         function closeDownloadModal() {
             document.getElementById('downloadWarningModal').style.display = 'none';
         }
 
-        // --- CONFIRMATION ET LANCEMENT DU TELECHARGEMENT ---
         function confirmDownload() {
             closeDownloadModal();
-            console.log("Download confirmed: " + currentDownloadFile);
             if (typeof fbq === 'function') {
                 fbq('track', 'Lead', {
-                    content_name: currentDownloadFile,
+                    content_name: 'EasyMedicaLink.zip',
                     content_category: 'Software Download',
                     value: 0.00,
                     currency: 'MAD'
                 });
             }
             setTimeout(() => { 
-                window.location.href = currentDownloadFile; 
+                window.location.href = DOWNLOAD_URL; 
             }, 300);
         }
 
         // --- TRACKING WHATSAPP ---
         function trackWhatsApp() {
             if (typeof fbq === 'function') {
-                console.log("Tracking WhatsApp Click");
                 fbq('track', 'Contact', {content_name: 'WhatsApp Support'});
             }
         }
@@ -1333,7 +1299,6 @@
         // --- TRACKING GUIDE ---
         function trackGuide(event) {
             if (typeof fbq === 'function') {
-                console.log("Tracking Guide Click");
                 fbq('track', 'ViewContent', {content_name: 'Guide Utilisation', content_category: 'Help'});
             }
         }
@@ -1388,7 +1353,6 @@
             makeDraggable("dragDownloads");
             checkCookieConsent();
 
-            // --- TRACKING TEMPS PASSÉ ---
             let seconds = 0;
             setInterval(() => {
                 seconds += 10;
@@ -1399,14 +1363,12 @@
                 }
             }, 10000);
 
-            // --- ACTIVATION DU ZOOM SUR LES IMAGES (AVEC MOBILE) ---\
-            // On sélectionne : screenshot hero, items galerie, images colonnes, cards admin ET APPS SMARTPHONE
+            // Activation du zoom sur les images
             const images = document.querySelectorAll('.hero-main-screenshot img, .doc-item img, .img-col img, .admin-card img, .app-screen');
-            
             images.forEach(img => {
-                img.classList.add('zoomable-cursor'); // Change le curseur
+                img.classList.add('zoomable-cursor');
                 img.onclick = function() {
-                    openLightbox(this.src); // Ouvre le zoom au clic
+                    openLightbox(this.src);
                 };
             });
         });
