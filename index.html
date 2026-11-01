@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="EasyMedicaLink - Logiciel de gestion de cabinet médical. Solution 100% locale, sans internet, sécurisée et multi-supports (Windows, Mac, Tablette).">
+    <meta name="description" content="EasyMedicaLink : solution de gestion médicale pour Windows et Android. Téléchargez directement l’APK Android ou la version Windows.">
     <title>EasyMedicaLink | La Solution Médicale 100% Locale</title>
     
     <link rel="icon" type="image/png" href="icon.png">
@@ -484,6 +484,115 @@
     color: var(--primary);
     margin-bottom: 15px;
 }
+
+
+        /* ===== EML_CONVERSION_PATCH_V1 : conversion Android + Windows ===== */
+        .eml-download-panel {
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            padding: 22px;
+            border: 1px solid #dbeafe;
+            border-radius: 22px;
+            background: linear-gradient(145deg, #ffffff 0%, #f4f7ff 100%);
+            box-shadow: 0 18px 45px rgba(37, 59, 115, 0.12);
+            position: relative;
+            z-index: 3;
+        }
+        .eml-download-kicker {
+            margin: 0 0 14px;
+            color: #4655b8;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+        .eml-download-group {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin: 0;
+        }
+        .eml-cta-link {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+            padding: 14px 20px;
+            border-radius: 15px;
+            color: #fff;
+            text-align: left;
+            box-shadow: 0 10px 22px rgba(15, 23, 42, .15);
+            transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+        }
+        .eml-cta-link:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 16px 30px rgba(15, 23, 42, .2);
+            filter: brightness(1.04);
+        }
+        .eml-cta-link:focus-visible {
+            outline: 4px solid #fbbf24;
+            outline-offset: 3px;
+        }
+        .eml-cta-link > i { margin: 0; font-size: 2rem; flex: 0 0 auto; }
+        .eml-cta-copy { display: flex; flex-direction: column; gap: 2px; }
+        .eml-cta-copy strong { font-size: 1.02rem; line-height: 1.25; }
+        .eml-cta-copy small { font-size: .78rem; font-weight: 500; opacity: .92; }
+        .eml-cta-android { background: linear-gradient(135deg, #07865b 0%, #10b981 100%); }
+        .eml-cta-windows { background: linear-gradient(135deg, #3545a8 0%, #667eea 100%); }
+        .eml-download-note {
+            margin: 13px 4px 0;
+            color: #536174;
+            font-size: .82rem;
+            line-height: 1.55;
+        }
+        .eml-download-note i { color: #0f9b69; }
+        .eml-conversion-strip {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px 22px;
+            flex-wrap: wrap;
+            margin: 0 auto 28px;
+            color: #475569;
+            font-size: .86rem;
+            font-weight: 600;
+        }
+        .eml-conversion-strip span { display: inline-flex; align-items: center; gap: 7px; }
+        .eml-conversion-strip i { color: #0b9a6b; margin: 0; }
+        .eml-footer-downloads { margin-top: 18px; }
+        .eml-footer-downloads .eml-download-panel {
+            border-color: rgba(255,255,255,.16);
+            background: rgba(255,255,255,.07);
+            box-shadow: none;
+        }
+        .eml-footer-downloads .eml-download-kicker { color: #c7d2fe; }
+        .eml-footer-downloads .eml-download-note { color: #d5deeb; }
+        .eml-floating-apk { background: linear-gradient(135deg, #07865b 0%, #10b981 100%); }
+        .eml-floating-windows { background: rgba(45, 55, 72, .95); }
+        .eml-floating-apk, .eml-floating-windows {
+            border: 1px solid rgba(255,255,255,.26);
+            font-weight: 800;
+        }
+        .eml-floating-apk:hover { background: #047857; }
+        .eml-floating-windows:hover { background: #4c51bf; }
+        @media (max-width: 768px) {
+            .eml-download-panel { padding: 16px 13px; border-radius: 17px; }
+            .eml-download-group { grid-template-columns: 1fr; gap: 10px; }
+            .eml-cta-link { min-height: 66px; justify-content: flex-start; padding: 12px 17px; }
+            .eml-cta-link > i { width: 35px; text-align: center; }
+            .eml-cta-copy strong { font-size: .98rem; }
+            .eml-download-note { font-size: .76rem; }
+            .eml-conversion-strip { gap: 7px 14px; font-size: .76rem; }
+            .floating-downloads { gap: 8px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .eml-cta-link { transition: none; }
+            .eml-cta-link:hover { transform: none; }
+        }
+        /* ===== FIN EML_CONVERSION_PATCH_V1 ===== */
+
     </style>
 </head>
 <body>
@@ -506,11 +615,16 @@
         </a>
     </div>
 
-    <!-- Boutons flottants : un seul bouton de téléchargement -->
+    <!-- EML_CONVERSION_PATCH_V1 : accès rapide Android et Windows -->
     <div id="dragDownloads" class="floating-downloads">
-        <a href="#" onclick="openDownloadModal(event)" class="btn-float" title="Télécharger EasyMedicaLink">
-            <i class="fas fa-download"></i>
-            <span>Télécharger</span>
+        <a href="https://github.com/Sastouka/EasyMedicaLinkLocale/releases/download/v1.0.0/EasyMedicaLink.apk" target="_blank" rel="noopener noreferrer"
+           onclick="trackApkDownload('floating')" class="btn-float eml-floating-apk"
+           title="Télécharger directement l'application Android (APK)" aria-label="Télécharger EasyMedicaLink pour Android">
+            <i class="fab fa-android"></i><span>APK Android</span>
+        </a>
+        <a href="#" onclick="openDownloadModal(event)" class="btn-float eml-floating-windows"
+           title="Télécharger EasyMedicaLink pour Windows" aria-label="Télécharger EasyMedicaLink pour Windows">
+            <i class="fab fa-windows"></i><span>Windows</span>
         </a>
     </div>
 
@@ -541,19 +655,34 @@
 
     <section class="hero text-center">
         <div class="container">
-            <h1>Le Hub Central de votre<br>Activité Médicale</h1>
+            <h1>Votre cabinet. Une gestion plus simple.<br>Sur Android et Windows.</h1>
             <p class="hero-desc">Un écosystème complet : de la prise de RDV à la comptabilité, en passant par l'IA médicale. Données 100% locales et sécurisées.</p>
             
-            <!-- Un seul bouton de téléchargement -->
-            <div class="download-group">
-                <a href="#" onclick="openDownloadModal(event)" class="btn-primary">
-                    <i class="fas fa-download"></i> &nbsp;Télécharger EasyMedicaLink
-                </a>
+            <!-- EML_CONVERSION_PATCH_V1 : choix immédiat de la version -->
+            <div class="eml-download-panel">
+                <p class="eml-download-kicker">Choisissez votre appareil et téléchargez maintenant</p>
+                <div class="download-group eml-download-group">
+                    <a href="https://github.com/Sastouka/EasyMedicaLinkLocale/releases/download/v1.0.0/EasyMedicaLink.apk" target="_blank" rel="noopener noreferrer"
+                       onclick="trackApkDownload('hero')" class="eml-cta-link eml-cta-android"
+                       aria-label="Télécharger directement l'APK Android">
+                        <i class="fab fa-android"></i>
+                        <span class="eml-cta-copy"><strong>Télécharger l'APK Android</strong><small>Accès direct au fichier · Android</small></span>
+                    </a>
+                    <a href="#" onclick="openDownloadModal(event)" class="eml-cta-link eml-cta-windows"
+                       aria-label="Télécharger la version Windows">
+                        <i class="fab fa-windows"></i>
+                        <span class="eml-cta-copy"><strong>Télécharger pour Windows</strong><small>Archive ZIP · PC Windows</small></span>
+                    </a>
+                </div>
+                <p class="eml-download-note"><i class="fas fa-shield-alt"></i>
+                    Téléchargement Android depuis la version publiée sur GitHub. Après le téléchargement,
+                    ouvrez le fichier APK et suivez les instructions affichées par Android.
+                </p>
             </div>
-
-            <div class="browser-info-box">
-                <div><i class="fab fa-firefox-browser"></i> <strong>Astuce :</strong> Téléchargement direct recommandé via <strong>Firefox</strong>.</div>
-                <div class="chrome-txt"><i class="fab fa-chrome"></i> <strong>Chrome/Edge :</strong> Si bloqué, faites <em>Clic Droit > "Enregistrer le lien sous..."</em></div>
+            <div class="eml-conversion-strip" aria-label="Informations sur les versions disponibles">
+                <span><i class="fas fa-check-circle"></i> Version Android disponible</span>
+                <span><i class="fas fa-check-circle"></i> Version Windows disponible</span>
+                <span><i class="fas fa-download"></i> Choix du téléchargement en un clic</span>
             </div>
 
             <div class="hero-main-screenshot">
@@ -1064,10 +1193,22 @@
         <div class="container">
             <div class="footer-cta">
                 <h4 style="color:white; margin-bottom: 20px; font-size: 1.5rem;">Prêt à moderniser votre cabinet ?</h4>
-                <div class="download-group">
-                    <a href="#" onclick="openDownloadModal(event)" class="btn-primary">
-                        <i class="fas fa-download"></i> Télécharger EasyMedicaLink
-                    </a>
+                <div class="eml-footer-downloads">
+                    <div class="eml-download-panel">
+                        <p class="eml-download-kicker">Ne remettez pas à demain l'organisation de votre cabinet</p>
+                        <div class="download-group eml-download-group">
+                            <a href="https://github.com/Sastouka/EasyMedicaLinkLocale/releases/download/v1.0.0/EasyMedicaLink.apk" target="_blank" rel="noopener noreferrer"
+                               onclick="trackApkDownload('footer')" class="eml-cta-link eml-cta-android">
+                                <i class="fab fa-android"></i>
+                                <span class="eml-cta-copy"><strong>Obtenir l'application Android</strong><small>Télécharger l'APK directement</small></span>
+                            </a>
+                            <a href="#" onclick="openDownloadModal(event)" class="eml-cta-link eml-cta-windows">
+                                <i class="fab fa-windows"></i>
+                                <span class="eml-cta-copy"><strong>Obtenir la version Windows</strong><small>Télécharger l'archive ZIP</small></span>
+                            </a>
+                        </div>
+                        <p class="eml-download-note">Sélectionnez simplement la version correspondant à votre appareil.</p>
+                    </div>
                 </div>
             </div>
 
@@ -1165,6 +1306,21 @@
     <script>
         // --- Lien de téléchargement unique (ZIP) ---
         const DOWNLOAD_URL = 'https://github.com/Sastouka/EasyMedicaLinkLocale/releases/download/v1.0.0/EasyMedicaLink.zip';
+
+        // Suivi du clic APK Android (le téléchargement reste un lien direct).
+        function trackApkDownload(position) {
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: 'EasyMedicaLink.apk',
+                    content_category: 'Android App Download',
+                    value: 0.00,
+                    currency: 'MAD'
+                });
+                fbq('trackCustom', 'AndroidAPKDownloadClick', {
+                    placement: position || 'unknown'
+                });
+            }
+        }
 
         // --- LOGIQUE VIDÉO CLICK-TO-LOAD ---
         function loadVideo(el) {
