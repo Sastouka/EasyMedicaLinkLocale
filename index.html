@@ -1018,6 +1018,156 @@ section[id], section { scroll-margin-top: 86px; }
 </style>
 <!-- EML_LIGHTBOX_NO_OVERLAP_V1_END -->
 
+\n<!-- EML_MOBILE_CLEANUP_V1_BEGIN -->
+<style id="eml-mobile-cleanup-v1">
+/* Boutons de téléchargement flottants : compacts, lisibles et séparés du bouton WhatsApp. */
+@media (max-width: 768px) {
+  #dragDownloads.floating-downloads {
+    position: fixed !important;
+    right: max(12px, env(safe-area-inset-right, 0px)) !important;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+    z-index: 1005 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: auto !important;
+    max-width: 48vw !important;
+    pointer-events: none !important;
+  }
+  #dragDownloads .btn-float {
+    pointer-events: auto !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 9px !important;
+    box-sizing: border-box !important;
+    width: 142px !important;
+    min-width: 142px !important;
+    max-width: 142px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 13px !important;
+    border-radius: 15px !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    box-shadow: 0 7px 20px rgba(15,23,42,.22) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+  #dragDownloads .btn-float > span:not(.arch-badge) {
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    font-weight: 750 !important;
+  }
+  #dragDownloads .btn-float > .eml-online-icon,
+  #dragDownloads .btn-float > .eml-inline-icon,
+  #dragDownloads .btn-float > .eml-local-icon {
+    display: inline-block !important;
+    flex: 0 0 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    margin: 0 !important;
+  }
+  #dragWhatsapp.btn-whatsapp-float {
+    left: max(12px, env(safe-area-inset-left, 0px)) !important;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+    width: 52px !important;
+    height: 52px !important;
+    z-index: 1004 !important;
+  }
+}
+@media (max-width: 360px) {
+  #dragDownloads .btn-float { width: 126px !important; min-width:126px !important; max-width:126px !important; }
+  #dragDownloads .btn-float { padding: 0 10px !important; font-size: 12px !important; }
+}
+
+/* EML_MOBILE_FLOATING_DOWNLOADS_V8 */
+@media (max-width: 768px) {
+  #dragDownloads.floating-downloads {
+    position: fixed !important;
+    right: max(12px, env(safe-area-inset-right, 0px)) !important;
+    bottom: max(16px, env(safe-area-inset-bottom, 0px)) !important;
+    z-index: 9998 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 9px !important;
+  }
+  #dragDownloads .btn-float {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: auto !important;
+    min-width: 124px !important;
+    min-height: 43px !important;
+    height: auto !important;
+    padding: 10px 13px !important;
+    border-radius: 999px !important;
+    font-size: .78rem !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+  }
+  #dragDownloads .btn-float span:not(.arch-badge) {
+    display: inline !important;
+    visibility: visible !important;
+  }
+  #dragDownloads .btn-float i,
+  #dragDownloads .btn-float .eml-online-icon,
+  #dragDownloads .btn-float .eml-inline-icon {
+    display: inline-block !important;
+    width: 1.15rem !important;
+    height: 1.15rem !important;
+    font-size: 1.15rem !important;
+    margin: 0 !important;
+  }
+  #dragWhatsapp.btn-whatsapp-float {
+    bottom: max(16px, env(safe-area-inset-bottom, 0px)) !important;
+    left: max(12px, env(safe-area-inset-left, 0px)) !important;
+    z-index: 9998 !important;
+  }
+}
+@media (max-width: 360px) {
+  #dragDownloads .btn-float { min-width: 112px !important; padding: 9px 10px !important; }
+}
+/* FIN EML_MOBILE_FLOATING_DOWNLOADS_V8 */
+
+
+/* EML_MOBILE_DOWNLOAD_BUTTONS_PUBLISH_V1 */
+@media (max-width: 768px) {
+  #dragDownloads.floating-downloads {
+    position: fixed !important;
+    right: max(12px, env(safe-area-inset-right, 0px)) !important;
+    bottom: max(16px, env(safe-area-inset-bottom, 0px)) !important;
+    z-index: 9998 !important; display: flex !important;
+    flex-direction: column !important; align-items: flex-end !important; gap: 9px !important;
+  }
+  #dragDownloads .btn-float {
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+    gap: 8px !important; width: auto !important; min-width: 124px !important;
+    min-height: 43px !important; height: auto !important; padding: 10px 13px !important;
+    border-radius: 999px !important; font-size: .78rem !important; line-height: 1.15 !important;
+    white-space: nowrap !important;
+  }
+  #dragDownloads .btn-float span:not(.arch-badge) { display: inline !important; visibility: visible !important; }
+  #dragDownloads .btn-float i, #dragDownloads .btn-float .eml-online-icon,
+  #dragDownloads .btn-float .eml-inline-icon { display: inline-block !important; width: 1.15rem !important;
+    height: 1.15rem !important; font-size: 1.15rem !important; margin: 0 !important; }
+  #dragWhatsapp.btn-whatsapp-float { bottom: max(16px, env(safe-area-inset-bottom, 0px)) !important;
+    left: max(12px, env(safe-area-inset-left, 0px)) !important; z-index: 9998 !important; }
+}
+@media (max-width: 360px) { #dragDownloads .btn-float { min-width: 112px !important; padding: 9px 10px !important; } }
+/* FIN EML_MOBILE_DOWNLOAD_BUTTONS_PUBLISH_V1 */
+
+</style>
+<!-- EML_MOBILE_CLEANUP_V1_END -->
 </head>
 <body>
 
@@ -1134,8 +1284,8 @@ section[id], section { scroll-margin-top: 86px; }
                     <div class="doc-item" title="Radiologie"><img src="asset/radiologie.png" alt="Radio"></div>
                     <div class="doc-item" title="Historique"><img src="asset/historique.png" alt="Historique"></div>
                     <!-- Nouveaux modules -->
-                    <div class="doc-item" title="Hospitalisation"><img src="asset/11.png" alt="Hospitalisation"></div>
-                    <div class="doc-item" title="Salle d'Attente"><img src="asset/12.png" alt="Salle d'Attente"></div>
+                    
+                    
                 </div>
             </div>
 
@@ -1200,14 +1350,7 @@ section[id], section { scroll-margin-top: 86px; }
         <figcaption><strong>Configuration initiale</strong><span>Identité de l&#x27;établissement, modules affichés et paramètres de démarrage.</span></figcaption>
     </figure></div>
 
-<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_06_HD.jpg">
-        <div class="eml-context-capture-media">
-            <img class="app-screen eml-screen-img" src="asset/capture_06_HD.jpg"
-                 alt="EasyMedicaLink — Configuration initiale" loading="lazy" decoding="async"
-                 width="1920" height="3072">
-        </div>
-        <figcaption><strong>Configuration initiale</strong><span>Identité de l&#x27;établissement, modules affichés et paramètres de démarrage.</span></figcaption>
-    </figure></div>
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"></div>
 </div>
         </div>
 </section>
@@ -1301,14 +1444,8 @@ section[id], section { scroll-margin-top: 86px; }
 <div class="admin-card eml-added-admin-card" data-eml-capture="capture_10_HD.jpg">
                     <img class="app-screen eml-screen-img" src="asset/capture_10_HD.jpg" alt="EasyMedicaLink — Configuration en MAD" loading="lazy" decoding="async" width="1920" height="3072">
                     <h3>Configuration en MAD</h3><ul><li>Exemple de paramètres avec devise MAD et TVA à 0 %.</li></ul>
-                </div><div class="admin-card eml-added-admin-card" data-eml-capture="capture_04_HD.jpg">
-                    <img class="app-screen eml-screen-img" src="asset/capture_04_HD.jpg" alt="EasyMedicaLink — Configuration en EUR" loading="lazy" decoding="async" width="1920" height="3072">
-                    <h3>Configuration en EUR</h3><ul><li>Exemple de paramètres avec devise EUR et TVA à 20 %.</li></ul>
                 </div>
-<div class="admin-card eml-added-admin-card" data-eml-capture="capture_10_HD.jpg">
-                    <img class="app-screen eml-screen-img" src="asset/capture_10_HD.jpg" alt="EasyMedicaLink — Configuration en MAD" loading="lazy" decoding="async" width="1920" height="3072">
-                    <h3>Configuration en MAD</h3><ul><li>Exemple de paramètres avec devise MAD et TVA à 0 %.</li></ul>
-                </div></div>
+</div>
         </div>
 </section>
 
@@ -1336,14 +1473,7 @@ section[id], section { scroll-margin-top: 86px; }
         <figcaption><strong>Liste des patients</strong><span>Recherche, navigation dans la liste et génération des badges patients.</span></figcaption>
     </figure></div>
 
-<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_03_HD.jpg">
-        <div class="eml-context-capture-media">
-            <img class="app-screen eml-screen-img" src="asset/capture_03_HD.jpg"
-                 alt="EasyMedicaLink — Liste des patients" loading="lazy" decoding="async"
-                 width="1920" height="3072">
-        </div>
-        <figcaption><strong>Liste des patients</strong><span>Recherche, navigation dans la liste et génération des badges patients.</span></figcaption>
-    </figure></div>
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"></div>
 </div>
         </div>
 </section>
@@ -1373,14 +1503,7 @@ section[id], section { scroll-margin-top: 86px; }
         <figcaption><strong>Dossier d&#x27;hospitalisation</strong><span>Constantes, prescriptions, examens et suivi par les différents intervenants.</span></figcaption>
     </figure></div>
 
-<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_01_HD.jpg">
-        <div class="eml-context-capture-media">
-            <img class="app-screen eml-screen-img" src="asset/capture_01_HD.jpg"
-                 alt="EasyMedicaLink — Dossier d&#x27;hospitalisation" loading="lazy" decoding="async"
-                 width="1920" height="3072">
-        </div>
-        <figcaption><strong>Dossier d&#x27;hospitalisation</strong><span>Constantes, prescriptions, examens et suivi par les différents intervenants.</span></figcaption>
-    </figure></div>
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"></div>
 </div>
         </div>
 </section>
@@ -1443,14 +1566,8 @@ section[id], section { scroll-margin-top: 86px; }
 <div class="feature-card eml-added-feature-card" data-eml-capture="capture_07_HD.jpg">
                     <img class="app-screen eml-screen-img" src="asset/capture_07_HD.jpg" alt="EasyMedicaLink — Prescription" loading="lazy" decoding="async" width="1920" height="3072">
                     <h3 class="mb-1">Prescription</h3><p style="color:#718096;font-size:.9rem;">Sélection du médicament, dosage, posologie et durée du traitement.</p>
-                </div><div class="feature-card eml-added-feature-card" data-eml-capture="capture_09_HD.jpg">
-                    <img class="app-screen eml-screen-img" src="asset/capture_09_HD.jpg" alt="EasyMedicaLink — Dossier médical" loading="lazy" decoding="async" width="1920" height="3072">
-                    <h3 class="mb-1">Dossier médical</h3><p style="color:#718096;font-size:.9rem;">Accès aux rubriques cliniques de la consultation et au suivi du patient.</p>
                 </div>
-<div class="feature-card eml-added-feature-card" data-eml-capture="capture_07_HD.jpg">
-                    <img class="app-screen eml-screen-img" src="asset/capture_07_HD.jpg" alt="EasyMedicaLink — Prescription" loading="lazy" decoding="async" width="1920" height="3072">
-                    <h3 class="mb-1">Prescription</h3><p style="color:#718096;font-size:.9rem;">Sélection du médicament, dosage, posologie et durée du traitement.</p>
-                </div></div>
+</div>
         </div>
 </section>
     
@@ -1505,22 +1622,8 @@ section[id], section { scroll-margin-top: 86px; }
         <figcaption><strong>Tableau de bord comptable</strong><span>Vue synthétique des recettes, dépenses, bénéfice net et rapports.</span></figcaption>
     </figure></div>
 
-<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_02_HD.jpg">
-        <div class="eml-context-capture-media">
-            <img class="app-screen eml-screen-img" src="asset/capture_02_HD.jpg"
-                 alt="EasyMedicaLink — Facturation" loading="lazy" decoding="async"
-                 width="1920" height="3072">
-        </div>
-        <figcaption><strong>Facturation</strong><span>Numérotation, date, devise, TVA, patient et catégories de prestations.</span></figcaption>
-    </figure>
-<figure class="eml-context-capture" data-eml-capture="capture_05_HD.jpg">
-        <div class="eml-context-capture-media">
-            <img class="app-screen eml-screen-img" src="asset/capture_05_HD.jpg"
-                 alt="EasyMedicaLink — Tableau de bord comptable" loading="lazy" decoding="async"
-                 width="1920" height="3072">
-        </div>
-        <figcaption><strong>Tableau de bord comptable</strong><span>Vue synthétique des recettes, dépenses, bénéfice net et rapports.</span></figcaption>
-    </figure></div>
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique">
+</div>
 </div>
         </div>
 </section>
