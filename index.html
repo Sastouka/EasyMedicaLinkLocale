@@ -6,11 +6,9 @@
     <meta name="description" content="EasyMedicaLink : solution de gestion médicale pour Windows et Android. Téléchargez directement l’APK Android ou la version Windows.">
     <title>EasyMedicaLink | La Solution Médicale 100% Locale</title>
     
-    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="icon" type="image/png" href="asset/icon.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -593,16 +591,442 @@
         }
         /* ===== FIN EML_CONVERSION_PATCH_V1 ===== */
 
-    </style>
+    
+
+
+
+
+
+
+
+/* EML_CONTEXT_CAPTURE_CSS_V4 */
+.eml-context-capture-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    align-items: start;
+    width: 100%;
+    max-width: 680px;
+    margin: 22px auto 4px;
+}
+.eml-context-capture {
+    min-width: 0;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    border: 1px solid #dbe5ee;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 10px 24px rgba(28, 45, 75, .10);
+    transition: transform .22s ease, box-shadow .22s ease;
+}
+.eml-context-capture:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px rgba(28, 45, 75, .15);
+}
+.eml-context-capture-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    min-height: 170px;
+    border-radius: 11px;
+    background: linear-gradient(145deg, #edf4f7, #f8fafc);
+}
+.eml-context-capture img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 410px;
+    object-fit: contain;
+    object-position: top center;
+    border: 0;
+    border-radius: 8px;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    cursor: zoom-in;
+}
+.eml-context-capture figcaption { padding: 11px 4px 3px; text-align: left; }
+.eml-context-capture figcaption strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #243247;
+    font-size: .88rem;
+    line-height: 1.35;
+}
+.eml-context-capture figcaption span {
+    display: block;
+    color: #64748b;
+    font-size: .75rem;
+    line-height: 1.5;
+}
+/* Les cartes d'administration restent cohérentes avec les cartes initiales. */
+.admin-card.eml-added-admin-card img {
+    width: 100%;
+    max-height: 330px;
+    object-fit: contain;
+    object-position: top center;
+    background: #fff;
+    padding: 7px;
+    border-radius: 10px;
+}
+.admin-card.eml-added-admin-card h3 { color: #67e8f9; }
+/* Captures verticales dans les cartes fonctionnelles. */
+.feature-card.eml-added-feature-card { display: flex; flex-direction: column; }
+.feature-card.eml-added-feature-card img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    object-position: top center;
+    border: 1px solid #e5edf3;
+    border-radius: 11px;
+    background: #f7fafc;
+    padding: 6px;
+    margin: 0 0 17px;
+}
+/* Aperçu réseau sur fond sombre, dans la section existante. */
+.eml-network-capture {
+    width: min(100%, 390px);
+    margin: 34px auto 0;
+    padding: 13px;
+    border: 1px solid rgba(255,255,255,.23);
+    border-radius: 21px;
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 18px 40px rgba(0,0,0,.23);
+}
+.eml-network-capture img {
+    display: block;
+    width: 100%;
+    max-height: 470px;
+    object-fit: contain;
+    border-radius: 10px;
+    cursor: zoom-in;
+}
+.eml-network-capture figcaption {
+    padding: 10px 4px 1px;
+    color: #243247;
+    text-align: center;
+    font-size: .82rem;
+}
+.eml-network-capture figcaption strong { display:block; margin-bottom:3px; }
+.eml-network-capture figcaption span { color:#64748b; font-size:.74rem; }
+/* Icônes SVG locales : aucun chargement Font Awesome requis pour les actions. */
+.eml-local-icon {
+    display: inline-block;
+    width: 1.18em;
+    height: 1.18em;
+    min-width: 1.18em;
+    vertical-align: -0.19em;
+    overflow: visible;
+    color: currentColor;
+    margin-right: 8px;
+    flex: 0 0 auto;
+}
+.logo .eml-local-icon,
+.icon-box .eml-local-icon,
+.btn-whatsapp-float .eml-local-icon,
+.lightbox-btn .eml-local-icon,
+.play-btn-overlay .eml-local-icon { margin-right: 0; }
+.play-btn-overlay .eml-local-icon { margin-left: 4px; }
+.eml-local-icon * { vector-effect: non-scaling-stroke; }
+/* Evite que les ancres de navigation masquent le titre quand on saute à une rubrique. */
+html { scroll-padding-top: 86px; }
+section[id], section { scroll-margin-top: 86px; }
+@media (max-width: 760px) {
+    .eml-context-capture-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .eml-context-capture { padding: 7px; border-radius: 13px; }
+    .eml-context-capture img { max-height: 330px; }
+    .eml-context-capture figcaption strong { font-size: .78rem; }
+    .eml-context-capture figcaption span { font-size: .68rem; }
+    .admin-card.eml-added-admin-card img { max-height: 270px; }
+}
+@media (max-width: 420px) {
+    .eml-context-capture-row { grid-template-columns: minmax(0, 1fr); max-width: 300px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .eml-context-capture { transition: none; }
+    .eml-context-capture:hover { transform: none; }
+}
+/* Visuel d'accueil placé avant les actions de téléchargement. */
+.eml-hero-capture {
+    width: min(100%, 390px);
+    margin: 24px auto 30px;
+    padding: 13px;
+    border: 1px solid rgba(255,255,255,.82);
+    border-radius: 25px;
+    background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(235,242,255,.92));
+    box-shadow: 0 24px 55px rgba(26, 32, 44, .20), 0 0 0 7px rgba(255,255,255,.15);
+    position: relative;
+    z-index: 3;
+}
+.eml-hero-capture img {
+    display: block;
+    width: 100%;
+    max-height: 570px;
+    object-fit: contain;
+    object-position: top center;
+    border-radius: 14px;
+    background: #f2f6fb;
+    cursor: zoom-in;
+}
+.eml-hero-capture figcaption {
+    padding: 12px 6px 3px;
+    text-align: center;
+    color: #27364b;
+}
+.eml-hero-capture figcaption strong { display:block; font-size:.98rem; }
+.eml-hero-capture figcaption span { display:block; color:#64748b; font-size:.78rem; margin-top:3px; }
+/* Icônes SVG matérialisées dans le HTML : visibles hors ligne et sous file://. */
+.eml-inline-icon {
+    display: inline-block;
+    width: 1.18em;
+    height: 1.18em;
+    min-width: 1.18em;
+    vertical-align: -0.19em;
+    margin-right: 8px;
+    overflow: visible;
+    flex: 0 0 auto;
+    color: currentColor;
+}
+.logo .eml-inline-icon,
+.btn-whatsapp-float .eml-inline-icon,
+.lightbox-btn .eml-inline-icon,
+.play-btn-overlay .eml-inline-icon { margin-right: 0; }
+.eml-cta-link > .eml-inline-icon { font-size: 2rem; margin: 0; }
+.play-btn-overlay .eml-inline-icon { margin-left: 4px; }
+.nav-link-guide .eml-inline-icon { font-size: 1.05rem; }
+.eml-floating-apk .eml-inline-icon,
+.eml-floating-windows .eml-inline-icon { font-size: 1.12rem; }
+@media (max-width: 768px) {
+    .eml-hero-capture { width: min(100%, 330px); margin: 18px auto 23px; padding: 9px; }
+    .eml-hero-capture img { max-height: 465px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .eml-hero-capture { transition: none; }
+}
+/* FIN EML_CONTEXT_CAPTURE_CSS_V4 */
+
+
+/* EML_ONLINE_ICON_CSS_V5 */
+.eml-online-icon {
+    display: inline-block;
+    width: 1.18em;
+    height: 1.18em;
+    min-width: 1.18em;
+    vertical-align: -0.19em;
+    margin-right: 8px;
+    flex: 0 0 auto;
+    line-height: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.icon-box .eml-online-icon,
+.btn-whatsapp-float .eml-online-icon,
+.lightbox-btn .eml-online-icon,
+.play-btn-overlay .eml-online-icon { margin-right: 0; }
+.logo .eml-online-icon { width: 1em; height: 1em; margin-right: 12px; }
+.btn-whatsapp-float .eml-online-icon { width: 1em; height: 1em; }
+.eml-cta-link > .eml-online-icon { width: 2rem; height: 2rem; margin: 0; }
+.play-btn-overlay .eml-online-icon { margin-left: 4px; }
+.nav-link-guide .eml-online-icon { width: 1.05rem; height: 1.05rem; margin: 0; }
+.eml-floating-apk .eml-online-icon,
+.eml-floating-windows .eml-online-icon { width: 1.22rem; height: 1.22rem; }
+/* Reprise précise des styles précédemment appliqués aux balises <i>. */
+.feature-check .eml-online-icon {
+    width: 1.1rem; height: 1.1rem; color: var(--accent-teal);
+    margin: 4px 12px 0 0; flex-shrink: 0;
+}
+.network-card .eml-online-icon {
+    display: block; width: 3rem; height: 3rem;
+    margin: 0 auto 15px;
+}
+.eml-download-note .eml-online-icon { color: #0f9b69; }
+.eml-conversion-strip .eml-online-icon { color: #0b9a6b; margin: 0; }
+.stars .eml-online-icon { width: .95em; height: .95em; margin-right: 2px; }
+.module-tag .eml-online-icon { width: 1.08em; height: 1.08em; }
+.icon-box .eml-online-icon { width: 1.8rem; height: 1.8rem; margin: 0; }
+@media (max-width: 768px) {
+    .eml-cta-link > .eml-online-icon { width: 1.75rem; height: 1.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .eml-online-icon { transition: none; }
+}
+/* FIN EML_ONLINE_ICON_CSS_V5 */
+
+</style>
+<!-- EML_ICONIFY_CDN_V5_BEGIN -->
+<link rel="preconnect" href="https://api.iconify.design" crossorigin>
+<link rel="stylesheet" href="https://api.iconify.design/lucide.css?icons=alert-triangle,archive,bed-double,book,book-open,book-open-check,bot,boxes,calculator,calendar-check,calendar-days,chart-line,circle-check,circle-play,clock,cookie,credit-card,database,download,earth,file-check,file-text,flask-conical,folder-open,gauge,globe,hand-coins,hard-drive,history,id-card,info,key-round,list-ordered,microscope,minimize,minus,pill,play,plus,printer,receipt,refresh-cw,scan-line,server,shield-check,sliders-horizontal,smartphone,star,star-half,stethoscope,tablet,tv,user-round,users-round,wallet,wand-sparkles,wifi,x" onerror="this.onerror=null;this.href=this.href.replace('api.iconify.design','api.simplesvg.com')">
+<link rel="stylesheet" href="https://api.iconify.design/simple-icons.css?icons=android,apple,whatsapp,windows" onerror="this.onerror=null;this.href=this.href.replace('api.iconify.design','api.simplesvg.com')">
+<!-- EML_ICONIFY_CDN_V5_END -->
+<!-- EML_LIGHTBOX_NO_OVERLAP_V1_BEGIN -->
+<style id="eml-lightbox-no-overlap-v1">
+/* La barre de commande occupe sa propre ligne : elle ne flotte plus sur l'image. */
+#lightbox.lightbox-overlay {
+    inset: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: auto !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    box-sizing: border-box !important;
+    display: none;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    padding: max(12px, env(safe-area-inset-top, 0px)) 14px max(12px, env(safe-area-inset-bottom, 0px)) !important;
+    overflow: hidden !important;
+}
+
+/* Barre de zoom : position normale dans le flux Flex, jamais absolute/fixed. */
+#lightbox.lightbox-overlay .lightbox-controls {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: 2 !important;
+    align-self: center !important;
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: 9px !important;
+    width: max-content !important;
+    max-width: calc(100vw - 28px) !important;
+    margin: 0 auto !important;
+    padding: 7px 11px !important;
+    border: 1px solid rgba(255,255,255,.24) !important;
+    border-radius: 18px !important;
+    background: linear-gradient(135deg, rgba(22,35,55,.97), rgba(48,67,91,.96)) !important;
+    box-shadow: 0 12px 32px rgba(0,0,0,.35) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+}
+
+#lightbox.lightbox-overlay .lightbox-btn {
+    flex: 0 0 42px !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    height: 42px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    color: #fff !important;
+    background: rgba(255,255,255,.08) !important;
+    line-height: 1 !important;
+}
+#lightbox.lightbox-overlay .lightbox-btn:hover {
+    background: rgba(255,255,255,.19) !important;
+    transform: translateY(-1px) !important;
+}
+#lightbox.lightbox-overlay .lightbox-btn.close-btn {
+    width: 42px !important;
+    min-width: 42px !important;
+    margin-left: 3px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-left: 0 !important;
+    border-radius: 12px !important;
+    color: #ff8585 !important;
+    background: rgba(255,92,92,.12) !important;
+}
+#lightbox.lightbox-overlay .lightbox-btn.close-btn:hover {
+    color: #fff !important;
+    background: #e34d5b !important;
+}
+#lightbox.lightbox-overlay .lightbox-btn .eml-online-icon,
+#lightbox.lightbox-overlay .lightbox-btn .eml-inline-icon,
+#lightbox.lightbox-overlay .lightbox-btn .eml-local-icon {
+    display: inline-block !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    margin: 0 !important;
+}
+
+/* La zone image commence après la barre et absorbe uniquement l'espace restant. */
+#lightbox.lightbox-overlay .lightbox-container {
+    position: relative !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    touch-action: none !important;
+}
+#lightbox.lightbox-overlay .lightbox-img {
+    display: block !important;
+    flex: 0 1 auto !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: min(94vw, 100%) !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    margin: 0 auto !important;
+}
+
+@media (max-width: 520px) {
+    #lightbox.lightbox-overlay {
+        gap: 8px !important;
+        padding: max(9px, env(safe-area-inset-top, 0px)) 8px max(9px, env(safe-area-inset-bottom, 0px)) !important;
+    }
+    #lightbox.lightbox-overlay .lightbox-controls {
+        gap: 5px !important;
+        padding: 5px 7px !important;
+        border-radius: 15px !important;
+        max-width: calc(100vw - 16px) !important;
+    }
+    #lightbox.lightbox-overlay .lightbox-btn,
+    #lightbox.lightbox-overlay .lightbox-btn.close-btn {
+        flex-basis: 38px !important;
+        width: 38px !important;
+        min-width: 38px !important;
+        height: 38px !important;
+        border-radius: 11px !important;
+    }
+    #lightbox.lightbox-overlay .lightbox-btn .eml-online-icon,
+    #lightbox.lightbox-overlay .lightbox-btn .eml-inline-icon,
+    #lightbox.lightbox-overlay .lightbox-btn .eml-local-icon {
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #lightbox.lightbox-overlay .lightbox-btn { transition: none !important; }
+}
+</style>
+<!-- EML_LIGHTBOX_NO_OVERLAP_V1_END -->
+
 </head>
 <body>
 
     <div id="lightbox" class="lightbox-overlay">
         <div class="lightbox-controls">
-            <button class="lightbox-btn" onclick="zoomImage(0.2)" title="Zoom Avant"><i class="fas fa-plus"></i></button>
-            <button class="lightbox-btn" onclick="zoomImage(-0.2)" title="Zoom Arrière"><i class="fas fa-minus"></i></button>
-            <button class="lightbox-btn" onclick="resetZoom()" title="Taille Originale"><i class="fas fa-compress"></i></button>
-            <button class="lightbox-btn close-btn" onclick="closeLightbox()" title="Fermer"><i class="fas fa-times"></i></button>
+            <button class="lightbox-btn" onclick="zoomImage(0.2)" title="Zoom Avant"><span class="icon--lucide icon--lucide--plus eml-online-icon" data-eml-icon="fa-plus" aria-hidden="true" role="presentation"></span></button>
+            <button class="lightbox-btn" onclick="zoomImage(-0.2)" title="Zoom Arrière"><span class="icon--lucide icon--lucide--minus eml-online-icon" data-eml-icon="fa-minus" aria-hidden="true" role="presentation"></span></button>
+            <button class="lightbox-btn" onclick="resetZoom()" title="Taille Originale"><span class="icon--lucide icon--lucide--minimize eml-online-icon" data-eml-icon="fa-compress" aria-hidden="true" role="presentation"></span></button>
+            <button class="lightbox-btn close-btn" onclick="closeLightbox()" title="Fermer"><span class="icon--lucide icon--lucide--x eml-online-icon" data-eml-icon="fa-times" aria-hidden="true" role="presentation"></span></button>
         </div>
         <div class="lightbox-container" id="lightboxContainer">
             <img id="lightboxImg" class="lightbox-img" src="" alt="Zoom Image">
@@ -611,7 +1035,7 @@
 
     <div id="dragWhatsapp" class="btn-whatsapp-float" title="Contactez-nous sur WhatsApp">
         <a href="https://wa.me/212652084735" target="_blank" onclick="trackWhatsApp()" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center; color:white;" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
+            <span class="icon--simple-icons icon--simple-icons--whatsapp eml-online-icon" data-eml-icon="fa-whatsapp" aria-hidden="true" role="presentation"></span>
         </a>
     </div>
 
@@ -620,11 +1044,11 @@
         <a href="https://github.com/Sastouka/EasyMedicaLinkLocale/releases/download/v1.0.0/EasyMedicaLink.apk" target="_blank" rel="noopener noreferrer"
            onclick="trackApkDownload('floating')" class="btn-float eml-floating-apk"
            title="Télécharger directement l'application Android (APK)" aria-label="Télécharger EasyMedicaLink pour Android">
-            <i class="fab fa-android"></i><span>APK Android</span>
+            <span class="icon--simple-icons icon--simple-icons--android eml-online-icon" data-eml-icon="fa-android" aria-hidden="true" role="presentation"></span><span>APK Android</span>
         </a>
         <a href="#" onclick="openDownloadModal(event)" class="btn-float eml-floating-windows"
            title="Télécharger EasyMedicaLink pour Windows" aria-label="Télécharger EasyMedicaLink pour Windows">
-            <i class="fab fa-windows"></i><span>Windows</span>
+            <span class="icon--simple-icons icon--simple-icons--windows eml-online-icon" data-eml-icon="fa-windows" aria-hidden="true" role="presentation"></span><span>Windows</span>
         </a>
     </div>
 
@@ -632,91 +1056,101 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <img src="icon.png" alt="Logo EasyMedicaLink"> 
+                    <img src="asset/icon.png" alt="Logo EasyMedicaLink"> 
                     EasyMedicaLink
                 </div>
                 
                 <div class="nav-actions">
                     <a href="article.html" class="nav-link-guide" title="Analyse Numérique">
-                        <i class="fas fa-microscope"></i> <span>Analyse Numérique</span>
+                        <span class="icon--lucide icon--lucide--microscope eml-online-icon" data-eml-icon="fa-microscope" aria-hidden="true" role="presentation"></span> <span>Analyse Numérique</span>
                     </a>
 
                     <a href="generateur.html" class="nav-link-guide" title="Générateur d'Entête" style="background: rgba(255,255,255,0.2);">
-                        <i class="fas fa-magic"></i> <span>Studio Entête</span>
+                        <span class="icon--lucide icon--lucide--wand-sparkles eml-online-icon" data-eml-icon="fa-magic" aria-hidden="true" role="presentation"></span> <span>Studio Entête</span>
                     </a>
                     
                     <a href="guide.html" target="_blank" class="nav-link-guide" title="Guide d'Utilisation" onclick="trackGuide(event)">
-                        <i class="fas fa-book-open"></i> <span>Guide d'utilisation</span>
+                        <span class="icon--lucide icon--lucide--book-open eml-online-icon" data-eml-icon="fa-book-open" aria-hidden="true" role="presentation"></span> <span>Guide d'utilisation</span>
                     </a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <section class="hero text-center">
+<section class="hero text-center">
         <div class="container">
             <h1>Votre cabinet/clinique. Une gestion plus simple.<br>Sur Android et Windows.</h1>
-            <p class="hero-desc">Un écosystème complet : de la prise de RDV à la comptabilité, en passant par l'IA médicale. Données 100% locales et sécurisées.</p>
+            <p class="hero-desc">Un écosystème complet : de la prise de RDV à la comptabilité, en passant par l'IA médicale. Base et fichiers stockés localement ; l'assistant IA connecté nécessite Internet.</p>
             
             <!-- EML_CONVERSION_PATCH_V1 : choix immédiat de la version -->
-            <div class="eml-download-panel">
+            
+<!-- EML_HERO_CAPTURE_V4_BEGIN -->
+<figure class="eml-hero-capture" data-eml-hero-capture="capture_08_HD.jpg">
+    <img class="app-screen eml-screen-img" src="asset/capture_08_HD.jpg"
+         alt="EasyMedicaLink — aperçu de l'interface et des modules" loading="eager"
+         fetchpriority="high" decoding="async" width="1920" height="3072">
+    <figcaption><strong>Une vue claire de vos outils au quotidien</strong>
+        <span>Découvrez l'interface avant de choisir votre version Android ou Windows.</span></figcaption>
+</figure>
+<!-- EML_HERO_CAPTURE_V4_END -->
+<div class="eml-download-panel">
                 <p class="eml-download-kicker">Choisissez votre appareil et téléchargez maintenant</p>
                 <div class="download-group eml-download-group">
                     <a href="https://github.com/Sastouka/EasyMedicaLinkLocale/releases/download/v1.0.0/EasyMedicaLink.apk" target="_blank" rel="noopener noreferrer"
                        onclick="trackApkDownload('hero')" class="eml-cta-link eml-cta-android"
                        aria-label="Télécharger directement l'APK Android">
-                        <i class="fab fa-android"></i>
+                        <span class="icon--simple-icons icon--simple-icons--android eml-online-icon" data-eml-icon="fa-android" aria-hidden="true" role="presentation"></span>
                         <span class="eml-cta-copy"><strong>Télécharger l'APK Android</strong><small>Accès direct au fichier · Android</small></span>
                     </a>
                     <a href="#" onclick="openDownloadModal(event)" class="eml-cta-link eml-cta-windows"
                        aria-label="Télécharger la version Windows">
-                        <i class="fab fa-windows"></i>
+                        <span class="icon--simple-icons icon--simple-icons--windows eml-online-icon" data-eml-icon="fa-windows" aria-hidden="true" role="presentation"></span>
                         <span class="eml-cta-copy"><strong>Télécharger pour Windows</strong><small>Archive ZIP · PC Windows</small></span>
                     </a>
                 </div>
-                <p class="eml-download-note"><i class="fas fa-shield-alt"></i>
+                <p class="eml-download-note"><span class="icon--lucide icon--lucide--shield-check eml-online-icon" data-eml-icon="fa-shield-alt" aria-hidden="true" role="presentation"></span>
                     Téléchargement Android depuis la version publiée sur GitHub. Après le téléchargement,
                     ouvrez le fichier APK et suivez les instructions affichées par Android.
                 </p>
             </div>
             <div class="eml-conversion-strip" aria-label="Informations sur les versions disponibles">
-                <span><i class="fas fa-check-circle"></i> Version Android disponible</span>
-                <span><i class="fas fa-check-circle"></i> Version Windows disponible</span>
-                <span><i class="fas fa-download"></i> Choix du téléchargement en un clic</span>
+                <span><span class="icon--lucide icon--lucide--circle-check eml-online-icon" data-eml-icon="fa-check-circle" aria-hidden="true" role="presentation"></span> Version Android disponible</span>
+                <span><span class="icon--lucide icon--lucide--circle-check eml-online-icon" data-eml-icon="fa-check-circle" aria-hidden="true" role="presentation"></span> Version Windows disponible</span>
+                <span><span class="icon--lucide icon--lucide--download eml-online-icon" data-eml-icon="fa-download" aria-hidden="true" role="presentation"></span> Choix du téléchargement en un clic</span>
             </div>
 
             <div class="hero-main-screenshot">
-                <img src="1.png" alt="Interface Principale EasyMedicaLink - Tableau de Bord">
+                <img src="asset/1.png" alt="Interface Principale EasyMedicaLink - Tableau de Bord">
             </div>
 
             <div class="hero-image-wrapper">
-                <span class="doc-label"><i class="fas fa-print"></i> Documents Professionnels Générés (Glissez pour voir)</span>
+                <span class="doc-label"><span class="icon--lucide icon--lucide--printer eml-online-icon" data-eml-icon="fa-print" aria-hidden="true" role="presentation"></span> Documents Professionnels Générés (Glissez pour voir)</span>
                 <div class="doc-scroll-container">
-                    <div class="doc-item" title="Reçu de Paiement"><img src="recu.png" alt="Reçu"></div>
-                    <div class="doc-item" title="Ordonnance"><img src="ordonnance.png" alt="Ordonnance"></div>
-                    <div class="doc-item" title="Certificat"><img src="certificat.png" alt="Certificat"></div>
-                    <div class="doc-item" title="Facture"><img src="facture.png" alt="Facture"></div>
-                    <div class="doc-item" title="Analyse"><img src="analyse.png" alt="Analyse"></div>
-                    <div class="doc-item" title="Radiologie"><img src="radiologie.png" alt="Radio"></div>
-                    <div class="doc-item" title="Historique"><img src="historique.png" alt="Historique"></div>
+                    <div class="doc-item" title="Reçu de Paiement"><img src="asset/recu.png" alt="Reçu"></div>
+                    <div class="doc-item" title="Ordonnance"><img src="asset/ordonnance.png" alt="Ordonnance"></div>
+                    <div class="doc-item" title="Certificat"><img src="asset/certificat.png" alt="Certificat"></div>
+                    <div class="doc-item" title="Facture"><img src="asset/facture.png" alt="Facture"></div>
+                    <div class="doc-item" title="Analyse"><img src="asset/analyse.png" alt="Analyse"></div>
+                    <div class="doc-item" title="Radiologie"><img src="asset/radiologie.png" alt="Radio"></div>
+                    <div class="doc-item" title="Historique"><img src="asset/historique.png" alt="Historique"></div>
                     <!-- Nouveaux modules -->
-                    <div class="doc-item" title="Hospitalisation"><img src="11.png" alt="Hospitalisation"></div>
-                    <div class="doc-item" title="Salle d'Attente"><img src="12.png" alt="Salle d'Attente"></div>
+                    <div class="doc-item" title="Hospitalisation"><img src="asset/11.png" alt="Hospitalisation"></div>
+                    <div class="doc-item" title="Salle d'Attente"><img src="asset/12.png" alt="Salle d'Attente"></div>
                 </div>
             </div>
 
             <div class="module-list">
-                <span class="module-tag"><i class="fas fa-calendar-check"></i> RDV</span>
-                <span class="module-tag"><i class="fas fa-stethoscope"></i> Consultation</span>
-                <span class="module-tag"><i class="fas fa-users"></i> Patients</span>
-                <span class="module-tag"><i class="fas fa-flask"></i> Biologie</span>
-                <span class="module-tag"><i class="fas fa-x-ray"></i> Radio</span>
-                <span class="module-tag"><i class="fas fa-prescription-bottle-alt"></i> Pharmacie</span>
-                <span class="module-tag"><i class="fas fa-calculator"></i> Compta</span>
-                <span class="module-tag special"><i class="fas fa-robot"></i> IA Synapse</span>
+                <span class="module-tag"><span class="icon--lucide icon--lucide--calendar-check eml-online-icon" data-eml-icon="fa-calendar-check" aria-hidden="true" role="presentation"></span> RDV</span>
+                <span class="module-tag"><span class="icon--lucide icon--lucide--stethoscope eml-online-icon" data-eml-icon="fa-stethoscope" aria-hidden="true" role="presentation"></span> Consultation</span>
+                <span class="module-tag"><span class="icon--lucide icon--lucide--users-round eml-online-icon" data-eml-icon="fa-users" aria-hidden="true" role="presentation"></span> Patients</span>
+                <span class="module-tag"><span class="icon--lucide icon--lucide--flask-conical eml-online-icon" data-eml-icon="fa-flask" aria-hidden="true" role="presentation"></span> Biologie</span>
+                <span class="module-tag"><span class="icon--lucide icon--lucide--scan-line eml-online-icon" data-eml-icon="fa-x-ray" aria-hidden="true" role="presentation"></span> Radio</span>
+                <span class="module-tag"><span class="icon--lucide icon--lucide--pill eml-online-icon" data-eml-icon="fa-prescription-bottle-alt" aria-hidden="true" role="presentation"></span> Pharmacie</span>
+                <span class="module-tag"><span class="icon--lucide icon--lucide--calculator eml-online-icon" data-eml-icon="fa-calculator" aria-hidden="true" role="presentation"></span> Compta</span>
+                <span class="module-tag special"><span class="icon--lucide icon--lucide--bot eml-online-icon" data-eml-icon="fa-robot" aria-hidden="true" role="presentation"></span> IA Synapse</span>
                 <!-- Nouveaux tags -->
-                <span class="module-tag"><i class="fas fa-bed"></i> Hospitalisation</span>
-                <span class="module-tag"><i class="fas fa-tv"></i> Salle d'Attente</span>
+                <span class="module-tag"><span class="icon--lucide icon--lucide--bed-double eml-online-icon" data-eml-icon="fa-bed" aria-hidden="true" role="presentation"></span> Hospitalisation</span>
+                <span class="module-tag"><span class="icon--lucide icon--lucide--tv eml-online-icon" data-eml-icon="fa-tv" aria-hidden="true" role="presentation"></span> Salle d'Attente</span>
             </div>
         </div>
     </section>
@@ -724,19 +1158,19 @@
     <section class="video-section">
         <div class="container">
             <div class="section-header" style="margin-bottom: 2rem;">
-                <h2><i class="fas fa-play-circle" style="color:var(--accent-coral);"></i> Démonstration en Action</h2>
+                <h2><span class="icon--lucide icon--lucide--circle-play eml-online-icon" data-eml-icon="fa-play-circle" aria-hidden="true" role="presentation" style="color:var(--accent-coral);"></span> Démonstration en Action</h2>
                 <p style="color:var(--text-light);">Découvrez en 3 minutes comment EasyMedicaLink simplifie votre cabinet/clinique.</p>
             </div>
             
             <div class="video-box">
                 <div class="video-wrapper" id="videoWrapper">
                     <div class="video-placeholder" onclick="loadVideo(this)">
-                        <div class="play-btn-overlay"><i class="fas fa-play" style="color:white; font-size:30px; margin-left:5px;"></i></div>
+                        <div class="play-btn-overlay"><span class="icon--lucide icon--lucide--play eml-online-icon" data-eml-icon="fa-play" aria-hidden="true" role="presentation" style="color:white; font-size:30px; margin-left:5px;"></span></div>
                     </div>
                 </div>
             </div>
             <p id="localVideoHelp" style="display:none; font-size:0.85rem; color:#718096; margin-top:15px;">
-                <i class="fas fa-info-circle"></i> La vidéo ne démarre pas ? (Mode local détecté)<br>
+                <span class="icon--lucide icon--lucide--info eml-online-icon" data-eml-icon="fa-info-circle" aria-hidden="true" role="presentation"></span> La vidéo ne démarre pas ? (Mode local détecté)<br>
                 <a href="https://youtu.be/aaIg6gDj9b0" target="_blank" style="text-decoration:underline; color:var(--primary);">Cliquez ici pour la voir sur YouTube</a>
             </p>
         </div>
@@ -745,20 +1179,38 @@
     <section class="split-section alt">
         <div class="container split-container">
             <div class="text-col">
-                <h2><i class="fas fa-shield-alt"></i> Sécurité &amp; Accès</h2>
+                <h2><span class="icon--lucide icon--lucide--shield-check eml-online-icon" data-eml-icon="fa-shield-alt" aria-hidden="true" role="presentation"></span> Sécurité &amp; Accès</h2>
                 <p>EasyMedicaLink combine la sécurité d'une base de données locale avec la simplicité du réseau.</p>
                 <ul class="feature-check">
-                    <li><i class="fas fa-server"></i> <strong>Architecture Réseau Local :</strong> Installez sur 1 PC (Serveur), accédez via le réseau interne.</li>
-                    <li><i class="fas fa-users-cog"></i> <strong>Multi-Rôles :</strong> Admin, Médecin, Assistante, Comptable.</li>
-                    <li><i class="fas fa-key"></i> <strong>Licence Flexible :</strong> Essai 7 jours ou Illimité.</li>
-                    <li><i class="fas fa-hdd"></i> <strong>Données Locales :</strong> Vos patients restent chez vous, <strong>pas dans le Cloud</strong>.</li>
+                    <li><span class="icon--lucide icon--lucide--server eml-online-icon" data-eml-icon="fa-server" aria-hidden="true" role="presentation"></span> <strong>Architecture Réseau Local :</strong> Installez sur 1 PC (Serveur), accédez via le réseau interne.</li>
+                    <li><span class="icon--lucide icon--lucide--users-round eml-online-icon" data-eml-icon="fa-users-cog" aria-hidden="true" role="presentation"></span> <strong>Multi-Rôles :</strong> Admin, Médecin, Assistante, Comptable.</li>
+                    <li><span class="icon--lucide icon--lucide--key-round eml-online-icon" data-eml-icon="fa-key" aria-hidden="true" role="presentation"></span> <strong>Licence Flexible :</strong> Essai 7 jours ou Illimité.</li>
+                    <li><span class="icon--lucide icon--lucide--hard-drive eml-online-icon" data-eml-icon="fa-hdd" aria-hidden="true" role="presentation"></span> <strong>Stockage local :</strong> La base et les fichiers sont stockés localement. L'assistant IA, s'il est utilisé, nécessite Internet et peut transmettre au fournisseur les informations qui lui sont soumises.</li>
                 </ul>
             </div>
             <div class="img-col">
-                <img src="1-1.png" alt="Interface de Connexion">
-            </div>
+                <img src="asset/1-1.png" alt="Interface de Connexion">
+            
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_06_HD.jpg">
+        <div class="eml-context-capture-media">
+            <img class="app-screen eml-screen-img" src="asset/capture_06_HD.jpg"
+                 alt="EasyMedicaLink — Configuration initiale" loading="lazy" decoding="async"
+                 width="1920" height="3072">
         </div>
-    </section>
+        <figcaption><strong>Configuration initiale</strong><span>Identité de l&#x27;établissement, modules affichés et paramètres de démarrage.</span></figcaption>
+    </figure></div>
+
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_06_HD.jpg">
+        <div class="eml-context-capture-media">
+            <img class="app-screen eml-screen-img" src="asset/capture_06_HD.jpg"
+                 alt="EasyMedicaLink — Configuration initiale" loading="lazy" decoding="async"
+                 width="1920" height="3072">
+        </div>
+        <figcaption><strong>Configuration initiale</strong><span>Identité de l&#x27;établissement, modules affichés et paramètres de démarrage.</span></figcaption>
+    </figure></div>
+</div>
+        </div>
+</section>
 
     <section class="network-section">
         <div class="container">
@@ -768,24 +1220,24 @@
             
             <div class="network-diagram">
                 <div class="network-card">
-                    <i class="fab fa-apple"></i>
+                    <span class="icon--simple-icons icon--simple-icons--apple eml-online-icon" data-eml-icon="fa-apple" aria-hidden="true" role="presentation"></span>
                     <h4>Mac / MacBook</h4>
                     <p>Accès complet via navigateur.</p>
                 </div>
                 <div class="network-card main-server">
-                    <i class="fab fa-windows"></i>
+                    <span class="icon--simple-icons icon--simple-icons--windows eml-online-icon" data-eml-icon="fa-windows" aria-hidden="true" role="presentation"></span>
                     <h4>PC Serveur</h4>
                     <p>Installation principale requise.</p>
                 </div>
                 <div class="network-card">
-                    <i class="fas fa-tablet-alt"></i>
+                    <span class="icon--lucide icon--lucide--tablet eml-online-icon" data-eml-icon="fa-tablet-alt" aria-hidden="true" role="presentation"></span>
                     <h4>Tablette & Mobile</h4>
                     <p>Gestion salle d'attente.</p>
                 </div>
             </div>
             <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.7;">* Tous les appareils doivent être sur le même réseau Wi-Fi/LAN.</p>
         </div>
-    </section>
+</section>
 
     <section class="admin-section">
         <div class="container">
@@ -795,56 +1247,70 @@
             </div>
             <div class="admin-grid">
                 <div class="admin-card">
-                    <img src="2.png" alt="Dashboard">
-                    <h3><i class="fas fa-tachometer-alt"></i> Vue Globale</h3>
+                    <img src="asset/2.png" alt="Dashboard">
+                    <h3><span class="icon--lucide icon--lucide--gauge eml-online-icon" data-eml-icon="fa-tachometer-alt" aria-hidden="true" role="presentation"></span> Vue Globale</h3>
                     <ul>
                         <li>État de la licence &amp; Sauvegardes</li>
                         <li>Identité du praticien connecté</li>
                     </ul>
                 </div>
                 <div class="admin-card">
-                    <img src="3.png" alt="Settings">
-                    <h3><i class="fas fa-sliders-h"></i> Paramètres</h3>
+                    <img src="asset/3.png" alt="Settings">
+                    <h3><span class="icon--lucide icon--lucide--sliders-horizontal eml-online-icon" data-eml-icon="fa-sliders-h" aria-hidden="true" role="presentation"></span> Paramètres</h3>
                     <ul>
                         <li>Infos clinique, Logo, Devise</li>
                         <li>Horaires &amp; Créneaux RDV</li>
                     </ul>
                 </div>
                 <div class="admin-card">
-                    <img src="4.png" alt="Listes">
-                    <h3><i class="fas fa-book-medical"></i> Référentiels</h3>
+                    <img src="asset/4.png" alt="Listes">
+                    <h3><span class="icon--lucide icon--lucide--book-open-check eml-online-icon" data-eml-icon="fa-book-medical" aria-hidden="true" role="presentation"></span> Référentiels</h3>
                     <ul>
                         <li>Listes Médicaments &amp; Actes</li>
                         <li>Examens Biologie/Radio par défaut</li>
                     </ul>
                 </div>
                 <div class="admin-card">
-                    <img src="5.png" alt="Portail">
-                    <h3><i class="fas fa-globe"></i> Portail Patient</h3>
+                    <img src="asset/5.png" alt="Portail">
+                    <h3><span class="icon--lucide icon--lucide--globe eml-online-icon" data-eml-icon="fa-globe" aria-hidden="true" role="presentation"></span> Portail Patient</h3>
                     <ul>
                         <li>QR Code prise de RDV</li>
                         <li>Gestion jours fériés</li>
                     </ul>
                 </div>
                 <div class="admin-card">
-                    <img src="6.png" alt="Users">
-                    <h3><i class="fas fa-users-cog"></i> Équipe</h3>
+                    <img src="asset/6.png" alt="Users">
+                    <h3><span class="icon--lucide icon--lucide--users-round eml-online-icon" data-eml-icon="fa-users-cog" aria-hidden="true" role="presentation"></span> Équipe</h3>
                     <ul>
                         <li>Création comptes &amp; Permissions</li>
                         <li>Lien WhatsApp staff</li>
                     </ul>
                 </div>
                 <div class="admin-card">
-                    <img src="8.png" alt="Backup">
-                    <h3><i class="fas fa-database"></i> Données</h3>
+                    <img src="asset/8.png" alt="Backup">
+                    <h3><span class="icon--lucide icon--lucide--database eml-online-icon" data-eml-icon="fa-database" aria-hidden="true" role="presentation"></span> Données</h3>
                     <ul>
                         <li>Export Excel complet</li>
                         <li>Restauration système</li>
                     </ul>
                 </div>
-            </div>
+            <div class="admin-card eml-added-admin-card" data-eml-capture="capture_04_HD.jpg">
+                    <img class="app-screen eml-screen-img" src="asset/capture_04_HD.jpg" alt="EasyMedicaLink — Configuration en EUR" loading="lazy" decoding="async" width="1920" height="3072">
+                    <h3>Configuration en EUR</h3><ul><li>Exemple de paramètres avec devise EUR et TVA à 20 %.</li></ul>
+                </div>
+<div class="admin-card eml-added-admin-card" data-eml-capture="capture_10_HD.jpg">
+                    <img class="app-screen eml-screen-img" src="asset/capture_10_HD.jpg" alt="EasyMedicaLink — Configuration en MAD" loading="lazy" decoding="async" width="1920" height="3072">
+                    <h3>Configuration en MAD</h3><ul><li>Exemple de paramètres avec devise MAD et TVA à 0 %.</li></ul>
+                </div><div class="admin-card eml-added-admin-card" data-eml-capture="capture_04_HD.jpg">
+                    <img class="app-screen eml-screen-img" src="asset/capture_04_HD.jpg" alt="EasyMedicaLink — Configuration en EUR" loading="lazy" decoding="async" width="1920" height="3072">
+                    <h3>Configuration en EUR</h3><ul><li>Exemple de paramètres avec devise EUR et TVA à 20 %.</li></ul>
+                </div>
+<div class="admin-card eml-added-admin-card" data-eml-capture="capture_10_HD.jpg">
+                    <img class="app-screen eml-screen-img" src="asset/capture_10_HD.jpg" alt="EasyMedicaLink — Configuration en MAD" loading="lazy" decoding="async" width="1920" height="3072">
+                    <h3>Configuration en MAD</h3><ul><li>Exemple de paramètres avec devise MAD et TVA à 0 %.</li></ul>
+                </div></div>
         </div>
-    </section>
+</section>
 
     <section class="split-section">
         <div class="container split-container reverse">
@@ -852,52 +1318,88 @@
                 <h2>Gestion RDV &amp; Patients</h2>
                 <p>Flux de travail optimisé pour l'assistante et le médecin.</p>
                 <ul class="feature-check">
-                    <li><i class="fas fa-calendar-alt"></i> <strong>Planning :</strong> Vue jour/semaine, filtres dynamiques.</li>
-                    <li><i class="fas fa-user-clock"></i> <strong>Salle d'attente :</strong> Statut en temps réel (En attente/En cours).</li>
-                    <li><i class="fab fa-whatsapp"></i> <strong>Rappels :</strong> Notification WhatsApp en 1 clic.</li>
-                    <li><i class="fas fa-id-badge"></i> <strong>Badges :</strong> Impression automatique avec QR.</li>
+                    <li><span class="icon--lucide icon--lucide--calendar-days eml-online-icon" data-eml-icon="fa-calendar-alt" aria-hidden="true" role="presentation"></span> <strong>Planning :</strong> Vue jour/semaine, filtres dynamiques.</li>
+                    <li><span class="icon--lucide icon--lucide--clock eml-online-icon" data-eml-icon="fa-user-clock" aria-hidden="true" role="presentation"></span> <strong>Salle d'attente :</strong> Statut en temps réel (En attente/En cours).</li>
+                    <li><span class="icon--simple-icons icon--simple-icons--whatsapp eml-online-icon" data-eml-icon="fa-whatsapp" aria-hidden="true" role="presentation"></span> <strong>Rappels :</strong> Notification WhatsApp en 1 clic.</li>
+                    <li><span class="icon--lucide icon--lucide--id-card eml-online-icon" data-eml-icon="fa-id-badge" aria-hidden="true" role="presentation"></span> <strong>Badges :</strong> Impression automatique avec QR.</li>
                 </ul>
             </div>
             <div class="img-col">
-                <img src="9.png" alt="Agenda">
-            </div>
+                <img src="asset/9.png" alt="Agenda">
+            
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_03_HD.jpg">
+        <div class="eml-context-capture-media">
+            <img class="app-screen eml-screen-img" src="asset/capture_03_HD.jpg"
+                 alt="EasyMedicaLink — Liste des patients" loading="lazy" decoding="async"
+                 width="1920" height="3072">
         </div>
-    </section>
+        <figcaption><strong>Liste des patients</strong><span>Recherche, navigation dans la liste et génération des badges patients.</span></figcaption>
+    </figure></div>
+
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_03_HD.jpg">
+        <div class="eml-context-capture-media">
+            <img class="app-screen eml-screen-img" src="asset/capture_03_HD.jpg"
+                 alt="EasyMedicaLink — Liste des patients" loading="lazy" decoding="async"
+                 width="1920" height="3072">
+        </div>
+        <figcaption><strong>Liste des patients</strong><span>Recherche, navigation dans la liste et génération des badges patients.</span></figcaption>
+    </figure></div>
+</div>
+        </div>
+</section>
 
     <!-- NOUVELLE SECTION : HOSPITALISATION -->
     <section class="split-section alt">
         <div class="container split-container">
             <div class="text-col">
-                <h2><i class="fas fa-bed"></i> Gestion d'Hospitalisation</h2>
+                <h2><span class="icon--lucide icon--lucide--bed-double eml-online-icon" data-eml-icon="fa-bed" aria-hidden="true" role="presentation"></span> Gestion d'Hospitalisation</h2>
                 <p>Suivez vos patients hospitalisés avec un dossier complet et structuré.</p>
                 <ul class="feature-check">
-                    <li><i class="fas fa-folder-open"></i> <strong>Dossier unique :</strong> Constantes, évolution, prescriptions, examens.</li>
-                    <li><i class="fas fa-user-md"></i> <strong>Rôles multiples :</strong> Médecin, infirmière, anesthésiste – chacun saisit ses observations.</li>
-                    <li><i class="fas fa-file-pdf"></i> <strong>Génération PDF :</strong> Dossier complet imprimable en un clic.</li>
-                    <li><i class="fas fa-history"></i> <strong>Historique intégral :</strong> Toutes les saisies par patient, avec suivi des dates d’exeat.</li>
+                    <li><span class="icon--lucide icon--lucide--folder-open eml-online-icon" data-eml-icon="fa-folder-open" aria-hidden="true" role="presentation"></span> <strong>Dossier unique :</strong> Constantes, évolution, prescriptions, examens.</li>
+                    <li><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span> <strong>Rôles multiples :</strong> Médecin, infirmière, anesthésiste – chacun saisit ses observations.</li>
+                    <li><span class="icon--lucide icon--lucide--file-text eml-online-icon" data-eml-icon="fa-file-pdf" aria-hidden="true" role="presentation"></span> <strong>Génération PDF :</strong> Dossier complet imprimable en un clic.</li>
+                    <li><span class="icon--lucide icon--lucide--history eml-online-icon" data-eml-icon="fa-history" aria-hidden="true" role="presentation"></span> <strong>Historique intégral :</strong> Toutes les saisies par patient, avec suivi des dates d’exeat.</li>
                 </ul>
             </div>
             <div class="img-col">
-                <img src="11.png" alt="Interface Hospitalisation">
-            </div>
+                <img src="asset/11.png" alt="Interface Hospitalisation">
+            
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_01_HD.jpg">
+        <div class="eml-context-capture-media">
+            <img class="app-screen eml-screen-img" src="asset/capture_01_HD.jpg"
+                 alt="EasyMedicaLink — Dossier d&#x27;hospitalisation" loading="lazy" decoding="async"
+                 width="1920" height="3072">
         </div>
-    </section>
+        <figcaption><strong>Dossier d&#x27;hospitalisation</strong><span>Constantes, prescriptions, examens et suivi par les différents intervenants.</span></figcaption>
+    </figure></div>
+
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_01_HD.jpg">
+        <div class="eml-context-capture-media">
+            <img class="app-screen eml-screen-img" src="asset/capture_01_HD.jpg"
+                 alt="EasyMedicaLink — Dossier d&#x27;hospitalisation" loading="lazy" decoding="async"
+                 width="1920" height="3072">
+        </div>
+        <figcaption><strong>Dossier d&#x27;hospitalisation</strong><span>Constantes, prescriptions, examens et suivi par les différents intervenants.</span></figcaption>
+    </figure></div>
+</div>
+        </div>
+</section>
 
     <!-- NOUVELLE SECTION : SALLE D'ATTENTE TV -->
     <section class="split-section">
         <div class="container split-container reverse">
             <div class="text-col">
-                <h2><i class="fas fa-tv"></i> Salle d'Attente Connectée</h2>
+                <h2><span class="icon--lucide icon--lucide--tv eml-online-icon" data-eml-icon="fa-tv" aria-hidden="true" role="presentation"></span> Salle d'Attente Connectée</h2>
                 <p>Affichage en temps réel sur écran TV pour informer vos patients.</p>
                 <ul class="feature-check">
-                    <li><i class="fas fa-user-clock"></i> <strong>Patient actuel :</strong> Affiché en grand format avec son nom et l’heure du RDV.</li>
-                    <li><i class="fas fa-list-ol"></i> <strong>File d'attente :</strong> Liste des prochains patients, triée par heure.</li>
-                    <li><i class="fas fa-user-md"></i> <strong>Filtrage par médecin :</strong> Sélectionnez le praticien pour une vue personnalisée.</li>
-                    <li><i class="fas fa-sync-alt"></i> <strong>Actualisation automatique :</strong> Les données se mettent à jour toutes les 10 secondes.</li>
+                    <li><span class="icon--lucide icon--lucide--clock eml-online-icon" data-eml-icon="fa-user-clock" aria-hidden="true" role="presentation"></span> <strong>Patient actuel :</strong> Affiché en grand format avec son nom et l’heure du RDV.</li>
+                    <li><span class="icon--lucide icon--lucide--list-ordered eml-online-icon" data-eml-icon="fa-list-ol" aria-hidden="true" role="presentation"></span> <strong>File d'attente :</strong> Liste des prochains patients, triée par heure.</li>
+                    <li><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span> <strong>Filtrage par médecin :</strong> Sélectionnez le praticien pour une vue personnalisée.</li>
+                    <li><span class="icon--lucide icon--lucide--refresh-cw eml-online-icon" data-eml-icon="fa-sync-alt" aria-hidden="true" role="presentation"></span> <strong>Actualisation automatique :</strong> Les données se mettent à jour toutes les 10 secondes.</li>
                 </ul>
             </div>
             <div class="img-col">
-                <img src="12.png" alt="Salle d'Attente TV">
+                <img src="asset/12.png" alt="Salle d'Attente TV">
             </div>
         </div>
     </section>
@@ -910,50 +1412,64 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="icon-box consult-icon"><i class="fas fa-stethoscope"></i></div>
+                    <div class="icon-box consult-icon"><span class="icon--lucide icon--lucide--stethoscope eml-online-icon" data-eml-icon="fa-stethoscope" aria-hidden="true" role="presentation"></span></div>
                     <h3 class="mb-1">Consultation</h3>
                     <p style="color:#718096; font-size:0.95rem;">Saisie complète : constantes, diagnostic, ordonnances. Génération certificats PDF.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon-box ia-icon"><i class="fas fa-robot"></i></div>
+                    <div class="icon-box ia-icon"><span class="icon--lucide icon--lucide--bot eml-online-icon" data-eml-icon="fa-robot" aria-hidden="true" role="presentation"></span></div>
                     <h3 class="mb-1">IA Synapse</h3>
                     <p style="color:#718096; font-size:0.95rem;">Assistant intelligent d'aide à la décision et analyse de documents.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon-box bio-icon"><i class="fas fa-flask"></i></div>
+                    <div class="icon-box bio-icon"><span class="icon--lucide icon--lucide--flask-conical eml-online-icon" data-eml-icon="fa-flask" aria-hidden="true" role="presentation"></span></div>
                     <h3 class="mb-1">Bio &amp; Imagerie</h3>
                     <p style="color:#718096; font-size:0.95rem;">Prescription rapide. Importation et classement des résultats PDF.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon-box pharma-icon"><i class="fas fa-boxes"></i></div>
+                    <div class="icon-box pharma-icon"><span class="icon--lucide icon--lucide--boxes eml-online-icon" data-eml-icon="fa-boxes" aria-hidden="true" role="presentation"></span></div>
                     <h3 class="mb-1">Stock Pharma</h3>
                     <p style="color:#718096; font-size:0.95rem;">Inventaire rigoureux. Suivi péremptions et alertes stock bas.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon-box stats-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="icon-box stats-icon"><span class="icon--lucide icon--lucide--chart-line eml-online-icon" data-eml-icon="fa-chart-line" aria-hidden="true" role="presentation"></span></div>
                     <h3 class="mb-1">Statistiques</h3>
                     <p style="color:#718096; font-size:0.95rem;">Tableaux de bord : Recettes, fréquentation et évolution CA.</p>
                 </div>
-            </div>
+            <div class="feature-card eml-added-feature-card" data-eml-capture="capture_09_HD.jpg">
+                    <img class="app-screen eml-screen-img" src="asset/capture_09_HD.jpg" alt="EasyMedicaLink — Dossier médical" loading="lazy" decoding="async" width="1920" height="3072">
+                    <h3 class="mb-1">Dossier médical</h3><p style="color:#718096;font-size:.9rem;">Accès aux rubriques cliniques de la consultation et au suivi du patient.</p>
+                </div>
+<div class="feature-card eml-added-feature-card" data-eml-capture="capture_07_HD.jpg">
+                    <img class="app-screen eml-screen-img" src="asset/capture_07_HD.jpg" alt="EasyMedicaLink — Prescription" loading="lazy" decoding="async" width="1920" height="3072">
+                    <h3 class="mb-1">Prescription</h3><p style="color:#718096;font-size:.9rem;">Sélection du médicament, dosage, posologie et durée du traitement.</p>
+                </div><div class="feature-card eml-added-feature-card" data-eml-capture="capture_09_HD.jpg">
+                    <img class="app-screen eml-screen-img" src="asset/capture_09_HD.jpg" alt="EasyMedicaLink — Dossier médical" loading="lazy" decoding="async" width="1920" height="3072">
+                    <h3 class="mb-1">Dossier médical</h3><p style="color:#718096;font-size:.9rem;">Accès aux rubriques cliniques de la consultation et au suivi du patient.</p>
+                </div>
+<div class="feature-card eml-added-feature-card" data-eml-capture="capture_07_HD.jpg">
+                    <img class="app-screen eml-screen-img" src="asset/capture_07_HD.jpg" alt="EasyMedicaLink — Prescription" loading="lazy" decoding="async" width="1920" height="3072">
+                    <h3 class="mb-1">Prescription</h3><p style="color:#718096;font-size:.9rem;">Sélection du médicament, dosage, posologie et durée du traitement.</p>
+                </div></div>
         </div>
-    </section>
+</section>
     
     <section class="smartphone-gallery-container" style="padding: 40px 0; overflow: hidden; background: white; border-bottom: 1px solid #edf2f7;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
             <div class="section-header">
-                <h2><i class="fas fa-mobile-alt" style="color:var(--accent-teal);"></i> Aperçu Mobile & Tablette</h2>
+                <h2><span class="icon--lucide icon--lucide--smartphone eml-online-icon" data-eml-icon="fa-mobile-alt" aria-hidden="true" role="presentation" style="color:var(--accent-teal);"></span> Aperçu Mobile & Tablette</h2>
                 <p style="color:#718096;">Visualisez l'application sur vos appareils mobiles.</p>
             </div>
             
             <div class="doc-scroll-container hide-scrollbar" style="padding-bottom: 40px;">
-                <div class="smartphone-item" title="Accueil"><img src="s1.jpg" alt="Capture Mobile 1" class="app-screen"></div>
-                <div class="smartphone-item" title="Dashboard"><img src="s2.jpg" alt="Capture Mobile 2" class="app-screen"></div>
-                <div class="smartphone-item" title="Patients"><img src="s3.jpg" alt="Capture Mobile 3" class="app-screen"></div>
-                <div class="smartphone-item" title="Consultation"><img src="s4.jpg" alt="Capture Mobile 4" class="app-screen"></div>
-                <div class="smartphone-item" title="Planning"><img src="s5.jpg" alt="Capture Mobile 5" class="app-screen"></div>
-                <div class="smartphone-item" title="Finances"><img src="s6.jpg" alt="Capture Mobile 6" class="app-screen"></div>
-                <div class="smartphone-item" title="Paramètres"><img src="s7.jpg" alt="Capture Mobile 7" class="app-screen"></div>
-                <div class="smartphone-item" title="Support"><img src="s8.jpg" alt="Capture Mobile 8" class="app-screen"></div>
+                <div class="smartphone-item" title="Accueil"><img src="asset/s1.jpg" alt="Capture Mobile 1" class="app-screen"></div>
+                <div class="smartphone-item" title="Dashboard"><img src="asset/s2.jpg" alt="Capture Mobile 2" class="app-screen"></div>
+                <div class="smartphone-item" title="Patients"><img src="asset/s3.jpg" alt="Capture Mobile 3" class="app-screen"></div>
+                <div class="smartphone-item" title="Consultation"><img src="asset/s4.jpg" alt="Capture Mobile 4" class="app-screen"></div>
+                <div class="smartphone-item" title="Planning"><img src="asset/s5.jpg" alt="Capture Mobile 5" class="app-screen"></div>
+                <div class="smartphone-item" title="Finances"><img src="asset/s6.jpg" alt="Capture Mobile 6" class="app-screen"></div>
+                <div class="smartphone-item" title="Paramètres"><img src="asset/s7.jpg" alt="Capture Mobile 7" class="app-screen"></div>
+                <div class="smartphone-item" title="Support"><img src="asset/s8.jpg" alt="Capture Mobile 8" class="app-screen"></div>
             </div>
         </div>
     </section>
@@ -963,17 +1479,51 @@
                 <h2>Finance &amp; Comptabilité</h2>
                 <p>Une véritable gestion comptable intégrée au cabinet.</p>
                 <ul class="feature-check">
-                    <li><i class="fas fa-file-invoice-dollar"></i> <strong>Facturation :</strong> Calcul auto TVA, devises, remises.</li>
-                    <li><i class="fas fa-wallet"></i> <strong>Trésorerie :</strong> Suivi des paiements, acomptes et impayés.</li>
-                    <li><i class="fas fa-money-check-alt"></i> <strong>Dépenses :</strong> Gestion des charges fixes et achats.</li>
-                    <li><i class="fas fa-hand-holding-usd"></i> <strong>Salaires :</strong> Gestion simple de la paie staff.</li>
+                    <li><span class="icon--lucide icon--lucide--receipt eml-online-icon" data-eml-icon="fa-file-invoice-dollar" aria-hidden="true" role="presentation"></span> <strong>Facturation :</strong> Calcul auto TVA, devises, remises.</li>
+                    <li><span class="icon--lucide icon--lucide--wallet eml-online-icon" data-eml-icon="fa-wallet" aria-hidden="true" role="presentation"></span> <strong>Trésorerie :</strong> Suivi des paiements, acomptes et impayés.</li>
+                    <li><span class="icon--lucide icon--lucide--credit-card eml-online-icon" data-eml-icon="fa-money-check-alt" aria-hidden="true" role="presentation"></span> <strong>Dépenses :</strong> Gestion des charges fixes et achats.</li>
+                    <li><span class="icon--lucide icon--lucide--hand-coins eml-online-icon" data-eml-icon="fa-hand-holding-usd" aria-hidden="true" role="presentation"></span> <strong>Salaires :</strong> Gestion simple de la paie staff.</li>
                 </ul>
             </div>
             <div class="img-col">
-                <img src="7.png" alt="Finance">
-            </div>
+                <img src="asset/7.png" alt="Finance">
+            
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_02_HD.jpg">
+        <div class="eml-context-capture-media">
+            <img class="app-screen eml-screen-img" src="asset/capture_02_HD.jpg"
+                 alt="EasyMedicaLink — Facturation" loading="lazy" decoding="async"
+                 width="1920" height="3072">
         </div>
-    </section>
+        <figcaption><strong>Facturation</strong><span>Numérotation, date, devise, TVA, patient et catégories de prestations.</span></figcaption>
+    </figure>
+<figure class="eml-context-capture" data-eml-capture="capture_05_HD.jpg">
+        <div class="eml-context-capture-media">
+            <img class="app-screen eml-screen-img" src="asset/capture_05_HD.jpg"
+                 alt="EasyMedicaLink — Tableau de bord comptable" loading="lazy" decoding="async"
+                 width="1920" height="3072">
+        </div>
+        <figcaption><strong>Tableau de bord comptable</strong><span>Vue synthétique des recettes, dépenses, bénéfice net et rapports.</span></figcaption>
+    </figure></div>
+
+<div class="eml-context-capture-row" aria-label="Captures réelles de la rubrique"><figure class="eml-context-capture" data-eml-capture="capture_02_HD.jpg">
+        <div class="eml-context-capture-media">
+            <img class="app-screen eml-screen-img" src="asset/capture_02_HD.jpg"
+                 alt="EasyMedicaLink — Facturation" loading="lazy" decoding="async"
+                 width="1920" height="3072">
+        </div>
+        <figcaption><strong>Facturation</strong><span>Numérotation, date, devise, TVA, patient et catégories de prestations.</span></figcaption>
+    </figure>
+<figure class="eml-context-capture" data-eml-capture="capture_05_HD.jpg">
+        <div class="eml-context-capture-media">
+            <img class="app-screen eml-screen-img" src="asset/capture_05_HD.jpg"
+                 alt="EasyMedicaLink — Tableau de bord comptable" loading="lazy" decoding="async"
+                 width="1920" height="3072">
+        </div>
+        <figcaption><strong>Tableau de bord comptable</strong><span>Vue synthétique des recettes, dépenses, bénéfice net et rapports.</span></figcaption>
+    </figure></div>
+</div>
+        </div>
+</section>
 
     <section class="testimonials-section">
         <div class="container">
@@ -985,11 +1535,11 @@
                 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">Gain de temps incroyable pour mes ordonnances. L'interface est propre et fluide.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Mamadou</h5>
                         </div>
@@ -998,11 +1548,11 @@
 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">Enfin un logiciel qui ne nécessite pas d'internet constant. La sécurité avant tout.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Aminata</h5>
                         </div>
@@ -1011,11 +1561,11 @@
 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star-half eml-online-icon" data-eml-icon="fa-star-half-alt" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">Le module assistant et salle d'attente a transformé l'organisation de mon cabinet.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Koffi</h5>
                         </div>
@@ -1024,11 +1574,11 @@
 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">Très satisfait du support technique. Installation rapide sur mon réseau local.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Zainab</h5>
                         </div>
@@ -1037,11 +1587,11 @@
 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">L'IA Synapse m'aide beaucoup pour vérifier les interactions médicamenteuses.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Chike</h5>
                         </div>
@@ -1050,11 +1600,11 @@
 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">Gestion comptable très claire. Je sais enfin où j'en suis financièrement.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Aissa</h5>
                         </div>
@@ -1063,11 +1613,11 @@
 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">J'utilise l'accès tablette pour voir mes patients en salle d'attente. Top !</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Tesfaye</h5>
                         </div>
@@ -1076,11 +1626,11 @@
 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">Simple, efficace et sans abonnement mensuel caché. Je recommande.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Thandiwe</h5>
                         </div>
@@ -1089,11 +1639,11 @@
 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star-half eml-online-icon" data-eml-icon="fa-star-half-alt" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">La personnalisation des entêtes d'ordonnance est un vrai plus professionnel.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Sekou</h5>
                         </div>
@@ -1102,11 +1652,11 @@
 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">Sauvegarde automatique rassurante. Mes données patients sont en sécurité.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Malika</h5>
                         </div>
@@ -1115,11 +1665,11 @@
 
                  <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">L'envoi automatique de rappels WhatsApp a réduit mes RDV manqués de 50%.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Babatunde</h5>
                         </div>
@@ -1128,11 +1678,11 @@
 
                 <div class="review-card">
                     <div>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="stars"><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span><span class="icon--lucide icon--lucide--star eml-online-icon" data-eml-icon="fa-star" aria-hidden="true" role="presentation"></span></div>
                         <p class="review-text">Excellent rapport qualité/prix pour une solution aussi complète au Maroc.</p>
                     </div>
                     <div class="doctor-info">
-                        <div class="avatar-circle"><i class="fas fa-user-md"></i></div>
+                        <div class="avatar-circle"><span class="icon--lucide icon--lucide--user-round eml-online-icon" data-eml-icon="fa-user-md" aria-hidden="true" role="presentation"></span></div>
                         <div class="doc-details">
                             <h5>Dr. Nandi</h5>
                         </div>
@@ -1147,7 +1697,7 @@
 
 <section class="countries-section">
     <div class="container">
-        <div class="world-icon"><i class="fas fa-globe-africa"></i></div>
+        <div class="world-icon"><span class="icon--lucide icon--lucide--earth eml-online-icon" data-eml-icon="fa-globe-africa" aria-hidden="true" role="presentation"></span></div>
         <div class="section-header" style="margin-bottom: 20px;">
             <h2>Une Solution Sans Frontières</h2>
             <p>EasyMedicaLink accompagne déjà des praticiens dans plus de 25 pays francophones.</p>
@@ -1200,11 +1750,11 @@
                         <div class="download-group eml-download-group">
                             <a href="https://github.com/Sastouka/EasyMedicaLinkLocale/releases/download/v1.0.0/EasyMedicaLink.apk" target="_blank" rel="noopener noreferrer"
                                onclick="trackApkDownload('footer')" class="eml-cta-link eml-cta-android">
-                                <i class="fab fa-android"></i>
+                                <span class="icon--simple-icons icon--simple-icons--android eml-online-icon" data-eml-icon="fa-android" aria-hidden="true" role="presentation"></span>
                                 <span class="eml-cta-copy"><strong>Obtenir l'application Android</strong><small>Télécharger l'APK directement</small></span>
                             </a>
                             <a href="#" onclick="openDownloadModal(event)" class="eml-cta-link eml-cta-windows">
-                                <i class="fab fa-windows"></i>
+                                <span class="icon--simple-icons icon--simple-icons--windows eml-online-icon" data-eml-icon="fa-windows" aria-hidden="true" role="presentation"></span>
                                 <span class="eml-cta-copy"><strong>Obtenir la version Windows</strong><small>Télécharger l'archive ZIP</small></span>
                             </a>
                         </div>
@@ -1214,10 +1764,10 @@
             </div>
 
             <div class="footer-links">
-                <a href="guide.html" target="_blank" onclick="trackGuide(event)"><i class="fas fa-book"></i> Guide d'Utilisation</a>
-                <a href="generateur.html" target="_blank"><i class="fas fa-magic"></i> Générateur Entête</a>
-                <a href="#" onclick="openModal('privacyModal', event)"><i class="fas fa-shield-alt"></i> Confidentialité</a>
-                <a href="#" onclick="openModal('termsModal', event)"><i class="fas fa-file-contract"></i> CGU</a>
+                <a href="guide.html" target="_blank" onclick="trackGuide(event)"><span class="icon--lucide icon--lucide--book eml-online-icon" data-eml-icon="fa-book" aria-hidden="true" role="presentation"></span> Guide d'Utilisation</a>
+                <a href="generateur.html" target="_blank"><span class="icon--lucide icon--lucide--wand-sparkles eml-online-icon" data-eml-icon="fa-magic" aria-hidden="true" role="presentation"></span> Générateur Entête</a>
+                <a href="#" onclick="openModal('privacyModal', event)"><span class="icon--lucide icon--lucide--shield-check eml-online-icon" data-eml-icon="fa-shield-alt" aria-hidden="true" role="presentation"></span> Confidentialité</a>
+                <a href="#" onclick="openModal('termsModal', event)"><span class="icon--lucide icon--lucide--file-check eml-online-icon" data-eml-icon="fa-file-contract" aria-hidden="true" role="presentation"></span> CGU</a>
             </div>
 
             <p style="margin-top: 30px; font-size: 0.9rem;">
@@ -1229,7 +1779,7 @@
 
     <div id="cookieBanner" class="cookie-banner">
         <div class="cookie-text">
-            <i class="fas fa-cookie-bite" style="color:var(--accent-amber);"></i>
+            <span class="icon--lucide icon--lucide--cookie eml-online-icon" data-eml-icon="fa-cookie-bite" aria-hidden="true" role="presentation" style="color:var(--accent-amber);"></span>
             Nous utilisons des cookies et le Pixel Meta pour analyser le trafic et mesurer l'efficacité de nos publicités. Aucune donnée médicale de vos patients n'est collectée.
         </div>
         <button class="cookie-btn" onclick="acceptCookies()">J'accepte</button>
@@ -1239,11 +1789,11 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h2>Politique de Confidentialité &amp; Données</h2>
-                <span class="modal-close" onclick="closeModal('privacyModal')"><i class="fas fa-times"></i></span>
+                <span class="modal-close" onclick="closeModal('privacyModal')"><span class="icon--lucide icon--lucide--x eml-online-icon" data-eml-icon="fa-times" aria-hidden="true" role="presentation"></span></span>
             </div>
             <div class="modal-body">
                 <p style="color:#718096; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">Dernière mise à jour : 27 Décembre 2025</p>
-                <div class="highlight-box"><strong><i class="fas fa-user-shield"></i> Distinction Fondamentale</strong><br>Il est impératif de distinguer les données du <strong>Professionnel de Santé</strong> (vous) des données des <strong>Patients</strong>.</div>
+                <div class="highlight-box"><strong><span class="icon--lucide icon--lucide--shield-check eml-online-icon" data-eml-icon="fa-user-shield" aria-hidden="true" role="presentation"></span> Distinction Fondamentale</strong><br>Il est impératif de distinguer les données du <strong>Professionnel de Santé</strong> (vous) des données des <strong>Patients</strong>.</div>
                 <h3>1. Données des Patients (Architecture Locale)</h3>
                 <p>EasyMedicaLink est un logiciel de type "Desktop". Toutes les données médicales sont stockées <strong>exclusivement sur le disque dur de votre ordinateur</strong>. Nous n'avons aucun accès à votre base de données et aucune donnée de patient n'est transmise via Internet vers nos serveurs ou Facebook.</p>
                 <h3>2. Données du Professionnel (Visiteur du Site)</h3>
@@ -1258,10 +1808,10 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h2>Conditions Générales d'Utilisation (CGU)</h2>
-                <span class="modal-close" onclick="closeModal('termsModal')"><i class="fas fa-times"></i></span>
+                <span class="modal-close" onclick="closeModal('termsModal')"><span class="icon--lucide icon--lucide--x eml-online-icon" data-eml-icon="fa-times" aria-hidden="true" role="presentation"></span></span>
             </div>
             <div class="modal-body">
-                <div class="highlight-box warning"><strong><i class="fas fa-exclamation-triangle"></i> Avertissement Médical</strong><br>L'utilisation d'EasyMedicaLink ne remplace en aucun cas le jugement clinique du médecin.</div>
+                <div class="highlight-box warning"><strong><span class="icon--lucide icon--lucide--alert-triangle eml-online-icon" data-eml-icon="fa-exclamation-triangle" aria-hidden="true" role="presentation"></span> Avertissement Médical</strong><br>L'utilisation d'EasyMedicaLink ne remplace en aucun cas le jugement clinique du médecin.</div>
                 <h3>1. Objet et Licence</h3>
                 <p>Licence personnelle, non exclusive et non transférable d'utilisation du logiciel EasyMedicaLink.</p>
                 <h3>2. Limitation de Responsabilité</h3>
@@ -1277,7 +1827,7 @@
         <div class="modal-content warning-modal-content" onclick="event.stopPropagation()">
             <div class="modal-header" style="justify-content:center; border:none; padding-bottom:0;">
                 <div style="width:60px; height:60px; background:#fffaf0; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:30px; color:var(--accent-amber); margin-bottom:10px;">
-                    <i class="fas fa-file-archive"></i>
+                    <span class="icon--lucide icon--lucide--archive eml-online-icon" data-eml-icon="fa-file-archive" aria-hidden="true" role="presentation"></span>
                 </div>
             </div>
             <div class="modal-body" style="text-align:center; padding-top:0;">
@@ -1289,13 +1839,13 @@
                     <p style="margin-bottom:8px;">1. Extrayez le fichier <em>.zip</em> sur votre PC Windows.<br>
                     2. Lancez <strong>EasyMedicaLink.exe</strong> pour démarrer l'installation.</p>
                     <p style="font-weight:500; color:#2d3748; border-top:1px solid #e2e8f0; padding-top:8px;">
-                        <i class="fas fa-wifi"></i> Note importante :<br>
+                        <span class="icon--lucide icon--lucide--wifi eml-online-icon" data-eml-icon="fa-wifi" aria-hidden="true" role="presentation"></span> Note importante :<br>
                         Pour utiliser l'application sur Mac, Tablette ou Smartphone, ces appareils devront être connectés au <strong>même réseau local</strong> que le PC serveur.
                     </p>
                 </div>
                 
                 <button class="btn-confirm-dl" onclick="confirmDownload()">
-                    <i class="fas fa-check-circle"></i> Télécharger le ZIP
+                    <span class="icon--lucide icon--lucide--circle-check eml-online-icon" data-eml-icon="fa-check-circle" aria-hidden="true" role="presentation"></span> Télécharger le ZIP
                 </button>
                 <button class="btn-cancel-dl" onclick="closeDownloadModal()">
                     Annuler
