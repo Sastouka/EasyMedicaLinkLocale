@@ -2,10 +2,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Générateur Contextuel | EasyMedicaLink Studio</title>
     
-    <link rel="icon" type="image/png" href="asset/icon.png">
+    <link rel="icon" type="image/png" href="assets/logo-easymedicalink.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,11 +13,11 @@
     <style>
         /* --- DESIGN SYSTEM --- */
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --primary: #5a67d8;
-            --secondary: #2d3748;
+            --primary-gradient: linear-gradient(135deg, #0b9c91 0%, #0d6c80 100%);
+            --primary: #07978f;
+            --secondary: #102c46;
             --text-main: #2d3748;
-            --bg-body: #f7fafc;
+            --bg-body: #f6f9fc;
             --radius: 12px;
         }
 
@@ -25,7 +25,7 @@
         body { font-family: 'Poppins', sans-serif; background: var(--bg-body); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
         
         /* HEADER */
-        header { background: rgba(45, 55, 72, 0.95); color: white; padding: 12px 0; border-bottom: 2px solid var(--primary); position: sticky; top:0; z-index: 100; backdrop-filter: blur(10px); }
+        header { background: rgba(9, 40, 61, 0.95); color: white; padding: 12px 0; border-bottom: 2px solid var(--primary); position: sticky; top:0; z-index: 100; backdrop-filter: blur(10px); }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
         .navbar { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; color: white; text-decoration: none; }
@@ -96,17 +96,18 @@
             .floating-toolbar.mobile-dock { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; transform-origin: bottom center; } 
         }
     </style>
-</head>
+<style> .controls-panel,.preview-panel{border-radius:18px!important} .controls-panel{border:1px solid #dfecef} .btn-back{font-weight:700} @media(max-width:700px){.generator-wrapper{display:block}.controls-panel,.preview-panel{min-width:0!important;width:100%!important;margin-bottom:22px}.main-content{padding-top:18px}.floating-toolbar{max-width:calc(100vw - 24px)}} </style><link rel="stylesheet" href="css/consent.css">
+<style>.studio-nav-actions{display:flex;align-items:center;gap:10px}.studio-cookie-settings{padding:8px 11px;background:transparent;color:white;border:1px solid #80c4cc7d;border-radius:10px;cursor:pointer;font-size:11px;font-weight:700}.studio-cookie-settings:hover{background:#ffffff20}@media(max-width:540px){.studio-cookie-settings{font-size:0;min-height:40px}.studio-cookie-settings::after{content:'Cookies';font-size:11px}.logo img{height:43px}}</style></head>
 <body>
 
     <header>
         <div class="container">
             <nav class="navbar">
                 <a href="index.html" class="logo">
-                    <img src="asset/icon.png" alt="Logo"> 
+                    <img src="assets/logo-easymedicalink.png" alt="Logo EasyMedicaLink"> 
                     EasyMedicaLink
                 </a>
-                <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i></a>
+                <div class="studio-nav-actions"><button type="button" data-cookie-settings class="studio-cookie-settings">Préférences cookies</button><a href="index.html" class="btn-back" aria-label="Retour au site"><i class="fas fa-arrow-left"></i></a></div>
             </nav>
         </div>
     </header>
@@ -514,5 +515,11 @@
             drawCanvas();
         }
     </script>
+<div class="consent" id="cookie-consent" hidden role="region" aria-labelledby="cookie-title" aria-describedby="cookie-description">
+  <div class="consent-heading"><span class="consent-symbol" aria-hidden="true">◉</span><div><h3 id="cookie-title">Votre confidentialité compte</h3><span class="consent-kicker">Choix des cookies à l'ouverture</span></div></div>
+  <p id="cookie-description">Nous utilisons uniquement les éléments essentiels au fonctionnement du site sans votre accord. Acceptez-vous Meta Pixel pour mesurer les visites et les clics de téléchargement ? Vous pouvez modifier votre choix à tout moment.</p>
+  <div class="consent-buttons"><button class="cookie-btn cookie-accept" type="button" data-cookie-accept>Tout accepter</button><button class="cookie-btn cookie-decline" type="button" data-cookie-decline>Tout refuser</button><a class="cookie-more" href="confidentialite.html">En savoir plus</a></div>
+</div>
+<script src="js/site.js" defer></script>
 </body>
 </html>

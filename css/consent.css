@@ -1,0 +1,19 @@
+/* Consentement visible a la premiere ouverture, independant de la profondeur de page. */
+#cookie-consent{position:fixed;inset:auto auto 22px 22px;z-index:12000;display:block;width:min(478px,calc(100vw - 36px));max-height:min(580px,calc(100dvh - 28px));overflow-y:auto;padding:23px 24px 20px;margin:0;background:#fff;border:1px solid #c6e8e0;border-radius:20px;box-shadow:0 24px 80px rgba(7,36,55,.27),0 6px 18px rgba(7,36,55,.09);color:#173d54;font-family:Inter,'Segoe UI',system-ui,sans-serif;text-align:left;animation:cookieRise .3s ease both}
+#cookie-consent[hidden]{display:none!important}
+#cookie-consent .consent-heading{display:flex;align-items:center;gap:13px;margin-bottom:12px}
+#cookie-consent .consent-symbol{display:grid;place-items:center;width:43px;height:43px;border-radius:14px;flex:none;background:#e2f8f2;color:#0b9184;font-size:23px;font-weight:bold}
+#cookie-consent h3{font-size:17px;line-height:1.25;letter-spacing:-.015em;color:#11364b;font-weight:800;margin:0 0 3px}
+#cookie-consent .consent-kicker{display:block;color:#6f8b97;font-size:11px;line-height:1.4}
+#cookie-consent p{font-size:12.5px;line-height:1.75;color:#527083;margin:0 0 16px}
+#cookie-consent .consent-buttons{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#cookie-consent .cookie-btn{min-height:44px;min-width:126px;border:1px solid transparent;border-radius:11px;padding:11px 14px;font-weight:800;font-size:12.5px;line-height:1.2;cursor:pointer}
+#cookie-consent .cookie-btn:focus-visible,#cookie-consent .cookie-more:focus-visible{outline:3px solid #178e8a;outline-offset:3px}
+#cookie-consent .cookie-accept{color:#fff;background:#0b9286}
+#cookie-consent .cookie-accept:hover{background:#08796f}
+#cookie-consent .cookie-decline{color:#214458;background:#f4f8fa;border-color:#d3e4e9}
+#cookie-consent .cookie-decline:hover{background:#e8f2f5}
+#cookie-consent .cookie-more{color:#0b786e;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px;margin:3px 0 3px 7px}
+@keyframes cookieRise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:560px){#cookie-consent{inset:auto 12px 12px 12px;width:calc(100vw - 24px);padding:18px 17px 17px;max-height:calc(100dvh - 24px);border-radius:17px}#cookie-consent .consent-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}#cookie-consent .cookie-btn{min-width:0}#cookie-consent .cookie-more{grid-column:1/-1;text-align:center;margin:5px 0 0}body.cookie-prompt-open .mobile-download{display:none!important}}
+@media(prefers-reduced-motion:reduce){#cookie-consent{animation:none}}
