@@ -47,7 +47,9 @@ A('[data-download]').forEach(a=>a.addEventListener('click',()=>customEvent('Down
 A('[data-whatsapp]').forEach(a=>a.addEventListener('click',()=>customEvent('WhatsAppClick',{location:a.dataset.whatsapp || 'site'})));
 A('[data-guide]').forEach(a=>a.addEventListener('click',()=>customEvent('GuideClick',{location:a.dataset.guide || 'site'})));
 A('[data-gallery-tab]').forEach(tab=>tab.addEventListener('click',()=>{
- const category=tab.dataset.galleryTab;
+ const raw=tab.dataset.galleryTab;
+ const aliases={clinique:'medical',gestion:'administration'};
+ const category=aliases[raw]||raw;
  A('[data-gallery-tab]').forEach(t=>t.setAttribute('aria-pressed',String(t===tab)));
  A('[data-gallery-card]').forEach(card=>{card.hidden=category!=='all' && card.dataset.galleryCard!==category;});
 }));
@@ -70,3 +72,14 @@ if(videoButton){videoButton.addEventListener('click',()=>{
   videoButton.replaceWith(frame);customEvent('DemoVideoStart',{video:'EasyMedicaLink'});
 });}
 })();
+
+// V8 : repli vers la capture complète si une ancienne miniature manque sur le serveur.
+document.querySelectorAll('[data-gallery-card]').forEach(function(card){
+  var img=card.querySelector('img');
+  var full=card.getAttribute('data-lightbox-src');
+  if(img && full){
+    img.addEventListener('error', function(){
+      if(img.getAttribute('src') !== full){ img.setAttribute('src',full); }
+    });
+  }
+});
