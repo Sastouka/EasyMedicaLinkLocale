@@ -1,0 +1,32 @@
+/* Font Awesome Free 6.7.2 — authentic upstream SVG paths (CC BY 4.0). */
+/* Site customisations only size, position and currentColor. Artwork itself is unmodified. */
+svg.icon.fa-icon{display:inline-block;width:20px;height:20px;max-width:100%;flex:0 0 auto;
+  stroke:none!important;stroke-width:0!important;fill:currentColor!important;vertical-align:middle;}
+svg.icon.fa-icon path,svg.icon.fa-icon g{fill:currentColor!important;stroke:none!important}
+svg.icon.fa-icon.sm{width:17px;height:17px}
+svg.icon.fa-icon.lg{width:26px;height:26px}
+svg.icon.fa-icon.xl{width:32px;height:32px}
+.feature-icon svg.fa-icon{width:27px;height:27px}
+.platform-icon svg.fa-icon{width:30px;height:30px}
+.journey-step svg.fa-icon{width:17px;height:17px}
+.svg-gallery-expand svg.fa-icon{width:16px;height:16px}
+.gallery-label svg.fa-icon{width:18px;height:18px;color:#0d8e84}
+.proof svg.fa-icon{width:24px;height:24px}
+.step-number svg.fa-icon{width:17px;height:17px;color:#fff}
+.play svg.fa-icon{width:28px;height:28px;color:#fff}
+.wa-float-link svg.fa-icon{width:29px!important;height:29px!important;color:#fff!important}
+.wa-float-link{background:#25D366!important;border-color:#1fbc5b!important;
+  box-shadow:0 12px 27px rgba(21,99,62,.22),0 0 0 4px #fff!important}
+.wa-float-hint{position:absolute;right:70px;top:50%;transform:translateY(-50%) translateX(5px);
+  opacity:0!important;pointer-events:none!important;white-space:nowrap;font-weight:750!important;
+  padding:10px 14px!important;transition:opacity .2s,transform .2s!important}
+.wa-float:hover .wa-float-hint,.wa-float:focus-within .wa-float-hint{opacity:1!important;transform:translateY(-50%) translateX(0)}
+@media(hover:none),(max-width:900px){.wa-float-hint{display:none!important}}
+.contact-cta [data-whatsapp] svg.fa-icon,.footer-links [data-whatsapp] svg.fa-icon{width:18px;height:18px}
+.footer-links a[data-whatsapp]{display:inline-flex;align-items:center;gap:8px}
+.fa-credits{font-size:11px;color:#7795a4}
+.fa-credits a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.fa-studio-credit{padding:9px 16px;text-align:center;background:#f4f8fa;color:#566e7e;font-size:11px}
+.fa-studio-credit a{color:inherit;text-decoration:underline}
+.studio-svg-icon.fa-icon{width:1em;height:1em}
+@media(max-width:560px){.wa-float-hint{display:none!important}}

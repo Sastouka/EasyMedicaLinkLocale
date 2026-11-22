@@ -1,16 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Générateur Contextuel | EasyMedicaLink Studio</title>
-    
-    <link rel="icon" type="image/png" href="assets/logo-easymedicalink.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Générateur Contextuel | EasyMedicaLink Studio</title>
+<link href="assets/logo-easymedicalink.png" rel="icon" type="image/png"/><link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
         /* --- DESIGN SYSTEM --- */
         :root {
             --primary-gradient: linear-gradient(135deg, #0b9c91 0%, #0d6c80 100%);
@@ -96,135 +93,118 @@
             .floating-toolbar.mobile-dock { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; transform-origin: bottom center; } 
         }
     </style>
-<style> .controls-panel,.preview-panel{border-radius:18px!important} .controls-panel{border:1px solid #dfecef} .btn-back{font-weight:700} @media(max-width:700px){.generator-wrapper{display:block}.controls-panel,.preview-panel{min-width:0!important;width:100%!important;margin-bottom:22px}.main-content{padding-top:18px}.floating-toolbar{max-width:calc(100vw - 24px)}} </style><link rel="stylesheet" href="css/consent.css">
-<style>.studio-nav-actions{display:flex;align-items:center;gap:10px}.studio-cookie-settings{padding:8px 11px;background:transparent;color:white;border:1px solid #80c4cc7d;border-radius:10px;cursor:pointer;font-size:11px;font-weight:700}.studio-cookie-settings:hover{background:#ffffff20}@media(max-width:540px){.studio-cookie-settings{font-size:0;min-height:40px}.studio-cookie-settings::after{content:'Cookies';font-size:11px}.logo img{height:43px}}</style></head>
+<style> .controls-panel,.preview-panel{border-radius:18px!important} .controls-panel{border:1px solid #dfecef} .btn-back{font-weight:700} @media(max-width:700px){.generator-wrapper{display:block}.controls-panel,.preview-panel{min-width:0!important;width:100%!important;margin-bottom:22px}.main-content{padding-top:18px}.floating-toolbar{max-width:calc(100vw - 24px)}} </style><link href="css/consent.css" rel="stylesheet"/>
+<style>.studio-nav-actions{display:flex;align-items:center;gap:10px}.studio-cookie-settings{padding:8px 11px;background:transparent;color:white;border:1px solid #80c4cc7d;border-radius:10px;cursor:pointer;font-size:11px;font-weight:700}.studio-cookie-settings:hover{background:#ffffff20}@media(max-width:540px){.studio-cookie-settings{font-size:0;min-height:40px}.studio-cookie-settings::after{content:'Cookies';font-size:11px}.logo img{height:43px}}</style><link href="css/premium-v6.css?v=20261122-73" rel="stylesheet"/><link href="css/fontawesome-open-v74.css?v=20261123-74" rel="stylesheet"/></head>
 <body>
-
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">
-                    <img src="assets/logo-easymedicalink.png" alt="Logo EasyMedicaLink"> 
+<header>
+<div class="container">
+<nav class="navbar">
+<a class="logo" href="index.html">
+<img alt="Logo EasyMedicaLink" src="assets/logo-easymedicalink.png"/> 
                     EasyMedicaLink
                 </a>
-                <div class="studio-nav-actions"><button type="button" data-cookie-settings class="studio-cookie-settings">Préférences cookies</button><a href="index.html" class="btn-back" aria-label="Retour au site"><i class="fas fa-arrow-left"></i></a></div>
-            </nav>
-        </div>
-    </header>
-
-    <div class="main-content">
-        <div class="container">
-            <div class="generator-wrapper">
-                
-                <div class="controls-panel">
-                    <h2><i class="fas fa-pen"></i> Contenu</h2>
-                    <p style="font-size:0.85rem; color:#718096; margin-bottom:20px;">
+<div class="studio-nav-actions"><button class="studio-cookie-settings" data-cookie-settings="" type="button">Préférences cookies</button><a aria-label="Retour au site" class="btn-back" href="index.html"><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></a></div>
+</nav>
+</div>
+</header>
+<div class="main-content">
+<div class="container">
+<div class="generator-wrapper">
+<div class="controls-panel">
+<h2><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"></path></svg> Contenu</h2>
+<p style="font-size:0.85rem; color:#718096; margin-bottom:20px;">
                         Remplissez les infos ici, puis <strong>cliquez sur l'aperçu</strong> à droite pour déplacer les éléments.
                     </p>
-
-                    <div class="form-group">
-                        <label>Image Logo</label>
-                        <div class="file-upload-wrapper">
-                            <i class="fas fa-cloud-upload-alt" style="color: var(--primary);"></i>
-                            <span id="fileName">Importer...</span>
-                            <input type="file" id="logoInput" accept="image/*">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Nom du Centre</label>
-                        <input type="text" id="centerName" class="form-control" value="CENTRE MEDICAL EXEMPLE">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Médecin</label>
-                        <input type="text" id="docName" class="form-control" value="DR. NOM PRENOM">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Adresse</label>
-                        <textarea id="address" class="form-control">Quartier Administratif, Rue des Fleurs, Ville&#10;Médecine Générale & Échographie</textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Contact (Bas de page)</label>
-                        <input type="text" id="footerText" class="form-control" value="Email : email@exemple.com   |   Tél : +212 600 000 000">
-                    </div>
-
-                    <button class="btn-generate" onclick="downloadImage()">
-                        <i class="fas fa-download"></i> Télécharger
+<div class="form-group">
+<label>Image Logo</label>
+<div class="file-upload-wrapper">
+<svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M288 109.3L288 352c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-242.7-73.4 73.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l128-128c12.5-12.5 32.8-12.5 45.3 0l128 128c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L288 109.3zM64 352l128 0c0 35.3 28.7 64 64 64s64-28.7 64-64l128 0c35.3 0 64 28.7 64 64l0 32c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64l0-32c0-35.3 28.7-64 64-64zM432 456a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path></svg>
+<span id="fileName">Importer...</span>
+<input accept="image/*" id="logoInput" type="file"/>
+</div>
+</div>
+<div class="form-group">
+<label>Nom du Centre</label>
+<input class="form-control" id="centerName" type="text" value="CENTRE MEDICAL EXEMPLE"/>
+</div>
+<div class="form-group">
+<label>Médecin</label>
+<input class="form-control" id="docName" type="text" value="DR. NOM PRENOM"/>
+</div>
+<div class="form-group">
+<label>Adresse</label>
+<textarea class="form-control" id="address">Quartier Administratif, Rue des Fleurs, Ville
+Médecine Générale &amp; Échographie</textarea>
+</div>
+<div class="form-group">
+<label>Contact (Bas de page)</label>
+<input class="form-control" id="footerText" type="text" value="Email : email@exemple.com   |   Tél : +212 600 000 000"/>
+</div>
+<button class="btn-generate" onclick="downloadImage()">
+<svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"></path></svg> Télécharger
                     </button>
-                </div>
-
-                <div class="preview-panel">
-                    <div style="margin-bottom:10px; color:#718096; font-size:0.9rem;">
-                        <i class="fas fa-mouse-pointer"></i> Cliquez sur un élément pour le modifier
+</div>
+<div class="preview-panel">
+<div style="margin-bottom:10px; color:#718096; font-size:0.9rem;">
+<svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 55.2L0 426c0 12.2 9.9 22 22 22c6.3 0 12.4-2.7 16.6-7.5L121.2 346l58.1 116.3c7.9 15.8 27.1 22.2 42.9 14.3s22.2-27.1 14.3-42.9L179.8 320l118.1 0c12.2 0 22.1-9.9 22.1-22.1c0-6.3-2.7-12.3-7.4-16.5L38.6 37.9C34.3 34.1 28.9 32 23.2 32C10.4 32 0 42.4 0 55.2z"></path></svg> Cliquez sur un élément pour le modifier
                     </div>
-                    <div class="canvas-container">
-                        <canvas id="paperCanvas" width="1240" height="1754"></canvas>
-                    </div>
-
-                    <div id="floatingToolbar" class="floating-toolbar">
-                        <div class="floating-header">
-                            <h4 id="toolbarTitle"><i class="fas fa-cog"></i> Outils</h4>
-                            <span class="close-toolbar" onclick="closeToolbar()"><i class="fas fa-times"></i></span>
-                        </div>
-                        
-                        <div id="tools-logo" class="tool-section">
-                            <div class="mini-range-group">
-                                <label><i class="fas fa-search-plus"></i> Zoom</label>
-                                <input type="range" id="logoScale" min="0.1" max="2.0" step="0.05" value="1.0">
-                            </div>
-                            <div class="mini-range-group">
-                                <label><i class="fas fa-arrows-alt-h"></i> Pos X</label>
-                                <input type="range" id="logoX" min="-300" max="600" step="5" value="0">
-                            </div>
-                            <div class="mini-range-group">
-                                <label><i class="fas fa-arrows-alt-v"></i> Pos Y</label>
-                                <input type="range" id="logoY" min="-200" max="500" step="5" value="0">
-                            </div>
-                        </div>
-
-                        <div id="tools-text" class="tool-section">
-                            <div class="mini-range-group">
-                                <label><i class="fas fa-text-height"></i> Taille</label>
-                                <input type="range" id="textScale" min="0.5" max="2.0" step="0.05" value="1.0">
-                            </div>
-                            <div class="mini-range-group">
-                                <label><i class="fas fa-arrows-alt-h"></i> Pos X</label>
-                                <input type="range" id="textX" min="-100" max="800" step="10" value="0">
-                            </div>
-                            <div class="mini-range-group">
-                                <label><i class="fas fa-arrows-alt-v"></i> Pos Y</label>
-                                <input type="range" id="textY" min="-100" max="600" step="10" value="0">
-                            </div>
-                            <div class="mini-color-group">
-                                <input type="color" id="colorMain" class="mini-color-input" value="#0033cc" title="Titre">
-                                <input type="color" id="colorSub" class="mini-color-input" value="#cc9900" title="Sous-titre">
-                            </div>
-                        </div>
-
-                        <div id="tools-footer" class="tool-section">
-                            <div class="mini-range-group">
-                                <label><i class="fas fa-arrows-alt-v"></i> Hauteur</label>
-                                <input type="range" id="footerY" min="-200" max="200" step="5" value="0">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container" style="text-align:center; color:#a0aec0; font-size:0.9rem;">
+<div class="canvas-container">
+<canvas height="1754" id="paperCanvas" width="1240"></canvas>
+</div>
+<div class="floating-toolbar" id="floatingToolbar">
+<div class="floating-header">
+<h4 id="toolbarTitle"><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"></path></svg><span data-toolbar-title-text="">Outils</span></h4>
+<span class="close-toolbar" onclick="closeToolbar()"><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span>
+</div>
+<div class="tool-section" id="tools-logo">
+<div class="mini-range-group">
+<label><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM184 296c0 13.3 10.7 24 24 24s24-10.7 24-24l0-64 64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-64 0 0-64c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 64-64 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l64 0 0 64z"></path></svg> Zoom</label>
+<input id="logoScale" max="2.0" min="0.1" step="0.05" type="range" value="1.0"/>
+</div>
+<div class="mini-range-group">
+<label><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M406.6 374.6l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224l-293.5 0 41.4-41.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288l293.5 0-41.4 41.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"></path></svg> Pos X</label>
+<input id="logoX" max="600" min="-300" step="5" type="range" value="0"/>
+</div>
+<div class="mini-range-group">
+<label><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M182.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L128 109.3l0 293.5L86.6 361.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 402.7l0-293.5 41.4 41.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-96-96z"></path></svg> Pos Y</label>
+<input id="logoY" max="500" min="-200" step="5" type="range" value="0"/>
+</div>
+</div>
+<div class="tool-section" id="tools-text">
+<div class="mini-range-group">
+<label><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M64 128l0-32 128 0 0 128-16 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-16 0 0-128 128 0 0 32c0 17.7 14.3 32 32 32s32-14.3 32-32l0-48c0-26.5-21.5-48-48-48L224 32 48 32C21.5 32 0 53.5 0 80l0 48c0 17.7 14.3 32 32 32s32-14.3 32-32zM9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3l64 64c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-32 192 0 0 32c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l64-64c12.5-12.5 12.5-32.8 0-45.3l-64-64c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 32-192 0 0-32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9l-64 64z"></path></svg> Taille</label>
+<input id="textScale" max="2.0" min="0.5" step="0.05" type="range" value="1.0"/>
+</div>
+<div class="mini-range-group">
+<label><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M406.6 374.6l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224l-293.5 0 41.4-41.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288l293.5 0-41.4 41.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"></path></svg> Pos X</label>
+<input id="textX" max="800" min="-100" step="10" type="range" value="0"/>
+</div>
+<div class="mini-range-group">
+<label><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M182.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L128 109.3l0 293.5L86.6 361.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 402.7l0-293.5 41.4 41.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-96-96z"></path></svg> Pos Y</label>
+<input id="textY" max="600" min="-100" step="10" type="range" value="0"/>
+</div>
+<div class="mini-color-group">
+<input class="mini-color-input" id="colorMain" title="Titre" type="color" value="#0033cc"/>
+<input class="mini-color-input" id="colorSub" title="Sous-titre" type="color" value="#cc9900"/>
+</div>
+</div>
+<div class="tool-section" id="tools-footer">
+<div class="mini-range-group">
+<label><svg aria-hidden="true" class="icon fa-icon studio-svg-icon" focusable="false" viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M64 128l0-32 64 0 0 320-32 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l128 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-32 0 0-320 64 0 0 32c0 17.7 14.3 32 32 32s32-14.3 32-32l0-48c0-26.5-21.5-48-48-48L160 32 48 32C21.5 32 0 53.5 0 80l0 48c0 17.7 14.3 32 32 32s32-14.3 32-32zM502.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l32 0 0 192-32 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8l-32 0 0-192 32 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64z"></path></svg> Hauteur</label>
+<input id="footerY" max="200" min="-200" step="5" type="range" value="0"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="container" style="text-align:center; color:#a0aec0; font-size:0.9rem;">
             © 2025 EasyMedicaLink Studio
         </div>
-    </footer>
-
-    <script>
+<span class="fa-credits"><a href="licences-icones.html">Crédits des icônes</a></span></footer>
+<script>
         const canvas = document.getElementById('paperCanvas');
         const ctx = canvas.getContext('2d');
         const toolbar = document.getElementById('floatingToolbar');
@@ -333,7 +313,7 @@
             if(element === 'logo') title = "Modifier Logo";
             if(element === 'text') title = "Modifier Textes";
             if(element === 'footer') title = "Modifier Pied de page";
-            toolbarTitle.innerHTML = `<i class="fas fa-sliders-h"></i> ${title}`;
+            toolbarTitle.querySelector('[data-toolbar-title-text]').textContent = title;
 
             // 2. Positionner le toolbar
             toolbar.classList.add('active');
@@ -515,11 +495,14 @@
             drawCanvas();
         }
     </script>
-<div class="consent" id="cookie-consent" hidden role="region" aria-labelledby="cookie-title" aria-describedby="cookie-description">
-  <div class="consent-heading"><span class="consent-symbol" aria-hidden="true">◉</span><div><h3 id="cookie-title">Votre confidentialité compte</h3><span class="consent-kicker">Choix des cookies à l'ouverture</span></div></div>
-  <p id="cookie-description">Nous utilisons uniquement les éléments essentiels au fonctionnement du site sans votre accord. Acceptez-vous Meta Pixel pour mesurer les visites et les clics de téléchargement ? Vous pouvez modifier votre choix à tout moment.</p>
-  <div class="consent-buttons"><button class="cookie-btn cookie-accept" type="button" data-cookie-accept>Tout accepter</button><button class="cookie-btn cookie-decline" type="button" data-cookie-decline>Tout refuser</button><a class="cookie-more" href="confidentialite.html">En savoir plus</a></div>
+<div aria-describedby="cookie-description" aria-labelledby="cookie-title" class="consent" hidden="" id="cookie-consent" role="region">
+<div class="consent-heading"><span aria-hidden="true" class="consent-symbol">◉</span><div><h3 id="cookie-title">Votre confidentialité compte</h3><span class="consent-kicker">Choix des cookies à l'ouverture</span></div></div>
+<p id="cookie-description">Nous utilisons uniquement les éléments essentiels au fonctionnement du site sans votre accord. Acceptez-vous Meta Pixel pour mesurer les visites et les clics de téléchargement ? Vous pouvez modifier votre choix à tout moment.</p>
+<div class="consent-buttons"><button class="cookie-btn cookie-accept" data-cookie-accept="" type="button">Tout accepter</button><button class="cookie-btn cookie-decline" data-cookie-decline="" type="button">Tout refuser</button><a class="cookie-more" href="confidentialite.html">En savoir plus</a></div>
 </div>
-<script src="js/site.js" defer></script>
-</body>
+<script defer="" src="js/site.js"></script>
+<div aria-label="Contacter EasyMedicaLink sur WhatsApp" class="wa-float" role="group">
+<span aria-hidden="true" class="wa-float-hint">Questions ? WhatsApp</span>
+<a aria-label="Discuter avec SASTOUKA DIGITAL sur WhatsApp (nouvel onglet)" class="wa-float-link" data-whatsapp="flottant" href="https://wa.me/212652084735?text=Bonjour%20SASTOUKA%20DIGITAL%2C%20je%20d%C3%A9couvre%20EasyMedicaLink%20et%20je%20souhaite%20des%20informations%20pour%20%C3%A9quiper%20mon%20cabinet%20ou%20mon%20%C3%A9tablissement%20m%C3%A9dical.%20Merci." rel="noopener noreferrer" target="_blank" title="Écrivez-nous sur WhatsApp"><svg aria-hidden="true" class="icon fa-icon" focusable="false" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg><span class="sr-only">Contacter sur WhatsApp</span></a>
+</div></body>
 </html>
