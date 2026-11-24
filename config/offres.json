@@ -1,0 +1,24 @@
+{
+  "version": "4.0.5",
+  "trial_days_announced": 7,
+  "pricing_status": "à confirmer",
+  "plans": [
+    {
+      "type": "local",
+      "price": null
+    },
+    {
+      "type": "web",
+      "price": null
+    },
+    {
+      "type": "etablissement",
+      "price": null
+    }
+  ],
+  "downloads": {
+    "win64": "https://github.com/Sastouka/EasyMedicaLinkLocale/releases/download/v1.0.0/EasyMedicaLink-V.4.0.5-Win64.zip",
+    "win32": "https://github.com/Sastouka/EasyMedicaLinkLocale/releases/download/v1.0.0/EasyMedicaLink-V.4.0.5-Win32.zip",
+    "android": "https://github.com/Sastouka/EasyMedicaLinkLocale/releases/download/v1.0.0/EasyMedicaLink.apk"
+  }
+}

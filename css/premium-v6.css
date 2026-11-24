@@ -45,7 +45,7 @@ body{letter-spacing:-.005em}
 .section-head h2{font-size:clamp(30px,3.2vw,45px);letter-spacing:-.047em}
 .eyebrow{letter-spacing:.15em}
 #benefices .showcase-img{background:linear-gradient(130deg,#eff9fa,#f1f7ff);padding:12px;box-shadow:0 22px 55px rgba(18,53,80,.1)}
-#benefices .showcase-img img{height:auto;aspect-ratio:1200/670;object-fit:contain;background:linear-gradient(180deg,#f8fcfd,#eef6f8);padding:12px}
+#benefices .showcase-img img{height:auto;aspect-ratio:1200/780;object-fit:contain;background:linear-gradient(180deg,#f8fcfd,#eef6f8);padding:12px}
 #fonctionnalites{background:linear-gradient(180deg,#f6fafc,#f3f9f9)}
 .feature-grid{gap:18px}
 .feature{padding:29px 26px;border-radius:21px;box-shadow:0 7px 20px #183c5210}

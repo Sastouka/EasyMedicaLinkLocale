@@ -72,14 +72,3 @@ if(videoButton){videoButton.addEventListener('click',()=>{
   videoButton.replaceWith(frame);customEvent('DemoVideoStart',{video:'EasyMedicaLink'});
 });}
 })();
-
-// V8 : repli vers la capture complète si une ancienne miniature manque sur le serveur.
-document.querySelectorAll('[data-gallery-card]').forEach(function(card){
-  var img=card.querySelector('img');
-  var full=card.getAttribute('data-lightbox-src');
-  if(img && full){
-    img.addEventListener('error', function(){
-      if(img.getAttribute('src') !== full){ img.setAttribute('src',full); }
-    });
-  }
-});

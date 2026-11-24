@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://easymedicalink.sastoukadigital.com/sitemap.xml

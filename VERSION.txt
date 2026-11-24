@@ -1,3 +1,1 @@
-EasyMedicaLink — Remplacement complet du site V8
-Toutes les images, CSS, JS et SVG sont inclus localement.
-Fichiers du site à la racine pour Render Static Site avec Publish Directory = .
+EasyMedicaLink V10 - International HealthTech Experience
