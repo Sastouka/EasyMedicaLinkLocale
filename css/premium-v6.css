@@ -65,7 +65,7 @@ body{letter-spacing:-.005em}
 .journey-card p{font-size:12.6px;line-height:1.7;color:#668092;margin:0 11px}
 .journey-action{margin-top:31px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:19px}
 .journey-text-link{font-size:13px;font-weight:800;color:#087f7d}
-#demo{background:#f4fafb}
+
 .gallery-image{height:390px!important;background:linear-gradient(180deg,#f6fbfd,#edf5f8);padding:12px}
 .gallery-image img{padding:0!important;object-fit:contain!important;object-position:center!important;transition:transform .25s;background:#fff;border-radius:14px;box-shadow:0 18px 40px rgba(12,52,70,.10)}
 .gallery-card{border-radius:20px;box-shadow:0 10px 30px rgba(11,49,69,.06);border-color:#d9e7ec}

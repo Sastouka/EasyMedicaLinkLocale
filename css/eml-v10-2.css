@@ -11,3 +11,17 @@
 
 /* V10.2 explicit selectors */
 #module-selector-rail,#palette-rail{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;min-width:0!important;max-width:100%!important;grid-template-columns:none!important}#module-selector-rail>button,#palette-rail>button{flex:0 0 auto!important;white-space:nowrap}#module-selector-rail>button{width:112px} .selector-wrap{min-width:0;max-width:100%} @media(max-width:600px){#module-selector-rail>button{width:96px}}
+
+/* V10.3 — donner la priorité à la capture complète sur petit écran. */
+body[data-page="index"] :is(.theme-option,.module-tab,.selector-arrow):focus-visible{
+ outline:2px solid #155eef;outline-offset:-2px;
+}
+@media(max-width:600px){
+ body[data-page="index"] .module-rail{padding-inline:0;scroll-snap-type:x mandatory}
+ body[data-page="index"] .module-rail > .v10-card{width:100%;scroll-snap-align:start}
+ body[data-page="index"] .module-rail .shot img,
+ body[data-page="index"] #theme-image{display:block;width:100%;height:auto;max-height:min(72svh,580px);object-fit:contain}
+ body[data-page="index"] .module-rail .shot img{max-height:min(72vh,580px);max-height:min(72svh,580px)}
+ body[data-page="index"] .module-panel .rail-controls button{min-width:44px;min-height:44px}
+ body[data-page="index"] .rail-status{font-variant-numeric:tabular-nums}
+}
