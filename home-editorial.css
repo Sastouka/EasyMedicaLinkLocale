@@ -1,0 +1,84 @@
+/* EasyMedicaLink — mise en page de l’accueil, indépendante des autres pages. */
+body[data-page="index"] {
+ --home-ink:#102b39; --home-quiet:#405862; --home-accent:#086456;
+ --home-border:#d8e7e6; --home-paper:#f2f8f7;
+}
+body[data-page="index"] .hero {
+ background:radial-gradient(ellipse at 82% 11%,#145d57 0,transparent 55%),linear-gradient(132deg,#102834,#123a40 68%,#10483f);
+ padding-block:clamp(2.7rem,6.4vw,5.4rem);
+}
+body[data-page="index"] .hero-copy h1 {line-height:1.04;letter-spacing:-.056em;text-wrap:balance}
+body[data-page="index"] .hero-copy h1 em {color:#94e4d2}
+body[data-page="index"] .hero-copy p {color:#d9eeeb;line-height:1.6;max-width:43ch}
+body[data-page="index"] .hero-note {color:#d0e4e3;line-height:1.55}
+body[data-page="index"] .section-heading h2 {letter-spacing:-.04em;line-height:1.1;text-wrap:balance}
+body[data-page="index"] .section-heading p {max-width:65ch;line-height:1.6}
+body[data-page="index"] :is(.section[id],.film-band[id],.film-intro[id]) {scroll-margin-top:5.25rem}
+body[data-page="index"] .proof {background:#eff7f5;border-bottom:1px solid var(--home-border)}
+body[data-page="index"] .home-quick-links {gap:.5rem;padding-block:.8rem}
+.home-quick-links a {
+ display:flex;align-items:center;justify-content:space-between;gap:.45rem;min-height:44px;
+ padding:.55rem .75rem;text-decoration:none;color:var(--home-ink);border-radius:.55rem;
+}
+.home-quick-links a span {color:var(--home-accent);font-size:.9rem}
+.home-quick-links a:hover {background:#e2f0ed}
+body[data-page="index"] .home-flow {
+ background:radial-gradient(ellipse at 100% 20%,#e3f4ef,transparent 58%),#f3f8f7;
+ color:var(--home-ink);
+}
+.home-flow-layout {display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.35fr);gap:clamp(1.5rem,6vw,6rem);align-items:start}
+.home-flow-intro .eyebrow {color:var(--home-accent)}
+.home-flow-intro h2 {margin:.45rem 0 1rem;font-size:clamp(2.15rem,4.4vw,4rem);line-height:1.04;letter-spacing:-.055em;text-wrap:balance}
+.home-flow-intro p,.home-flow-list p {color:var(--home-quiet);margin:.2rem 0 .85rem;line-height:1.55}
+.home-guide-link {
+ display:inline-flex;align-items:center;gap:.75rem;min-height:44px;padding:.35rem 0;
+ font-weight:750;color:var(--home-accent);text-decoration:underline;text-underline-offset:.3em;
+}
+.home-flow-list {
+ position:relative;list-style:none;margin:0;padding:0;display:grid;gap:0;
+ border-radius:1.1rem;border:1px solid var(--home-border);overflow:hidden;
+ background:white;box-shadow:0 18px 54px #183e4010;
+}
+.home-flow-list li {
+ position:relative;display:grid;grid-template-columns:2.4rem minmax(0,1fr);
+ gap:clamp(.65rem,2vw,1.25rem);padding:clamp(.95rem,2.4vw,1.65rem);
+}
+.home-flow-list li+li {border-top:1px solid #e8efef}
+.home-flow-number {
+ align-self:start;display:grid;place-items:center;height:2.4rem;border-radius:.7rem;
+ background:#e7f4f0;color:#0a5f52;font-size:.8rem;font-weight:800;font-variant-numeric:tabular-nums;
+}
+.home-flow-list h3 {font-size:clamp(1.02rem,1.8vw,1.3rem);letter-spacing:-.025em;margin:0;line-height:1.25}
+.home-flow-list p {font-size:.92rem;margin-bottom:.55rem}
+.home-flow-links {display:flex;gap:.35rem .65rem;flex-wrap:wrap}
+.home-flow-links a {
+ display:inline-flex;align-items:center;gap:.3rem;min-height:40px;padding:.3rem .55rem;
+ border:1px solid var(--home-border);border-radius:.5rem;color:#0b6156;
+ font-size:.81rem;font-weight:700;text-decoration:none;line-height:1.2;
+}
+.home-flow-links a:hover {background:#eaf5f2;border-color:#a8c9c1}
+body[data-page="index"] :is(.home-flow,.home-quick-links,.section,#video) :is(a,button,summary):focus-visible {
+ outline:2px solid #177aaa;outline-offset:3px;
+}
+body[data-page="index"] :is(#etablissements,#telecharger) article {
+ border:1px solid var(--home-border);border-radius:.9rem;box-shadow:0 9px 24px #1539390b;
+}
+body[data-page="index"] :is(#securite,#faq) {background:var(--home-paper)}
+body[data-page="index"] #faq details {
+ background:#fff;border:1px solid var(--home-border);border-radius:.7rem;max-width:56rem;
+}
+body[data-page="index"] #faq summary {min-height:46px;padding:.85rem 1rem;color:var(--home-ink)}
+body[data-page="index"] #faq details p {margin:0;padding:0 1rem 1rem;color:var(--home-quiet);line-height:1.55}
+body[data-page="index"] .foot {background:#112a35}
+body[data-page="index"] #contact .finalcta {border-radius:1rem}
+body[data-page="index"] .floating {box-shadow:0 6px 20px #123e3b30}
+@media(max-width:790px){
+ .home-flow-layout {grid-template-columns:1fr;gap:1.1rem}
+ body[data-page="index"] .home-quick-links a {font-size:.85rem}
+}
+@media(max-width:520px){
+ .home-flow-list li {padding:.9rem .7rem}
+ .home-flow-list p {font-size:.89rem}
+ .home-flow-links a {min-height:44px}
+ body[data-page="index"] .floating {padding:.63rem .85rem}
+}
