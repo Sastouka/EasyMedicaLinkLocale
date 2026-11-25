@@ -17,3 +17,81 @@
 @keyframes cookieRise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:560px){#cookie-consent{inset:auto 12px 12px 12px;width:calc(100vw - 24px);padding:18px 17px 17px;max-height:calc(100dvh - 24px);border-radius:17px}#cookie-consent .consent-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}#cookie-consent .cookie-btn{min-width:0}#cookie-consent .cookie-more{grid-column:1/-1;text-align:center;margin:5px 0 0}body.cookie-prompt-open .mobile-download{display:none!important}}
 @media(prefers-reduced-motion:reduce){#cookie-consent{animation:none}}
+
+/* Palette et pictogrammes communs des commandes EasyMedicaLink. */
+:root {
+ --eml-action:#174fb8;
+ --eml-action-hover:#123e91;
+ --eml-ink:#17324e;
+ --eml-pale:#edf5ff;
+ --eml-teal:#086355;
+ --eml-teal-hover:#084c42;
+ --eml-edge:#a9c8e8;
+ --eml-icon-arrow:url("../assets/fontawesome-free/solid-arrow-right.svg");
+ --eml-icon-download:url("../assets/fontawesome-free/solid-download.svg");
+ --eml-icon-play:url("../assets/fontawesome-free/solid-play.svg");
+ --eml-icon-guide:url("../assets/fontawesome-free/solid-book-open.svg");
+ --eml-icon-chat:url("../assets/fontawesome-free/brands-whatsapp.svg");
+ --eml-icon-tune:url("../assets/fontawesome-free/solid-sliders.svg");
+ --eml-icon-search:url("../assets/fontawesome-free/solid-magnifying-glass-plus.svg");
+ --eml-icon-check:url("../assets/fontawesome-free/solid-check.svg");
+ --eml-icon-close:url("../assets/fontawesome-free/solid-xmark.svg");
+ --eml-icon-document:url("../assets/fontawesome-free/solid-file-lines.svg");
+}
+html body :is(.btn,.btn-generate,.floating) {
+ gap:.5rem;border-radius:.7rem;line-height:1.25;
+ transition:background-color .17s,color .17s,border-color .17s;
+}
+html body :is(a,button):is(.primary,.btn-primary,.btn-dark,.btn-generate).btn,
+html body .btn-generate {
+ background:var(--eml-action);border-color:var(--eml-action);color:#fff;
+}
+html body :is(a,button):is(.primary,.btn-primary,.btn-dark,.btn-generate).btn:hover,
+html body .btn-generate:hover {
+ background:var(--eml-action-hover);border-color:var(--eml-action-hover);color:#fff;
+}
+html body :is(a,button).btn:is(.secondary,.btn-outline) {
+ background:var(--eml-pale);border:1px solid var(--eml-edge);color:var(--eml-ink);
+}
+html body :is(a,button).btn:is(.secondary,.btn-outline):hover {background:#dcecff;color:#123760}
+html body :is(.floating,.btn[data-whatsapp]) {
+ background:var(--eml-teal);border-color:var(--eml-teal);color:#fff;
+}
+html body :is(.floating,.btn[data-whatsapp]):hover {
+ background:var(--eml-teal-hover);border-color:var(--eml-teal-hover);color:#fff;
+}
+html body :is(.menu,.menu-toggle,.selector-arrow,.rail-controls button,.dialogbar button,button[data-gallery-tab],button[data-v10-filter]) {
+ background:var(--eml-pale);border:1px solid var(--eml-edge);color:var(--eml-ink);
+}
+html body :is(button[data-gallery-tab],button[data-v10-filter],.module-tab,.theme-option)[aria-pressed="true"] {
+ border-color:#2465ad;box-shadow:inset 0 0 0 1px #2465ad;
+}
+html body :is(.menu,.menu-toggle,.selector-arrow,.rail-controls button,.dialogbar button):disabled {
+ color:#536b83;background:#eff3f8;opacity:.66;cursor:not-allowed;
+}
+html body :is(.btn,.floating,.btn-generate,.selector-arrow,.menu,.menu-toggle,.textbutton,.rail-controls button,.dialogbar button):focus-visible {
+ outline:2px solid #176cbe;outline-offset:3px;
+}
+/* Les contrôles déjà illustrés (menus, flèches, miniatures et modules) gardent leurs icônes existantes. */
+:is(a,button):is(.btn,.btn-generate,.floating,.videocta) {--eml-button-icon:var(--eml-icon-arrow)}
+[data-download],a.btn[href="#telecharger"],a.btn[href$="index.html#telecharger"],a.btn[href*="/releases/download/"] {--eml-button-icon:var(--eml-icon-download)}
+a.btn[href="#video"],a.btn[href$="videos.html"],button[data-video-play] {--eml-button-icon:var(--eml-icon-play)}
+a.btn:is([href^="guide.html"],[href^="article.html"]) {--eml-button-icon:var(--eml-icon-guide)}
+:is(.floating,.btn[data-whatsapp],.videocta[data-whatsapp]) {--eml-button-icon:var(--eml-icon-chat)}
+:is(.textbutton,.footer-cookie-choice,.studio-cookie-settings)[data-cookie-settings] {--eml-button-icon:var(--eml-icon-tune)}
+a.btn[href^="generateur.html"],.btn-generate {--eml-button-icon:var(--eml-icon-document)}
+a.btn[href^="galerie.html"],button[data-zoom] {--eml-button-icon:var(--eml-icon-search)}
+#cookie-consent .cookie-accept {--eml-button-icon:var(--eml-icon-check)}
+#cookie-consent .cookie-decline {--eml-button-icon:var(--eml-icon-close)}
+@supports ((mask-image:url("")) or (-webkit-mask-image:url(""))) {
+ :is(a,button):is(.btn,.btn-generate,.floating,.videocta,button[data-video-play],button[data-zoom],[data-cookie-settings],.cookie-btn):not(:has(svg,i,img,[role="img"]))::before {
+  content:"";display:inline-block;width:1em;height:1em;flex:0 0 1em;
+  margin-inline-end:.42em;vertical-align:-.135em;background:currentColor;
+  -webkit-mask:var(--eml-button-icon,var(--eml-icon-tune)) center / contain no-repeat;
+  mask:var(--eml-button-icon,var(--eml-icon-tune)) center / contain no-repeat;
+ }
+}
+@media(max-width:480px) {
+ html body :is(.btn,.btn-generate) {white-space:normal;max-width:100%;min-height:44px}
+}
+@media(prefers-reduced-motion:reduce) {html body :is(.btn,.btn-generate,.floating){transition:none}}
