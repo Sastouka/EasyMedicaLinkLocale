@@ -1,0 +1,13 @@
+:root{--cab-dock-bottom:calc(10px + env(safe-area-inset-bottom,0px));--cab-dock-right:calc(12px + env(safe-area-inset-right,0px))}
+body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+.floating[data-whatsapp="flottant"],.wa-float,.mobile-download{display:none!important}
+.cab-dock{position:fixed;z-index:1000;right:var(--cab-dock-right);bottom:var(--cab-dock-bottom);max-width:calc(100% - 24px);display:flex;gap:7px;align-items:center;padding:5px;background:#f5fbfc;border:1px solid #cadde6;box-shadow:0 9px 30px #12294138;border-radius:13px}
+.cab-dock a{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:6px 12px;border-radius:8px;color:#fff;text-decoration:none;font:700 .91rem/1.2 system-ui,sans-serif;white-space:nowrap}
+.cab-dock .cab-dock-contact{background:#086b60;color:#fff}
+.cab-dock .cab-dock-install{background:#193c69;color:#fff}
+.cab-dock a:hover{filter:brightness(1.1);color:#fff}
+.cab-dock a:focus-visible{outline:2px solid #124a71;outline-offset:2px}
+.cab-dock svg{display:block;width:18px;height:18px;flex:0 0 18px}
+body.cookie-prompt-open .cab-dock,body:has(dialog[open]) .cab-dock{visibility:hidden;pointer-events:none}
+@media (max-width:520px){.cab-dock{right:50%;transform:translateX(50%)}.cab-dock a{padding-inline:10px;font-size:.86rem}}
+@media print{.cab-dock{display:none!important}body{padding-bottom:0}}
